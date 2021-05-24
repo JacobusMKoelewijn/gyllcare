@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { overflow-y: scroll }
+
+html,
+body {
+    color: #555555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+.container {
+    margin-top: 150px;
+}
+
+h1 {
+    font-size:100%;
+}
+
+h2 {
+    font-size: 70%;
+    color: #ffffff;
+}
+
+h3 {
+    font-size: 95%;
+    color: #00a8ff;
+}
+
+.login_panel {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.information_panel {
+    margin-bottom: 20px;
+}
+
+.control_panel {
+    color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #00a8ff;
+    border-radius: 20px;
+}
+
+.button_panel {
+    color: #00a8ff;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.schedule_panel {
+    color: #00a8ff;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.graph_panel {
+    color: #00a8ff;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.graph {
+    width: 100%;
+}
+
+.schedule_panel_output {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login_form {
+    border: 3px solid #ffffff;
+    background-color: #00a8ff;
+    color: #0d6efd;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+}
+
+.version {
+    position: absolute;
+    bottom: 0px;
+    right: 50px;
+}
+
+.grey {
+    color: #adb5bd;
+}

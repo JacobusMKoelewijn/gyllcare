@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">    
+    <div class="row">
+          <div class="col">
+              <div class="control_panel">
+                <h2 style="font-size: 140%; float: right; margin-right: 20px;">{{ temperature }} <sup>o</sup>C</h2>
+                <div class="information_panel">
+                    <h1>Aquapi</h1>
+                    <h2>App run time: {{ time_active }}</h2>
+                </div>
+                <div class="button_panel">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_14" name="CO2 unit">
+                        <label class="custom-control-label {% if gpio_14 == 'off' %} grey {% endif %}" for="gpio_pin_14">CO<sub>2</sub> unit is switched {{ gpio_14 }}</label>
+                    </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_15" name="O2 unit">
+                        <label class="custom-control-label {% if gpio_15 == 'off' %} grey {% endif %}" for="gpio_pin_15">O<sub>2</sub> unit is switched {{ gpio_15 }}</label>
+                    </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_18" name="Main light unit">
+                        <label class="custom-control-label {% if gpio_18 == 'off' %} grey {% endif %}" for="gpio_pin_18">Main light is switched {{ gpio_18 }}</label>
+                    </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_23" name="Temperature unit">
+                        <label class="custom-control-label {% if gpio_23 == 'off' %} grey {% endif %}" for="gpio_pin_23">Temperature control is switched {{ gpio_23 }}</label>
+                    </div>
+                </div>
+                <div class="schedule_panel">
+                    <form action="{{ url_for('aquapi') }}" method="POST" novalidate>
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label col-form-label-sm">CO<sub>2</sub> schedule</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_co2_on(class_="form-control form-control-sm", id="co2_start" ) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_co2_off(class_="form-control form-control-sm", id="co2_stop" ) }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label col-form-label-sm">O<sub>2</sub> schedule</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_o2_on(class_="form-control form-control-sm", id="o2_start" ) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_o2_off(class_="form-control form-control-sm", id="o2_stop" ) }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label col-form-label-sm">Main light schedule</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_light_on(class_="form-control form-control-sm", id="light_start" ) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_light_off(class_="form-control form-control-sm", id="light_stop" ) }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label col-form-label-sm">&#916;T schedule</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_temp_on(class_="form-control form-control-sm", id="temp_start" ) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_temp_off(class_="form-control form-control-sm", id="temp_stop" ) }}
+                            </div>
+                            <div style="margin: 0 auto; margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary btn-sm my-1">Submit schedule</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                    <div class="schedule_panel_output">
+                        <h3 style="color: #0d6efd;">{{ schedule_set }}</h3>
+                    </div>
+                </div>
+                <div class="graph_panel">
+                    <img class="graph" src="{{ url_for('static', filename='Resources/img/plot.svg') }}">
+                </div>
+                <button class="btn btn-primary btn-sm my-1 btn-block log_file">Email log files</button>
+                <a href="{{ url_for('logout') }}"><button class="btn btn-primary btn-sm my-1 btn-block">Logout</button></a>
+              </div>            
+          </div>
+    </div>
+</div>
+
+{% endblock %}
