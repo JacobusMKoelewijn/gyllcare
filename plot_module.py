@@ -18,5 +18,5 @@ def plot_graph():
     plt.ylim((24, 34))
     plt.plot(data, '#00a8ff', linewidth=3)
     # plt.savefig('static/Resources/img/plot.svg', format="svg", transparent=True)
-    plt.savefig('/var/www/html/aquapi/static/Resources/img/plot.svg', format="svg", transparent=True)
+    plt.savefig('/var/www/html/gyllcare/static/Resources/img/plot.svg', format="svg", transparent=True)
     # print("refreshed")
