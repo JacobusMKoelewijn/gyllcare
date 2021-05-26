@@ -10,7 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField
 from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off
-# from temp_module import read_temp, read_temp_raw
+from temp_module import read_temp, read_temp_raw
 from plot_module import plot_graph
 from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -141,7 +141,7 @@ def gyllcare():
     change_to_datetime = datetime.strptime(results.time, '%d-%m-%Y %H:%M') # The information is changed to a specific time format and stored locally.
     time_active = datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0) # The difference in the current time and the initiation time is calculated and stored locally.
     gpio_14, gpio_15, gpio_18, gpio_23 = return_status() # The return_status() function returns a list from gpio_module.py which contains the current status of every GPIO pin.
-    temperature = 5 #read_temp()
+    temperature = read_temp()
     schedule_set = ""
 
     if request.method == "POST":
@@ -236,7 +236,7 @@ def logout():
 
 def get_temperature():
     logfile = open("/home/pi/Desktop/logs/Temperature_log.txt", "a")
-    temperature = 5 # read_temp()
+    temperature = read_temp()
     logfile.write(str(temperature) + "\n")
     logfile.close()
     plot_graph()
