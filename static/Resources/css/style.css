@@ -1,3 +1,8 @@
+:root {
+    /* --color-primary: #00b894; */
+    --color-primary: #55efc4;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +14,7 @@ html { overflow-y: scroll }
 html,
 body {
     color: #555555;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -20,7 +25,7 @@ body {
 }
 
 h1 {
-    font-size:100%;
+    font-size:180%;
 }
 
 h2 {
@@ -38,24 +43,29 @@ h3 {
     margin: 0 auto;
 }
 
-.information_panel {
-    margin-bottom: 20px;
-}
 
-.control_panel {
+
+.total_panel {
     color: #ffffff;
+    border: 10px solid var(--color-primary);
     max-width: 600px;
     margin: 0 auto;
-    padding: 40px;
-    background-color: #00a8ff;
+    /* padding: 40px; */
+    /* background-color: var(--color-primary); */
     border-radius: 20px;
+}
+
+.menu_panel {
+    background: var(--color-primary);
+    padding: 15px;
+    /* margin-bottom: 20px; */
 }
 
 .button_panel {
-    color: #00a8ff;
+    color: var(--color-primary);
     margin-bottom: 30px;
     background-color: #ffffff;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     padding-left: 10px;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -65,7 +75,7 @@ h3 {
     color: #00a8ff;
     margin-bottom: 30px;
     background-color: #ffffff;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 30px;

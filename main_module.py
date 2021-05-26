@@ -1,5 +1,5 @@
 #####################################
-##########  Aquapi v 1.2   ##########
+##########  Gyllcare v 1.0 ##########
 ########## J. M. Koelewijn ##########
 #####################################
 
@@ -10,7 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField
 from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off
-from temp_module import read_temp, read_temp_raw
+# from temp_module import read_temp, read_temp_raw
 from plot_module import plot_graph
 from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -41,7 +41,7 @@ app.config["MAIL_USE_TLS"] = False
 app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_USERNAME"] = "info@viinum.com"
 app.config["MAIL_PASSWORD"] = "ymqGWc;Na6m$"
-app.config["MAIL_DEFAULT_SENDER"] = ("Aquapi", "info@viinum.com")
+app.config["MAIL_DEFAULT_SENDER"] = ("Gyllcare", "info@viinum.com")
 app.config["MAIL_ASCII_ATTACHMENTS"] = False
 # Standard configurations to connect to the mail server.
 
@@ -98,10 +98,10 @@ app_start.time = datetime.now().strftime("%d-%m-%Y %H:%M")
 db.session.commit()
 # Lines 94-96 store the date and time when the app is being initialised.
 
-logfile = open("/home/pi/Desktop/logs/Aquapi_log.txt", "a")
-logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ###### Aquapi has been initiated. \n")
+logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
+logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ###### Gyllcare has been initiated. \n")
 logfile.close()
-# Lines 99-101 log the date and time the app has been initialised in the Aquapi_log.txt file.
+# Lines 99-101 log the date and time the app has been initialised in the Gyllcare_log.txt file.
 
 unit_co2_time_on = Schedule.query.filter_by(id=1).first().time_on
 unit_co2_time_off = Schedule.query.filter_by(id=1).first().time_off
@@ -128,20 +128,20 @@ def index():
         if form.validate_on_submit():
             if User.query.first().username == form.name.data and User.query.first().password == form.password.data:
                 login_user(user)
-                return redirect(url_for("aquapi"))
+                return redirect(url_for("gyllcare"))
 
     return render_template("login.html", form=form, time=time)
 
-@app.route("/aquapi", methods=["GET", "POST"]) # The main route is initiated.
+@app.route("/gyllcare", methods=["GET", "POST"]) # The main route is initiated.
 @login_required
-def aquapi():
+def gyllcare():
 
     schedule_form = ScheduleForm() # An object is initiated with respect to the ScheduleForm class.
-    results = Events.query.filter_by(id=1).first() # The initiation time of the Aquapi app is fetched from the Viinum database and stored locally.
+    results = Events.query.filter_by(id=1).first() # The initiation time of the Gyllcare app is fetched from the Viinum database and stored locally.
     change_to_datetime = datetime.strptime(results.time, '%d-%m-%Y %H:%M') # The information is changed to a specific time format and stored locally.
     time_active = datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0) # The difference in the current time and the initiation time is calculated and stored locally.
     gpio_14, gpio_15, gpio_18, gpio_23 = return_status() # The return_status() function returns a list from gpio_module.py which contains the current status of every GPIO pin.
-    temperature = read_temp()
+    temperature = 5 #read_temp()
     schedule_set = ""
 
     if request.method == "POST":
@@ -181,7 +181,7 @@ def aquapi():
     
     schedule_form.process()
 
-    return render_template("aquapi.html", gpio_14=gpio_14,
+    return render_template("gyllcare.html", gpio_14=gpio_14,
                                           gpio_15=gpio_15,
                                           gpio_18=gpio_18,
                                           gpio_23=gpio_23,
@@ -216,11 +216,11 @@ def email():
             schedulefile.write(str(i) + "\n")
         schedulefile.close()
  
-        msg = Message("Aquapi has send you a message", recipients=["mklwn@hotmail.com"])
-        msg.body = "Attached you'll find the Aquapi log files"
+        msg = Message("Gyllcare has send you a message", recipients=["mklwn@hotmail.com"])
+        msg.body = "Attached you'll find the Gyllcare log files"
 
-        with app.open_resource("/home/pi/Desktop/logs/Aquapi_log.txt") as attach:
-            msg.attach("Aquapi_log.txt", "text/plain", attach.read())
+        with app.open_resource("/home/pi/Desktop/logs/Gyllcare_log.txt") as attach:
+            msg.attach("Gyllcare_log.txt", "text/plain", attach.read())
         with app.open_resource("/home/pi/Desktop/logs/Schedule_log.txt") as attach_2:
             msg.attach("Schedule_log.txt", "text/plain", attach_2.read())
         
@@ -236,7 +236,7 @@ def logout():
 
 def get_temperature():
     logfile = open("/home/pi/Desktop/logs/Temperature_log.txt", "a")
-    temperature = read_temp()
+    temperature = 5 # read_temp()
     logfile.write(str(temperature) + "\n")
     logfile.close()
     plot_graph()

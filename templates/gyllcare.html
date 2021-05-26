@@ -5,11 +5,11 @@
 <div class="container">    
     <div class="row">
           <div class="col">
-              <div class="control_panel">
-                <h2 style="font-size: 140%; float: right; margin-right: 20px;">{{ temperature }} <sup>o</sup>C</h2>
-                <div class="information_panel">
+              <div class="total_panel">
+                <!-- <h2 style="font-size: 140%; float: right; margin-right: 20px;">{{ temperature }} <sup>o</sup>C</h2> -->
+                <div class="menu_panel">
                     <h1>Gyllcare</h1>
-                    <h2>App run time: {{ time_active }}</h2>
+                    <!-- <h2>App run time: {{ time_active }}</h2> -->
                 </div>
                 <div class="button_panel">
                     <div class="custom-control custom-switch">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="schedule_panel">
-                    <form action="{{ url_for('aquapi') }}" method="POST" novalidate>
+                    <form action="{{ url_for('gyllcare') }}" method="POST" novalidate>
                         <div class="form-row">
                             <div class="col-sm-4">
                                 <label class="col-form-label col-form-label-sm">CO<sub>2</sub> schedule</label>
