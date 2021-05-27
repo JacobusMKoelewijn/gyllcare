@@ -1,6 +1,6 @@
 :root {
-    /* --color-primary: #00b894; */
     --color-primary: #55efc4;
+    --color-secondary: #00b894;
 }
 
 * {
@@ -83,13 +83,13 @@ h3 {
 }
 
 .graph_panel {
-    color: #00a8ff;
+    /* color: var(--color-primary); */
     margin-bottom: 30px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding-left: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    /* background-color: #ffffff; */
+    /* border-radius: 20px; */
+    /* padding-left: 10px; */
+    /* padding-top: 30px; */
+    /* padding-bottom: 30px; */
 }
 
 .graph {

@@ -25,7 +25,7 @@ def toggle(state, gpio, name):
         log(name, "off manually")
 
 def log(unit, state):
-    logfile = open("/home/pi/Desktop/logs/Aquapi_log.txt", "a")
+    logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
     logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### " + unit + " has been turned " + state + ". \n")
     logfile.close()
 

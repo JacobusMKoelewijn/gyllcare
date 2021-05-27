@@ -21,15 +21,7 @@ app.config["SECRET_KEY"] = "WWOeeyV?cAnh"
 # A conflict in session initiation was found when os.urandom(24) was used to generate a secret key. Problem disappears when a static secret key is used instead.
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://viinumco_JMKoelewijn:WWOeeyV?cAnh@viinum.com/viinumco_aquapi"
-# An additional driver 'pymysql' has to be installed for the database connection to work.
-
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-# Required to surpress a warning which is found in the apache error.log
-
-app.config["SESSION_COOKIE_SECURE"] = False
-app.config["SESSION_COOKIE_HTTPONLY"] = True
-app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
-# Additional configurations for cookies to create additional security. If not specified the browser might give a warning.
+# An additional driver 'pymysql' has to be installed for the database connection to work.gyllcarel security. If not specified the browser might give a warning.
 # No configuration for the CSRF token is being used. Not sure if this is necessary.
 
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -241,15 +233,15 @@ def get_temperature():
     logfile.close()
     plot_graph()
 
-schedule.add_job(toggle_CO2_on,'interval', days=1, start_date='2020-12-10 ' + unit_co2_time_on +':00', id="toggle_CO2_on")
-schedule.add_job(toggle_CO2_off,'interval', days=1, start_date='2020-12-10 ' + unit_co2_time_off +':00', id="toggle_CO2_off")
-schedule.add_job(toggle_O2_on,'interval', days=1, start_date='2020-12-10 ' + unit_o2_time_on +':00', id="toggle_O2_on")
-schedule.add_job(toggle_O2_off,'interval', days=1, start_date='2020-12-10 ' + unit_o2_time_off +':00', id="toggle_O2_off")
-schedule.add_job(toggle_light_on,'interval', days=1, start_date='2020-12-10 ' + unit_light_time_on +':00', id="toggle_light_on")
-schedule.add_job(toggle_light_off,'interval', days=1, start_date='2020-12-10 ' + unit_light_time_off +':00', id="toggle_light_off")
-schedule.add_job(toggle_temp_on,'interval', days=1, start_date='2020-12-10 ' + unit_temp_time_on +':00', id="toggle_temp_on")
-schedule.add_job(toggle_temp_off,'interval', days=1, start_date='2020-12-10 ' + unit_temp_time_off +':00', id="toggle_temp_off")
-schedule.add_job(get_temperature,'interval', minutes=15, start_date='2020-12-10 00:00:00', id="get_temperature")
+schedule.add_job(toggle_CO2_on,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_on +':00', id="toggle_CO2_on")
+schedule.add_job(toggle_CO2_off,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_off +':00', id="toggle_CO2_off")
+schedule.add_job(toggle_O2_on,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_on +':00', id="toggle_O2_on")
+schedule.add_job(toggle_O2_off,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_off +':00', id="toggle_O2_off")
+schedule.add_job(toggle_light_on,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_on +':00', id="toggle_light_on")
+schedule.add_job(toggle_light_off,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_off +':00', id="toggle_light_off")
+schedule.add_job(toggle_temp_on,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_on +':00', id="toggle_temp_on")
+schedule.add_job(toggle_temp_off,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_off +':00', id="toggle_temp_off")
+schedule.add_job(get_temperature,'interval', minutes=60, start_date='2021-05-01 00:00:00', id="get_temperature")
 
 schedule.start()
 
