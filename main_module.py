@@ -10,9 +10,17 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField
 from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off
-from temp_module import read_temp, read_temp_raw
-from plot_module import plot_graph
+from temp_module import read_temp
 from datetime import datetime, timedelta
+
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+matplotlib.use('Agg')
+
+# What does this do exactly? Needed after "RuntimeError: main thread is not in main loop. Related to Tkinter?"
+# Had to install sudo apt install libatlas-base-dev to surpress a warning
+
 from apscheduler.schedulers.background import BackgroundScheduler
 
 app = Flask(__name__)
@@ -226,13 +234,42 @@ def logout():
     logout_user()
     return redirect(url_for("index"))
 
-def get_temperature():
-    logfile = open("/home/pi/Desktop/logs/Temperature_log.txt", "a")
-    temperature = read_temp()
-    logfile.write(str(temperature) + "\n")
-    logfile.close()
-    plot_graph()
+temperature_data = []
 
+def read_temp_plot_data():
+    temperature_data.append(read_temp())
+  
+    if len(temperature_data) > 24:
+        plt.clf()
+        temperature_data.clear()
+        temperature_data.append(read_temp())
+
+    plt.tick_params(axis='both',
+                    left=False, 
+                    bottom=False, 
+                    labelleft=False,
+                    labelbottom=False)
+
+    plt.plot(temperature_data, 
+             marker='o', 
+             markersize=30,
+             markeredgewidth=0,
+             markerfacecolor='#55efc4', 
+             linestyle='--', 
+             color='#00b894', 
+             linewidth=1, 
+             markevery=5)
+    
+    plt.box(False)
+
+    i = 0
+    for y in temperature_data:
+        plt.annotate(str(y), (i, y), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000) if i % 5 == 0 else None
+        i += 1
+  
+    plt.savefig('/var/www/html/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
+    # plt.savefig('/home/pi/Viinum/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
+    
 schedule.add_job(toggle_CO2_on,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_on +':00', id="toggle_CO2_on")
 schedule.add_job(toggle_CO2_off,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_off +':00', id="toggle_CO2_off")
 schedule.add_job(toggle_O2_on,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_on +':00', id="toggle_O2_on")
@@ -241,7 +278,7 @@ schedule.add_job(toggle_light_on,'interval', days=1, start_date='2021-05-01 ' + 
 schedule.add_job(toggle_light_off,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_off +':00', id="toggle_light_off")
 schedule.add_job(toggle_temp_on,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_on +':00', id="toggle_temp_on")
 schedule.add_job(toggle_temp_off,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_off +':00', id="toggle_temp_off")
-schedule.add_job(get_temperature,'interval', minutes=60, start_date='2021-05-01 00:00:00', id="get_temperature")
+schedule.add_job(read_temp_plot_data,'interval', minutes=60, start_date='2021-05-01 00:00:00', id="read_temp_plot_data")
 
 schedule.start()
 
