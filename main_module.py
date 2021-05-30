@@ -18,6 +18,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 matplotlib.use('Agg')
 
+# from random import seed, random # For development
+# seed(1) # For development
+
 # What does this do exactly? Needed after "RuntimeError: main thread is not in main loop. Related to Tkinter?"
 # Had to install sudo apt install libatlas-base-dev to surpress a warning
 
@@ -236,6 +239,16 @@ def logout():
 
 temperature_data = []
 
+# def generate_list(): # For development
+#     for i in range(23):
+#         value = random()
+#         scaled_value = 25 + (value * (30 - 25))
+#         random_float = round(float(scaled_value), 1)
+#         temperature_data.append(random_float)
+#     return temperature_data
+
+# temperature_data = generate_list()
+
 def read_temp_plot_data():
     temperature_data.append(read_temp())
   
@@ -243,12 +256,19 @@ def read_temp_plot_data():
         plt.clf()
         temperature_data.clear()
         temperature_data.append(read_temp())
+    
+    max_temp = max(temperature_data)
+    min_temp = min(temperature_data)
+
+    # print(temperature_data)
 
     plt.tick_params(axis='both',
                     left=False, 
                     bottom=False, 
                     labelleft=False,
                     labelbottom=False)
+    
+    plt.ylim(min_temp - 2, max_temp + 2)
 
     plt.plot(temperature_data, 
              marker='o', 

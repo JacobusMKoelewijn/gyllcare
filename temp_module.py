@@ -15,7 +15,7 @@ def read_temp_raw():
     f.close()
     return lines
  
-def read_temp():
+def read_temp(): # For production
     lines = read_temp_raw()
     while lines[0].strip()[-3:] != 'YES':
         time.sleep(0.2)
@@ -24,4 +24,8 @@ def read_temp():
     if equals_pos != -1:
         temp_string = lines[1][equals_pos+2:]
         temp_c = float(temp_string) / 1000.0
-        return "{:.1f}".format(temp_c)
+        return round(temp_c, 1)
+
+# def read_temp():
+    # return 25.5
+    
