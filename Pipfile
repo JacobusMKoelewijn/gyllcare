@@ -13,6 +13,7 @@ matplotlib = "==3.3.3"
 pymysql = "==0.10.1"
 "rpi.gpio" = "==0.7.0"
 pillow = "==8.0.1"
+scipy = "==1.6.3"
 
 [dev-packages]
 

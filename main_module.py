@@ -13,13 +13,15 @@ from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, to
 from temp_module import read_temp
 from datetime import datetime, timedelta
 
+# Libraries required to plot the temperature graph.
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.interpolate import make_interp_spline
 matplotlib.use('Agg')
 
-# from random import seed, random # For development
-# seed(1) # For development
+from random import seed, random # For development
+seed(1) # For development
 
 # What does this do exactly? Needed after "RuntimeError: main thread is not in main loop. Related to Tkinter?"
 # Had to install sudo apt install libatlas-base-dev to surpress a warning
@@ -237,7 +239,9 @@ def logout():
     logout_user()
     return redirect(url_for("index"))
 
-temperature_data = []
+temperature_data = [read_temp()]
+x_data = [0]
+# read_temp_plot_data()
 
 # def generate_list(): # For development
 #     for i in range(23):
@@ -247,20 +251,43 @@ temperature_data = []
 #         temperature_data.append(random_float)
 #     return temperature_data
 
+# def generate_xvalue():
+#     for i in range(23):
+#         x_data.append(i)
+#     return x_data
+
 # temperature_data = generate_list()
+# x_data = generate_xvalue()
 
 def read_temp_plot_data():
-    temperature_data.append(read_temp())
+
+    x_data = x_data.append(x_data[-1] + 1)
+    temperature_data = temperature_data.append(read_temp())
   
-    if len(temperature_data) > 24:
-        plt.clf()
-        temperature_data.clear()
-        temperature_data.append(read_temp())
+    x = np.array(x_data)
+    y = np.array(temperature_data)
+
+    # print(x)
+    # print(y)
+
+    bspline = make_interp_spline(x, y)
+    
+    X_smooth = np.linspace(x.min(), x.max(), 500)
+    Y_smooth = bspline (X_smooth)
+
+    # print(X_smooth)
+    # print(Y_smooth)
+
+    # print(len(X_smooth))
+    # print(len(Y_smooth))
+  
+    # if len(temperature_data) > 24:
+    #     plt.clf()
+    #     temperature_data.clear()
+    #     temperature_data.append(read_temp())
     
     max_temp = max(temperature_data)
     min_temp = min(temperature_data)
-
-    # print(temperature_data)
 
     plt.tick_params(axis='both',
                     left=False, 
@@ -270,22 +297,28 @@ def read_temp_plot_data():
     
     plt.ylim(min_temp - 2, max_temp + 2)
 
-    plt.plot(temperature_data, 
+
+    plt.plot(X_smooth, Y_smooth, 
              marker='o', 
              markersize=30,
              markeredgewidth=0,
              markerfacecolor='#55efc4', 
-             linestyle='--', 
+             linestyle='--',
              color='#00b894', 
              linewidth=1, 
-             markevery=5)
+             markevery=[0, -1])
     
     plt.box(False)
 
-    i = 0
-    for y in temperature_data:
-        plt.annotate(str(y), (i, y), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000) if i % 5 == 0 else None
-        i += 1
+    # i = 0
+    # for el_y in Y_smooth:
+    #     plt.annotate(str(el_y), (X_smooth[i], el_y), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000) if i % 50 == 0 else None
+    #     i += 1
+
+    plt.annotate(str(Y_smooth[0]), (X_smooth[0], Y_smooth[0]), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000)
+    plt.annotate(str(Y_smooth[-1]), (X_smooth[-1], Y_smooth[-1]), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000)
+
+
   
     plt.savefig('/var/www/html/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
     # plt.savefig('/home/pi/Viinum/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
@@ -303,4 +336,4 @@ schedule.add_job(read_temp_plot_data,'interval', minutes=60, start_date='2021-05
 schedule.start()
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
