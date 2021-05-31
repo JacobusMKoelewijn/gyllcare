@@ -239,9 +239,8 @@ def logout():
     logout_user()
     return redirect(url_for("index"))
 
-temperature_data = [read_temp()]
-x_data = [0]
-# read_temp_plot_data()
+temperature_data = [25.0, 25.0, 25.0, 25.0, 25.0]
+x_data = [0, 1, 2, 3, 4]
 
 # def generate_list(): # For development
 #     for i in range(23):
@@ -261,8 +260,8 @@ x_data = [0]
 
 def read_temp_plot_data():
 
-    x_data = x_data.append(x_data[-1] + 1)
-    temperature_data = temperature_data.append(read_temp())
+    x_data.append(x_data[-1] + 1)
+    temperature_data.append(read_temp())
   
     x = np.array(x_data)
     y = np.array(temperature_data)
