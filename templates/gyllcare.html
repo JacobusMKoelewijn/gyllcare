@@ -85,10 +85,14 @@
                     </div>
                 </div>
                 <div class="graph_panel">
+                    <div class="graph_info">
+                        <h3>Current temperature: <span style="color: #ffffff">{{ temperature }}</span> &#8451;</h3>
+                        <!-- <h3>Change in temperature since <span style="color: #ffffff">{{ time_span + 1}}</span> hours:</h3> -->
+                    </div>
                     <img class="graph" src="{{ url_for('static', filename='Resources/img/plot.svg') }}">
                 </div>
-                <button class="btn btn-primary btn-sm my-1 btn-block log_file">Email log files</button>
-                <a href="{{ url_for('logout') }}"><button class="btn btn-primary btn-sm my-1 btn-block">Logout</button></a>
+                <!-- <button class="btn btn-primary btn-sm my-1 btn-block log_file">Email log files</button> -->
+                <!-- <a href="{{ url_for('logout') }}"><button class="btn btn-primary btn-sm my-1 btn-block">Logout</button></a> -->
               </div>            
           </div>
     </div>

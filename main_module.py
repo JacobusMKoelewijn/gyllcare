@@ -147,6 +147,7 @@ def gyllcare():
     time_active = datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0) # The difference in the current time and the initiation time is calculated and stored locally.
     gpio_14, gpio_15, gpio_18, gpio_23 = return_status() # The return_status() function returns a list from gpio_module.py which contains the current status of every GPIO pin.
     temperature = read_temp()
+    time_span = x_data[-1]
     schedule_set = ""
 
     if request.method == "POST":
@@ -193,7 +194,8 @@ def gyllcare():
                                           time_active=time_active,
                                           schedule_form=schedule_form,
                                           schedule_set=schedule_set,
-                                          temperature=temperature
+                                          temperature=temperature,
+                                          time_span=time_span
                                           )
     
 @app.route("/status", methods=["GET", "POST"])
@@ -239,8 +241,11 @@ def logout():
     logout_user()
     return redirect(url_for("index"))
 
-temperature_data = [25.0, 25.0, 25.0, 25.0, 25.0]
-x_data = [0, 1, 2, 3, 4]
+temperature_data = [25.0, 25.0, 25.0, 25.0]
+x_data = [1, 2, 3, 4]
+
+# temperature_data = []
+# x_data = []
 
 # def generate_list(): # For development
 #     for i in range(23):
@@ -260,34 +265,34 @@ x_data = [0, 1, 2, 3, 4]
 
 def read_temp_plot_data():
 
+    plt.clf()
+
     x_data.append(x_data[-1] + 1)
     temperature_data.append(read_temp())
-  
+
+    if len(temperature_data) > 25:
+        del temperature_data[0:-4]
+        x_data.clear()
+        x_data.extend([1, 2, 3, 4])
+
+    max_temp = max(temperature_data)
+    min_temp = min(temperature_data)
+
     x = np.array(x_data)
     y = np.array(temperature_data)
 
     # print(x)
     # print(y)
 
-    bspline = make_interp_spline(x, y)
-    
+    bspline = make_interp_spline(x, y) 
     X_smooth = np.linspace(x.min(), x.max(), 500)
     Y_smooth = bspline (X_smooth)
 
     # print(X_smooth)
     # print(Y_smooth)
-
     # print(len(X_smooth))
     # print(len(Y_smooth))
   
-    # if len(temperature_data) > 24:
-    #     plt.clf()
-    #     temperature_data.clear()
-    #     temperature_data.append(read_temp())
-    
-    max_temp = max(temperature_data)
-    min_temp = min(temperature_data)
-
     plt.tick_params(axis='both',
                     left=False, 
                     bottom=False, 
@@ -296,7 +301,6 @@ def read_temp_plot_data():
     
     plt.ylim(min_temp - 2, max_temp + 2)
 
-
     plt.plot(X_smooth, Y_smooth, 
              marker='o', 
              markersize=30,
@@ -304,7 +308,7 @@ def read_temp_plot_data():
              markerfacecolor='#55efc4', 
              linestyle='--',
              color='#00b894', 
-             linewidth=1, 
+             linewidth=2, 
              markevery=[0, -1])
     
     plt.box(False)
@@ -316,9 +320,8 @@ def read_temp_plot_data():
 
     plt.annotate(str(Y_smooth[0]), (X_smooth[0], Y_smooth[0]), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000)
     plt.annotate(str(Y_smooth[-1]), (X_smooth[-1], Y_smooth[-1]), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000)
+    plt.text(1, min_temp - 2, f"Change in temperature since last {x_data[-1]} hours", color="#55efc4", fontsize="x-large")
 
-
-  
     plt.savefig('/var/www/html/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
     # plt.savefig('/home/pi/Viinum/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
     

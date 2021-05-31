@@ -1,6 +1,8 @@
 :root {
+    --color-background: #2d3436;
     --color-primary: #55efc4;
     --color-secondary: #00b894;
+    --gradient-primary: linear-gradient(to top, #2d3436, #55efc4);
 }
 
 * {
@@ -13,7 +15,7 @@ html { overflow-y: scroll }
 
 html,
 body {
-    color: #555555;
+    color: var(--color-primary);
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     text-rendering: optimizeLegibility;
@@ -26,6 +28,7 @@ body {
 
 h1 {
     font-size:180%;
+    color: #ffffff;
 }
 
 h2 {
@@ -34,8 +37,8 @@ h2 {
 }
 
 h3 {
-    font-size: 95%;
-    color: #00a8ff;
+    font-size: 125%;
+    /* color: #00a8ff; */
 }
 
 .login_panel {
@@ -46,8 +49,9 @@ h3 {
 
 
 .total_panel {
-    color: #ffffff;
-    border: 10px solid var(--color-primary);
+    background-image: var(--gradient-primary);
+    /* color: var(--color-background); */
+    /* border: 10px solid var(--color-primary); */
     max-width: 600px;
     margin: 0 auto;
     /* padding: 40px; */
@@ -72,7 +76,7 @@ h3 {
 }
 
 .schedule_panel {
-    color: #00a8ff;
+    /* color: #00a8ff; */
     margin-bottom: 30px;
     background-color: #ffffff;
     /* border-radius: 20px; */
@@ -83,13 +87,20 @@ h3 {
 }
 
 .graph_panel {
-    /* color: var(--color-primary); */
+    color: var(--color-primary);
     margin-bottom: 30px;
+    padding: 10px;
+    padding-bottom: 50px;
     /* background-color: #ffffff; */
     /* border-radius: 20px; */
     /* padding-left: 10px; */
     /* padding-top: 30px; */
     /* padding-bottom: 30px; */
+}
+
+.graph_info {
+    padding: 10px;
+    padding-left: 20px;
 }
 
 .graph {
