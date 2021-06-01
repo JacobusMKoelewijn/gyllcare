@@ -12,6 +12,9 @@ from wtforms import StringField, SelectField
 from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off
 from temp_module import read_temp
 from datetime import datetime, timedelta
+import subprocess
+
+# Idea! create shutdown button that gives unix commands!!
 
 # Libraries required to plot the temperature graph.
 import matplotlib
@@ -234,6 +237,18 @@ def email():
         mail.send(msg)
         
         return "200 OK"
+
+@app.route("/shutdown", methods=["POST"])
+@login_required
+def shutdown():
+    if request.method == "POST":
+        command_1 = "sudo service apache2 stop"
+        command_2 = "sudo shutdown -h now"
+        subprocess.call(command_1.split())
+        subprocess.call(command_2.split())
+        # print("shutting down")
+        return "200 OK"
+
 
 @app.route("/logout")
 @login_required

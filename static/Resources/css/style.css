@@ -27,8 +27,10 @@ body {
 }
 
 h1 {
+    font-family: 'Pacifico', cursive;
     font-size:180%;
     color: #ffffff;
+
 }
 
 h2 {
@@ -60,7 +62,9 @@ h3 {
 }
 
 .menu_panel {
-    background: var(--color-primary);
+    width: 100%;
+    height: 80px;
+    /* background: var(--color-primary); */
     padding: 15px;
     /* margin-bottom: 20px; */
 }
@@ -129,4 +133,15 @@ h3 {
 
 .grey {
     color: #adb5bd;
+}
+
+
+#menu_bar {
+    background-color: var(--color-background);
+    transition: height .25s ease;
+    overflow: hidden;
+}
+
+#menu_bar:not(.active) {
+    display: none;
 }
