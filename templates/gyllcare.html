@@ -4,34 +4,37 @@
 
 <div class="container">    
     <div class="row">
-          <div class="col">
-              <div class="total_panel">
-                <!-- <h2 style="font-size: 140%; float: right; margin-right: 20px;">{{ temperature }} <sup>o</sup>C</h2> -->
-                <div class="menu_panel">
-                    <h1 style="float:left">Gyllcare</h1>
-                    <ion-icon id="toggle" style="color:#ffffff; font-size:270%; float:right;", name="menu-outline"></ion-icon>
-                    <!-- <h2 id="toggle">testbutton</h2> -->
+        <div class="col">
+            <div class="app_body">
+                <div class="menu">
+                    <h1 style="float: left">Gyllcare</h1>
+                    <ion-icon id="toggle" style="color:#ffffff; font-size: 270%; float: right;", name="menu-outline"></ion-icon>
+                </div>
+                <div id="menu_hidden">
+                    <div class='button'><h2>Clean aquarium</h2></div>
+                    <div class='button'><h2>Log out</h2></div>
+
+                    <!-- <h2 id="shut_down">Shutdown test button</h2> -->
+                </div>
+                <div class="main_switch_panel">
+                    <div class="main_switch_panel_screen">
                     <!-- <h2>App run time: {{ time_active }}</h2> -->
-                </div>
-                <div id="menu_bar">
-                    <h2 id="shut_down">Shutdown test button</h2>
-                </div>
-                <div class="button_panel">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_14" name="CO2 unit">
-                        <label class="custom-control-label {% if gpio_14 == 'off' %} grey {% endif %}" for="gpio_pin_14">CO<sub>2</sub> unit is switched {{ gpio_14 }}</label>
-                    </div>
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_15" name="O2 unit">
-                        <label class="custom-control-label {% if gpio_15 == 'off' %} grey {% endif %}" for="gpio_pin_15">O<sub>2</sub> unit is switched {{ gpio_15 }}</label>
-                    </div>
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_18" name="Main light unit">
-                        <label class="custom-control-label {% if gpio_18 == 'off' %} grey {% endif %}" for="gpio_pin_18">Main light is switched {{ gpio_18 }}</label>
-                    </div>
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_23" name="Temperature unit">
-                        <label class="custom-control-label {% if gpio_23 == 'off' %} grey {% endif %}" for="gpio_pin_23">Temperature control is switched {{ gpio_23 }}</label>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_14" name="CO2 unit">
+                            <label class="custom-control-label {% if gpio_14 == 'off' %} grey {% endif %}" for="gpio_pin_14">CO<sub>2</sub> unit is switched {{ gpio_14 }}</label>
+                        </div>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_15" name="O2 unit">
+                            <label class="custom-control-label {% if gpio_15 == 'off' %} grey {% endif %}" for="gpio_pin_15">O<sub>2</sub> unit is switched {{ gpio_15 }}</label>
+                        </div>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_18" name="Main light unit">
+                            <label class="custom-control-label {% if gpio_18 == 'off' %} grey {% endif %}" for="gpio_pin_18">Main light is switched {{ gpio_18 }}</label>
+                        </div>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_23" name="Temperature unit">
+                            <label class="custom-control-label {% if gpio_23 == 'off' %} grey {% endif %}" for="gpio_pin_23">Temperature control is switched {{ gpio_23 }}</label>
+                        </div>
                     </div>
                 </div>
                 <div class="schedule_panel">

@@ -37,7 +37,7 @@ app.config["SECRET_KEY"] = "WWOeeyV?cAnh"
 # A conflict in session initiation was found when os.urandom(24) was used to generate a secret key. Problem disappears when a static secret key is used instead.
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://viinumco_JMKoelewijn:WWOeeyV?cAnh@viinum.com/viinumco_aquapi"
-# An additional driver 'pymysql' has to be installed for the database connection to work.gyllcarel security. If not specified the browser might give a warning.
+# An additional driver 'pymysql' has to be installed for the database connection to work. If not specified the browser might give a warning.
 # No configuration for the CSRF token is being used. Not sure if this is necessary.
 
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -244,9 +244,11 @@ def shutdown():
     if request.method == "POST":
         command_1 = "sudo service apache2 stop"
         command_2 = "sudo shutdown -h now"
-        subprocess.call(command_1.split())
-        subprocess.call(command_2.split())
-        # print("shutting down")
+        command_dev = "echo works"
+        # subprocess.call(command_1.split())
+        # subprocess.call(command_2.split())
+        subprocess.call(command_dev.split())
+        print("shutting down")
         return "200 OK"
 
 

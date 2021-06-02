@@ -1,31 +1,26 @@
 'use strict';
 
-const menuBar = document.getElementById('menu_bar');
+const menuHidden = document.getElementById('menu_hidden');
 
 document.getElementById('toggle').addEventListener('click', function (e) {
     e.preventDefault();
 
-    if (!menuBar.classList.contains('active')) {
-        menuBar.classList.add('active');
-        menuBar.style.height = 'auto';
+    if (!menuHidden.classList.contains('active')) {
+        menuHidden.classList.add('active');
+        menuHidden.style.height = 'auto';
+        const height = menuHidden.clientHeight + 'px';
+        menuHidden.style.height = '0px';
 
-        const height = menuBar.clientHeight + 'px';
-
-        menuBar.style.height = '0px';
         setTimeout(function () {
-            menuBar.style.height = height;
-        }, 0);
+            menuHidden.style.height = height;
+        }, 0); // A blank setTimeout moves the code within to the end of the pipeline after rendering.
     } else {
-        menuBar.style.height = '0px';
+        menuHidden.style.height = '0px';
 
-        menuBar.addEventListener(
+        menuHidden.addEventListener(
             'transitionend',
-            function () {
-                menuBar.classList.remove('active');
-            },
-            {
-                once: true,
-            }
+            () => menuHidden.classList.remove('active'),
+            { once: true }
         );
     }
 });

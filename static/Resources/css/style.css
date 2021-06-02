@@ -1,8 +1,10 @@
 :root {
     --color-background: #2d3436;
     --color-primary: #55efc4;
-    --color-secondary: #00b894;
-    --gradient-primary: linear-gradient(to top, #2d3436, #55efc4);
+    --color-secondary: #00b893;
+    --gradient-primsec: linear-gradient(to left, var(--color-primary), var(--color-secondary));
+    --gradient-primary: linear-gradient(to top, var(--color-background), var(--color-primary));
+    --gradient-secondary: linear-gradient(to bottom, var(--color-background), #5e5e5e);
 }
 
 * {
@@ -22,26 +24,95 @@ body {
     overflow-x: hidden;
 }
 
-.container {
-    margin-top: 150px;
-}
 
 h1 {
     font-family: 'Pacifico', cursive;
     font-size:180%;
     color: #ffffff;
-
+    
 }
 
 h2 {
-    font-size: 70%;
+    font-size: 110%;
     color: #ffffff;
+    margin: 0px; /* temporary bootstrap override
 }
 
 h3 {
     font-size: 125%;
     /* color: #00a8ff; */
 }
+
+.container {
+    margin-top: 150px;
+}
+
+.app_body {
+    background-image: var(--gradient-primary);
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.menu {
+    background-image: var(--gradient-primsec);
+    border-bottom: 3px solid var(--color-secondary);
+    /* width: 100%; */
+    height: 80px;
+    padding: 15px;
+}
+
+#menu_hidden {
+    background-image: var(--gradient-secondary);
+    display: flex;
+    justify-content: center;
+    transition: height 0.25s ease;
+    overflow: hidden;
+}
+
+#menu_hidden:not(.active) {
+    display: none;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 250px;
+    height: 45px;
+    /* line-height: 50px; */
+    background-color: var(--color-secondary);
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: var(--color-primary);
+    transition: background-color 0.25s ease;
+}
+
+.main_switch_panel {
+    background-image: var(--gradient-primsec);
+    color: var(--color-primary);
+    margin-bottom: 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.main_switch_panel_screen {
+    background-color: var(--color-background);
+    border-radius: 20px;
+    padding: 10px;
+}
+
 
 .login_panel {
     max-width: 600px;
@@ -50,34 +121,8 @@ h3 {
 
 
 
-.total_panel {
-    background-image: var(--gradient-primary);
-    /* color: var(--color-background); */
-    /* border: 10px solid var(--color-primary); */
-    max-width: 600px;
-    margin: 0 auto;
-    /* padding: 40px; */
-    /* background-color: var(--color-primary); */
-    border-radius: 20px;
-}
 
-.menu_panel {
-    width: 100%;
-    height: 80px;
-    /* background: var(--color-primary); */
-    padding: 15px;
-    /* margin-bottom: 20px; */
-}
 
-.button_panel {
-    color: var(--color-primary);
-    margin-bottom: 30px;
-    background-color: #ffffff;
-    /* border-radius: 20px; */
-    padding-left: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
 
 .schedule_panel {
     /* color: #00a8ff; */
@@ -136,12 +181,3 @@ h3 {
 }
 
 
-#menu_bar {
-    background-color: var(--color-background);
-    transition: height .25s ease;
-    overflow: hidden;
-}
-
-#menu_bar:not(.active) {
-    display: none;
-}
