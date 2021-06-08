@@ -13,6 +13,7 @@ from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, to
 from temp_module import read_temp
 from datetime import datetime, timedelta
 import subprocess
+# import json
 
 # Idea! create shutdown button that gives unix commands!!
 
@@ -204,14 +205,23 @@ def gyllcare():
 @app.route("/status", methods=["GET", "POST"])
 @login_required
 def status():
+
     gpio_14, gpio_15, gpio_18, gpio_23 = return_status()
-    message = {'gpio_14_status':gpio_14,'gpio_15_status':gpio_15,'gpio_18_status':gpio_18,'gpio_23_status':gpio_23}
+    message = {'gpio_pin_14':gpio_14,'gpio_pin_15':gpio_15,'gpio_pin_18':gpio_18,'gpio_pin_23':gpio_23}
     
     if request.method == "POST":
-        state = request.form['state']
-        gpio = request.form['gpio']
-        name = request.form['name']
-        toggle(state, gpio, name)
+        # print("Message received")
+        status_info = request.get_json()
+        # print(status_info)
+        # print(status_info["state"])
+        # print(type(test))
+        # test2 = json.loads(test)
+        # print(test2)
+        # state = request.form['state']
+        # gpio = request.form['gpio']
+        # name = request.form['name']
+        toggle(status_info["state"], status_info["gpio"], status_info["name"])
+        return 'OK', 200
     
     return jsonify(message)
 
@@ -258,8 +268,8 @@ def logout():
     logout_user()
     return redirect(url_for("index"))
 
-temperature_data = [25.0, 25.0, 25.0, 25.0]
-x_data = [1, 2, 3, 4]
+temperature_data = [25.0, 25.0, 25.0, 25.0] # dummy data
+x_data = [1, 2, 3, 4] # dummy data
 
 # temperature_data = []
 # x_data = []
@@ -287,7 +297,7 @@ def read_temp_plot_data():
     x_data.append(x_data[-1] + 1)
     temperature_data.append(read_temp())
 
-    if len(temperature_data) > 25:
+    if len(temperature_data) > 72:
         del temperature_data[0:-4]
         x_data.clear()
         x_data.extend([1, 2, 3, 4])

@@ -23,16 +23,16 @@ $(document).ready(function () {
         setTimeout(Reload, 3000);
     });
 
-    $('.log_file').click(function () {
-        $.post('/email', { key: 'confirmed' });
-    });
+    // $('.log_file').click(function () {
+    //     $.post('/email', { key: 'confirmed' });
+    // });
 
-    $('#shut_down').click(function () {
-        // console.log("clicked");
-        $.post('/shutdown', { key: 'confirmed' });
-    });
+    // $('#shut_down').click(function () {
+    //     // console.log("clicked");
+    //     $.post('/shutdown', { key: 'confirmed' });
+    // });
 
-    function Reload() {
-        location.reload();
-    }
+    // function Reload() {
+    //     location.reload();
+    // }
 });

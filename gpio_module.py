@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import time
+# import time
 from datetime import datetime
 
 GPIO.setmode(GPIO.BCM)
@@ -11,18 +11,22 @@ GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(23, GPIO.OUT, initial=GPIO.LOW)
 
 def return_status():
-    gpio_status = ["on" if item == 1 else "off" for item in [GPIO.input(14), GPIO.input(15), GPIO.input(18), GPIO.input(23)]]
+    gpio_status = [True if item == 1 else False for item in [GPIO.input(14), GPIO.input(15), GPIO.input(18), GPIO.input(23)]]
+    # print(gpio_status)
     return gpio_status
     # The current status of every GPIO pin is requested and returned.
     # Using a list comprehension every value of 1 is changed to "on" and 0 is changed to "off".
 
 def toggle(state, gpio, name):
-    if state == "true":
-        GPIO.output(int(gpio[-2:]), GPIO.HIGH) 
-        log(name, "on manually")
-    elif state == "false":
+    if state == True:
+        GPIO.output(int(gpio[-2:]), GPIO.HIGH)
+        print("turned on", gpio)
+        # log(name, "on manually")
+    elif state == False:
         GPIO.output(int(gpio[-2:]), GPIO.LOW)
-        log(name, "off manually")
+        print("turned off", gpio)
+
+        # log(name, "off manually")
 
 def log(unit, state):
     logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
