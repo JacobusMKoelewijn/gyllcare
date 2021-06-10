@@ -1,0 +1,5 @@
+@media only screen and (max-width: 400) {
+    .h2 {
+        font-size: 50%;
+    }
+}

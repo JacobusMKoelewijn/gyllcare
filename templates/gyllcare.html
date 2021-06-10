@@ -21,44 +21,50 @@
                     <!-- <h2 id="shut_down">Shutdown test button</h2> -->
                 </div>
 
-                <div class="row">
+                <!-- <div class="row"> -->
+                <div class="main_switch_panel_buttons">
+
                     
-                    <div class="col-2" style="padding-right: 0;">
+                    <!-- <div class="col-6" style="padding-right: 0;"> -->
                         
-                        <div class="main_switch_panel_buttons">
+                        <!-- <div class="main_switch_panel_buttons"> -->
                             <!-- Input and label associated via nesting -->
                             
                             <label class='switch_layout'> 
-                                <input class='relay_switch' id="gpio_pin_14" name='CO2 unit' type='checkbox'>
+                                <h2 id="CO2_unit" class='label_layout'>CO<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;on</h2>
+                                <input class='relay_switch' id="gpio_pin_14" name='CO2' type='checkbox'>
                                 <span class ='slider'></span>
                             </label>
 
                             <label class='switch_layout'>
-                                <input class='relay_switch' id="gpio_pin_15" name='O2 unit' type='checkbox'>
-                                <span class ='slider'></span>
-                            </label>
-
-                            <label class='switch_layout'> 
-                                <input class='relay_switch' id="gpio_pin_18" name='Main light unit' type='checkbox'>
+                                <h2 id="O2_unit" class='label_layout'>O<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
+                                <input class='relay_switch' id="gpio_pin_15" name='O2' type='checkbox'>
                                 <span class ='slider'></span>
                             </label>
 
                             <label class='switch_layout'>
-                                <input class='relay_switch' id="gpio_pin_23" name='Thermostate unit' type='checkbox'>
+                                <h2 id="main_light_unit" class='label_layout'>Light&nbsp;is&nbsp;switched&nbsp;off</h2>
+                                <input class='relay_switch' id="gpio_pin_18" name='Light' type='checkbox'>
+                                <span class ='slider'></span>
+                            </label>
+
+                            <label class='switch_layout'>
+                                <h2 id="thermostate_unit" class='label_layout'>Thermostate&nbsp;is&nbsp;switched&nbsp;off</h2>
+                                <input class='relay_switch' id="gpio_pin_23" name='Thermostate' type='checkbox'>
                                 <span class ='slider'></span>
                             </label>
 
                         </div>
-                    </div>
-                    <div class="col-10" style="padding-left: 0;">
-                        <!-- <h2>test</h2> -->
+                    <!-- </div> -->
+                    <!-- <div class="col-6" style="padding-left: 0;">
+                      
                         <div class="main_switch_panel_screen">
                             <h2>line1</h2>
                             <h2>line2</h2>
                             <h2>line3</h2>
                             <h2>line4</h2>
 
-                        </div>
+                        </div> -->
 
                         <!-- <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input relay_switch" id="gpio_pin_14" name="CO2 unit">
@@ -77,8 +83,8 @@
                             <label class="custom-control-label {% if gpio_23 == 'off' %} grey {% endif %}" for="gpio_pin_23">Temperature control is switched {{ gpio_23 }}</label>
                         </div> -->
                     
-                    </div>
-                </div>
+                    <!-- </div> -->
+                <!-- </div> -->
 
 
 

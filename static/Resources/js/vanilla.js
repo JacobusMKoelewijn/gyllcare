@@ -4,7 +4,34 @@ const menuHidden = document.querySelector('#menu_hidden');
 const menuButton = document.querySelector('.toggle');
 const switchButtons = document.querySelectorAll('.relay_switch');
 
-console.log(switchButtons);
+const changeLabel = function (currentSwitch) {
+    if (currentSwitch.checked) {
+        currentSwitch.previousElementSibling.innerHTML = '';
+        currentSwitch.previousElementSibling.insertAdjacentHTML(
+            'afterbegin',
+            `${currentSwitch.getAttribute('name').replace(
+                /(\d+)/g, // What does this do?
+                '<sub>$1</sub>'
+            )}&nbsp;is&nbsp;switched&nbsp;on`
+        );
+
+        currentSwitch.previousElementSibling.style.color =
+            'var(--color-primary)';
+    } else {
+        currentSwitch.previousElementSibling.innerHTML = '';
+        currentSwitch.previousElementSibling.insertAdjacentHTML(
+            'afterbegin',
+            `${currentSwitch
+                .getAttribute('name')
+                .replace(
+                    /(\d+)/g,
+                    '<sub>$1</sub>'
+                )}&nbsp;is&nbsp;switched&nbsp;off`
+        );
+
+        currentSwitch.previousElementSibling.style.color = '#ffffff';
+    }
+};
 
 menuButton.addEventListener('click', function (e) {
     e.preventDefault();
@@ -47,8 +74,7 @@ fetch('/status')
 
 switchButtons.forEach(function (button) {
     button.addEventListener('click', function (e) {
-        // e.preventDefault();
-
+        changeLabel(this);
         fetch('/status', {
             headers: {
                 'content-type': 'application/json',

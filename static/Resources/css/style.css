@@ -130,23 +130,12 @@ h3 {
 }
 
 .main_switch_panel_buttons {
-    padding: 10px;
     background-color: var(--color-background);
+    padding: 10px;
     width: 100%;
-}
-
-
-.main_switch_panel_screen {
-    
-    background-color: var(--color-background);
-    /* max-width: 80%; */
-    /* border-bottom-left-radius: 20px; */
     border-bottom-right-radius: 20px;
-    height: 100%;
-    padding: 10px;
-    /* padding: 30px; */
-    /* margin: 0; */
 }
+
 
 /* ###################### */
 /* CSS for slider buttons */
@@ -154,11 +143,16 @@ h3 {
 
 .switch_layout {
     position: relative;
-    display: inline-block;
+    display: block;
     width: 60px;
     height: 25px;
     margin: 0;
+    margin-top: 4px;
     /* padding: 0; */
+}
+
+.label_layout {
+    margin-left: 75px;
 }
 
 .switch_layout input {
