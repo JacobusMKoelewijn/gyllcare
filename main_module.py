@@ -148,7 +148,7 @@ def gyllcare():
     schedule_form = ScheduleForm() # An object is initiated with respect to the ScheduleForm class.
     results = Events.query.filter_by(id=1).first() # The initiation time of the Gyllcare app is fetched from the Viinum database and stored locally.
     change_to_datetime = datetime.strptime(results.time, '%d-%m-%Y %H:%M') # The information is changed to a specific time format and stored locally.
-    time_active = datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0) # The difference in the current time and the initiation time is calculated and stored locally.
+    time_active = str(datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0))[:-3] # The difference in the current time and the initiation time is calculated and stored locally.
     gpio_14, gpio_15, gpio_18, gpio_23 = return_status() # The return_status() function returns a list from gpio_module.py which contains the current status of every GPIO pin.
     temperature = read_temp()
     time_span = x_data[-1]
@@ -208,7 +208,10 @@ def status():
 
     gpio_14, gpio_15, gpio_18, gpio_23 = return_status()
     message = {'gpio_pin_14':gpio_14,'gpio_pin_15':gpio_15,'gpio_pin_18':gpio_18,'gpio_pin_23':gpio_23}
-    
+    # print(message, type(message))
+    # message2 = jsonify(message)
+    # print(message2, type(message2))
+
     if request.method == "POST":
         # print("Message received")
         status_info = request.get_json()
@@ -334,7 +337,8 @@ def read_temp_plot_data():
              markeredgewidth=0,
              markerfacecolor='#55efc4', 
              linestyle='--',
-             color='#00b894', 
+            #  color='#00b894',
+             color='#ffffff',
              linewidth=2, 
              markevery=[0, -1])
     
@@ -347,7 +351,7 @@ def read_temp_plot_data():
 
     plt.annotate(str(Y_smooth[0]), (X_smooth[0], Y_smooth[0]), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000)
     plt.annotate(str(Y_smooth[-1]), (X_smooth[-1], Y_smooth[-1]), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000)
-    plt.text(1, min_temp - 2, f"Change in temperature since last {x_data[-1]} hours", color="#55efc4", fontsize="x-large")
+    plt.text(1, min_temp - 2, f"Change in temperature since last {x_data[-1]} hours", color="#ffffff", fontsize="x-large")
 
     plt.savefig('/var/www/html/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
     # plt.savefig('/home/pi/Viinum/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)

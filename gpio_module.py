@@ -20,11 +20,11 @@ def return_status():
 def toggle(state, gpio, name):
     if state == True:
         GPIO.output(int(gpio[-2:]), GPIO.HIGH)
-        print("turned on", gpio)
+        # print("turned on", gpio)
         # log(name, "on manually")
     elif state == False:
         GPIO.output(int(gpio[-2:]), GPIO.LOW)
-        print("turned off", gpio)
+        # print("turned off", gpio)
 
         # log(name, "off manually")
 

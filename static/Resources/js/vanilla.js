@@ -5,32 +5,18 @@ const menuButton = document.querySelector('.toggle');
 const switchButtons = document.querySelectorAll('.relay_switch');
 
 const changeLabel = function (currentSwitch) {
-    if (currentSwitch.checked) {
-        currentSwitch.previousElementSibling.innerHTML = '';
-        currentSwitch.previousElementSibling.insertAdjacentHTML(
-            'afterbegin',
-            `${currentSwitch.getAttribute('name').replace(
-                /(\d+)/g, // What does this do?
-                '<sub>$1</sub>'
-            )}&nbsp;is&nbsp;switched&nbsp;on`
-        );
-
-        currentSwitch.previousElementSibling.style.color =
-            'var(--color-primary)';
-    } else {
-        currentSwitch.previousElementSibling.innerHTML = '';
-        currentSwitch.previousElementSibling.insertAdjacentHTML(
-            'afterbegin',
-            `${currentSwitch
-                .getAttribute('name')
-                .replace(
-                    /(\d+)/g,
-                    '<sub>$1</sub>'
-                )}&nbsp;is&nbsp;switched&nbsp;off`
-        );
-
-        currentSwitch.previousElementSibling.style.color = '#ffffff';
-    }
+    currentSwitch.previousElementSibling.innerHTML = '';
+    currentSwitch.checked
+        ? currentSwitch.previousElementSibling.classList.add('neon')
+        : currentSwitch.previousElementSibling.classList.remove('neon');
+    currentSwitch.previousElementSibling.insertAdjacentHTML(
+        'afterbegin',
+        `${currentSwitch
+            .getAttribute('name')
+            .replace(/(\d+)/g, '<sub>$1</sub>')}&nbsp;is&nbsp;switched&nbsp;${
+            currentSwitch.checked ? 'on' : 'off'
+        }`
+    );
 };
 
 menuButton.addEventListener('click', function (e) {
@@ -63,13 +49,15 @@ fetch('/status')
         return response.json(); // Goes to Python probably
     })
     .then(function (text) {
-        console.log('GET response text:');
-        console.log(text);
-        // console.log(text.gpio_pin_14);
-        document.getElementById('gpio_pin_14').checked = text.gpio_pin_14;
-        document.getElementById('gpio_pin_15').checked = text.gpio_pin_15;
-        document.getElementById('gpio_pin_18').checked = text.gpio_pin_18;
-        document.getElementById('gpio_pin_23').checked = text.gpio_pin_23;
+        // console.log('GET response text:');
+        // console.log(text);
+        for (const [gpio, status] of Object.entries(text)) {
+            if (status) {
+                const element = document.getElementById(`${gpio}`);
+                element.checked = status;
+                changeLabel(element);
+            }
+        }
     });
 
 switchButtons.forEach(function (button) {
