@@ -22,13 +22,13 @@
                 </div>
 
                 <div class="main_switch_panel_buttons">
-                    <h2 style="float: right; font-size: 90%">App run time</h2>
+                    <h2 style="float: right; font-size: 80%">App run time</h2>
                     <label class='switch_layout'> 
                         <h2 id="CO2_unit" class='label_layout'>CO<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_14" name='CO2' type='checkbox'>
                         <span class ='slider'></span>
                     </label>
-                    <h2 style="float: right; font-size: 90%">{{ time_active }}</h2>
+                    <h2 style="float: right; font-size: 80%">{{ time_active }}</h2>
                     <label class='switch_layout'>
                         <h2 id="O2_unit" class='label_layout'>O<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_15" name='O2' type='checkbox'>
@@ -102,6 +102,9 @@
                     <div class="schedule_panel_output">
                         <h3 style="color: #0d6efd;">{{ schedule_set }}</h3>
                     </div>
+                </div>
+                <div class="photo_panel">
+                    <img class="fishlens" src="{{ url_for('static', filename='Resources/img/fishlens.jpg') }}">
                 </div>
                 <div class="graph_panel">
                     <div class="graph_info">

@@ -11,8 +11,10 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField
 from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off
 from temp_module import read_temp
+from camera_module import get_picture
 from datetime import datetime, timedelta
 import subprocess
+
 # import json
 
 # Idea! create shutdown button that gives unix commands!!
@@ -106,6 +108,8 @@ app_start = Events.query.filter_by(id=1).first()
 app_start.time = datetime.now().strftime("%d-%m-%Y %H:%M")
 db.session.commit()
 # Lines 94-96 store the date and time when the app is being initialised.
+
+get_picture()
 
 logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
 logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ###### Gyllcare has been initiated. \n")

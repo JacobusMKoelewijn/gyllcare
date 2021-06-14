@@ -39,7 +39,7 @@ h1 {
 }
 
 h2 {
-    font-size: 110%;
+    font-size: 90%;
     color: #ffffff;
     margin: 0px; /* temporary bootstrap override */
     text-align: center;
@@ -214,6 +214,14 @@ input:checked + .slider:before {
       /* 0 0 100px #0ff, */
       /* 0 0 150px #0ff; */
   }
+
+.photo_panel {
+
+}
+
+.fishlens {
+    width: 100%;
+}
   
 
 
