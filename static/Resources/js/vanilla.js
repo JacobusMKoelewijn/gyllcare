@@ -3,7 +3,11 @@
 const menuHidden = document.querySelector('#menu_hidden');
 const menuButton = document.querySelector('.toggle');
 const switchButtons = document.querySelectorAll('.relay_switch');
+const sendLog = document.querySelector('#send_log');
 const fishLens = document.querySelector('#fishlens');
+const overlay = document.querySelector('.overlay');
+const mainModal = document.querySelector('.main_modal');
+const mainModalClose = document.querySelector('.main_modal_close');
 
 const changeLabel = function (currentSwitch) {
     currentSwitch.previousElementSibling.innerHTML = '';
@@ -19,6 +23,35 @@ const changeLabel = function (currentSwitch) {
         }`
     );
 };
+
+const openSendLogModal = function () {
+    mainModal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
+
+const closeSendLogModal = function () {
+    mainModal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+
+mainModalClose.addEventListener('click', closeSendLogModal);
+overlay.addEventListener('click', closeSendLogModal);
+
+sendLog.addEventListener('click', function (e) {
+    fetch('/email', {
+        headers: {
+            'content-type': 'application/json',
+        },
+        method: 'POST',
+        body: 'lorem ipsum',
+    }).then(function (response) {
+        if (response.status == 200) {
+            openSendLogModal();
+        } else {
+            alert('Something went wrong, please try again later.');
+        }
+    });
+});
 
 menuButton.addEventListener('click', function (e) {
     e.preventDefault();
@@ -91,7 +124,7 @@ fishLens.addEventListener('click', function (e) {
             'content-type': 'application/json',
         },
         method: 'POST',
-        body: 'test',
+        body: 'lorem ipsum',
     })
         .then(function (response) {
             return response.text();

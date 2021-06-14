@@ -240,6 +240,8 @@ def status():
 def email():
     if request.method == "POST":
 
+        # print("succes")
+
         schedulefile = open("/home/pi/Desktop/logs/Schedule_log.txt", "w")
 
         for i in schedule.get_jobs():
@@ -256,7 +258,7 @@ def email():
         
         mail.send(msg)
         
-        return "200 OK"
+        return "Log sent succesfully"
 
 @app.route("/shutdown", methods=["POST"])
 @login_required
@@ -376,4 +378,4 @@ schedule.add_job(read_temp_plot_data,'interval', minutes=60, start_date='2021-05
 schedule.start()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)

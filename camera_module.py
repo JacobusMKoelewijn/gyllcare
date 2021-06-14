@@ -10,4 +10,5 @@ def get_picture():
     camera.capture('/var/www/html/gyllcare/static/Resources/img/fishlens.jpg')
     # camera.capture('/home/pi/Viinum/gyllcare/static/Resources/img/fishlens.jpg')
     camera.stop_preview()
+    camera.close()
     # print("picture taken")

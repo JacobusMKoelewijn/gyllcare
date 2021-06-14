@@ -14,7 +14,11 @@
 
                 <div id="menu_hidden">
                     <div class='button'><h2>Clean aquarium</h2></div>
-                    <div class='button'><h2>Send log</h2></div>
+                    <div class='button' id="send_log"><h2>Send log</h2></div>
+                    <div class='main_modal hidden'>
+                        <h2 class='main_modal_text'>The log file has been send.</h2>
+                        <ion-icon class="main_modal_close", name="close-outline"></ion-icon>
+                    </div>
                     <div class='button'><h2>Log out</h2></div>
                     <!-- <h2>App run time: {{ time_active }}</h2> -->
 
@@ -114,6 +118,14 @@
                         <!-- <h3>Change in temperature since <span style="color: #ffffff">{{ time_span + 1}}</span> hours:</h3> -->
                     </div>
                     <img class="graph" src="{{ url_for('static', filename='Resources/img/plot.svg') }}">
+                </div>
+
+                <!-- <div class="main_modal hidden">
+                    <h2 style="color: black;">test</h2>
+                </div> -->
+
+                <div class="overlay hidden">
+
                 </div>
                 <!-- <button class="btn btn-primary btn-sm my-1 btn-block log_file">Email log files</button> -->
                 <!-- <a href="{{ url_for('logout') }}"><button class="btn btn-primary btn-sm my-1 btn-block">Logout</button></a> -->
