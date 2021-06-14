@@ -19,6 +19,7 @@
                         <h2 class='main_modal_text'>The log file has been send.</h2>
                         <ion-icon class="main_modal_close", name="close-outline"></ion-icon>
                     </div>
+                    <div class='button' id="alarm_mode"><h2>Toggle alarm mode</h2></div>
                     <div class='button'><h2>Log out</h2></div>
                     <!-- <h2>App run time: {{ time_active }}</h2> -->
 
@@ -43,6 +44,7 @@
                         <input class='relay_switch' id="gpio_pin_18" name='Light' type='checkbox'>
                         <span class ='slider'></span>
                     </label>
+                    <h2 class="alarm hidden" style="float: right; font-size: 80%">Alarm activated</h2>
                     <label class='switch_layout'>
                         <h2 id="thermostate_unit" class='label_layout'>Thermostate&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_23" name='Thermostate' type='checkbox'>

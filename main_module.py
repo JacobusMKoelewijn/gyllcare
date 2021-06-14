@@ -9,13 +9,13 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField
-from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off, alarm_on
+from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off, alarm_on, alarm_off
 from temp_module import read_temp
 from camera_module import get_picture
 from datetime import datetime, timedelta
 import subprocess
 import threading
-
+# import time
 # import json
 
 # Idea! create shutdown button that gives unix commands!!
@@ -114,7 +114,6 @@ logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
 logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ###### Gyllcare has been initiated. \n")
 logfile.close()
 get_picture()
-threading.Thread(target=alarm_on).start()
 unit_co2_time_on = Schedule.query.filter_by(id=1).first().time_on
 unit_co2_time_off = Schedule.query.filter_by(id=1).first().time_off
 unit_o2_time_on = Schedule.query.filter_by(id=2).first().time_on
@@ -273,8 +272,22 @@ def shutdown():
         # subprocess.call(command_2.split())
         subprocess.call(command_dev.split())
         print("shutting down")
-        return "200 OK"
+        return "OK"
 
+@app.route("/alarm_mode", methods=["POST"])
+@login_required
+def alarm_mode():
+    if request.method == "POST":
+        alarm_status = request.get_json()
+        if(alarm_status["alarm_status"]):
+            threading.Thread(target=alarm_on).start()
+            # time.sleep(3)
+            return jsonify(alarm_status)
+        else:
+            # threading.Thread(target=alarm_on).stop()
+            # Find a way how to kill a python thread in this section
+            alarm_off()
+            return jsonify(alarm_status)
 
 @app.route("/logout")
 @login_required

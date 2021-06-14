@@ -5,10 +5,17 @@ from datetime import datetime
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
+# Relay switchs
 GPIO.setup(14, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(15, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(23, GPIO.OUT, initial=GPIO.LOW)
+
+# LEDs
+GPIO.setup(20, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(16, GPIO.OUT, initial=GPIO.LOW)
+
+# PIR Sensor
 GPIO.setup(21, GPIO.IN)
 
 def return_status():
@@ -67,11 +74,21 @@ def toggle_temp_off():
     log("Temperature unit", "off as scheduled")
 
 def alarm_on():
+    # print('alarm on')
+    # pass
+    GPIO.output(16, GPIO.HIGH)
     while True:
         if GPIO.input(21):
+            GPIO.output(20, GPIO.HIGH)
             logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
             logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected!. \n")
             logfile.close()
             time.sleep(60)
+            GPIO.output(20, GPIO.LOW)
         time.sleep(1)
-    
+
+def alarm_off():
+    # print('alarm off')
+    # pass
+    GPIO.output(16, GPIO.LOW)
+    # does not kill thread.

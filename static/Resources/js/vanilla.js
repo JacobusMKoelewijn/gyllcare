@@ -8,6 +8,8 @@ const fishLens = document.querySelector('#fishlens');
 const overlay = document.querySelector('.overlay');
 const mainModal = document.querySelector('.main_modal');
 const mainModalClose = document.querySelector('.main_modal_close');
+const alarmMode = document.querySelector('#alarm_mode');
+const alarm = document.querySelector('.alarm');
 
 const changeLabel = function (currentSwitch) {
     currentSwitch.previousElementSibling.innerHTML = '';
@@ -51,6 +53,36 @@ sendLog.addEventListener('click', function (e) {
             alert('Something went wrong, please try again later.');
         }
     });
+});
+
+alarmMode.addEventListener('click', function (e) {
+    const alarmStatus = alarm.classList.contains('hidden') ? true : false;
+    console.log(alarmStatus);
+
+    fetch('/alarm_mode', {
+        headers: {
+            'content-type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            alarm_status: alarmStatus,
+        }),
+    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (text) {
+            if (text["alarm_status"]) {
+                alarm.classList.remove('hidden');
+            } else {
+                alarm.classList.add('hidden');
+            }
+        });
+    // if (response.status == 200) {
+    //     openSendLogModal();
+    // } else {
+    //     alert('Something went wrong, please try again later.');
+    // }
 });
 
 menuButton.addEventListener('click', function (e) {
