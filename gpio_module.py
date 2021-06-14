@@ -66,17 +66,12 @@ def toggle_temp_off():
     GPIO.output(23, GPIO.LOW)
     log("Temperature unit", "off as scheduled")
 
-# def alarm_on():
-while True:
-    if GPIO.input(21):
-        # print("Movement detected")
-        logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-        logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected!. \n")
-        logfile.close()
-        time.sleep(60)
-        # break
-    # else: print("Everything clear")
-    time.sleep(1)
-
-# def log(unit, state):
+def alarm_on():
+    while True:
+        if GPIO.input(21):
+            logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
+            logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected!. \n")
+            logfile.close()
+            time.sleep(60)
+        time.sleep(1)
     

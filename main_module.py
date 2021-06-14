@@ -9,11 +9,12 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField
-from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off
+from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off, alarm_on
 from temp_module import read_temp
 from camera_module import get_picture
 from datetime import datetime, timedelta
 import subprocess
+import threading
 
 # import json
 
@@ -113,6 +114,7 @@ logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
 logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ###### Gyllcare has been initiated. \n")
 logfile.close()
 get_picture()
+threading.Thread(target=alarm_on).start()
 unit_co2_time_on = Schedule.query.filter_by(id=1).first().time_on
 unit_co2_time_off = Schedule.query.filter_by(id=1).first().time_off
 unit_o2_time_on = Schedule.query.filter_by(id=2).first().time_on
