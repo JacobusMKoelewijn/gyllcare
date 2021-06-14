@@ -94,7 +94,8 @@
                                 {{ schedule_form.unit_temp_off(class_="form-control form-control-sm", id="temp_stop" ) }}
                             </div>
                             <div style="margin: 0 auto; margin-top: 20px;">
-                                <button type="submit" class="btn btn-primary btn-sm my-1">Submit schedule</button>
+                                <div class='button'><h2>Submit schedule</h2></div>
+                                <!-- <button type="submit" class="btn btn-primary btn-sm my-1">Submit schedule</button> -->
                             </div>
                         </div>
                         
@@ -104,7 +105,8 @@
                     </div>
                 </div>
                 <div class="photo_panel">
-                    <img class="fishlens" src="{{ url_for('static', filename='Resources/img/fishlens.jpg') }}">
+                    <img class="fishlens_layout" src="{{ url_for('static', filename='Resources/img/fishlens.jpg') }}">
+                    <div class='button' id="fishlens"><h2>Take photo</h2></div>
                 </div>
                 <div class="graph_panel">
                     <div class="graph_info">

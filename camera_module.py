@@ -3,6 +3,7 @@ from time import sleep
 
 def get_picture():
     camera = PiCamera()
+    camera.rotation = 180
     camera.resolution = (2592, 1944)
     camera.start_preview()
     sleep(5)

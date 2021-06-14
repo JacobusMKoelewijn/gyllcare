@@ -3,6 +3,7 @@
 const menuHidden = document.querySelector('#menu_hidden');
 const menuButton = document.querySelector('.toggle');
 const switchButtons = document.querySelectorAll('.relay_switch');
+const fishLens = document.querySelector('#fishlens');
 
 const changeLabel = function (currentSwitch) {
     currentSwitch.previousElementSibling.innerHTML = '';
@@ -82,4 +83,23 @@ switchButtons.forEach(function (button) {
                 console.log(text);
             });
     });
+});
+
+fishLens.addEventListener('click', function (e) {
+    fetch('/fishlens', {
+        headers: {
+            'content-type': 'application/json',
+        },
+        method: 'POST',
+        body: 'test',
+    })
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (text) {
+            console.log('POST response');
+            console.log(text);
+        });
+    // location.reload();
+    // Make dynamic using AJAX in later stage
 });

@@ -104,18 +104,15 @@ class ScheduleForm(FlaskForm):
     unit_temp_on = SelectField("Temp schedule on", choices=list_of_choices)
     unit_temp_off = SelectField("Temp schedule off", choices=list_of_choices)
 
+
+# Start up
 app_start = Events.query.filter_by(id=1).first()
 app_start.time = datetime.now().strftime("%d-%m-%Y %H:%M")
 db.session.commit()
-# Lines 94-96 store the date and time when the app is being initialised.
-
-get_picture()
-
 logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
 logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ###### Gyllcare has been initiated. \n")
 logfile.close()
-# Lines 99-101 log the date and time the app has been initialised in the Gyllcare_log.txt file.
-
+get_picture()
 unit_co2_time_on = Schedule.query.filter_by(id=1).first().time_on
 unit_co2_time_off = Schedule.query.filter_by(id=1).first().time_off
 unit_o2_time_on = Schedule.query.filter_by(id=2).first().time_on
@@ -205,7 +202,13 @@ def gyllcare():
                                           temperature=temperature,
                                           time_span=time_span
                                           )
-    
+
+@app.route("/fishlens", methods=["GET", "POST"])
+@login_required
+def fishlens():
+    get_picture()
+    return 'OK', 200
+
 @app.route("/status", methods=["GET", "POST"])
 @login_required
 def status():
