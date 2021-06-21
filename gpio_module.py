@@ -76,6 +76,9 @@ def toggle_temp_off():
 # Temporary solution to kill thread using global variable.
 
 def alarm_on():
+    logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
+    logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Motion detector has been switched on. \n")
+    logfile.close()
     global stop_threads
     stop_threads = False
     GPIO.output(16, GPIO.HIGH)
@@ -84,16 +87,19 @@ def alarm_on():
         if GPIO.input(21):
             GPIO.output(20, GPIO.HIGH)
             logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-            logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected!. \n")
+            logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected! \n")
             logfile.close()
-            time.sleep(1)
+            time.sleep(5)
             GPIO.output(20, GPIO.LOW)
         time.sleep(1)
         if(stop_threads):
             break
 
 def alarm_off():
-    print('alarm off')
+    # print('alarm off')
     global stop_threads
     stop_threads = True
     GPIO.output(16, GPIO.LOW)
+    logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
+    logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Motion detector has been switched off. \n")
+    logfile.close()
