@@ -12,6 +12,7 @@ const alarmMode = document.querySelector('#alarm_mode');
 const alarm = document.querySelector('.alarm');
 
 const changeLabel = function (currentSwitch) {
+    // console.log(currentSwitch);
     currentSwitch.previousElementSibling.innerHTML = '';
     currentSwitch.checked
         ? currentSwitch.previousElementSibling.classList.add('neon')
@@ -56,33 +57,23 @@ sendLog.addEventListener('click', function (e) {
 });
 
 alarmMode.addEventListener('click', function (e) {
-    const alarmStatus = alarm.classList.contains('hidden') ? true : false;
-    console.log(alarmStatus);
-
     fetch('/alarm_mode', {
         headers: {
             'content-type': 'application/json',
         },
         method: 'POST',
-        body: JSON.stringify({
-            alarm_status: alarmStatus,
-        }),
     })
         .then(function (response) {
             return response.json();
         })
         .then(function (text) {
-            if (text["alarm_status"]) {
+            // console.log(text);
+            if (text) {
                 alarm.classList.remove('hidden');
             } else {
                 alarm.classList.add('hidden');
             }
         });
-    // if (response.status == 200) {
-    //     openSendLogModal();
-    // } else {
-    //     alert('Something went wrong, please try again later.');
-    // }
 });
 
 menuButton.addEventListener('click', function (e) {
@@ -117,8 +108,9 @@ fetch('/status')
     .then(function (text) {
         // console.log('GET response text:');
         // console.log(text);
+        if (text.gpio_pin_16) alarm.classList.remove('hidden');
         for (const [gpio, status] of Object.entries(text)) {
-            if (status) {
+            if (gpio != 'gpio_pin_16' && status) {
                 const element = document.getElementById(`${gpio}`);
                 element.checked = status;
                 changeLabel(element);

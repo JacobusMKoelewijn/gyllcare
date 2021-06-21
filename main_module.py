@@ -14,8 +14,11 @@ from temp_module import read_temp
 from camera_module import get_picture
 from datetime import datetime, timedelta
 import subprocess
+
 import threading
-# import time
+# from multiprocessing import Process
+
+import time
 # import json
 
 # Idea! create shutdown button that gives unix commands!!
@@ -151,7 +154,7 @@ def gyllcare():
     results = Events.query.filter_by(id=1).first() # The initiation time of the Gyllcare app is fetched from the Viinum database and stored locally.
     change_to_datetime = datetime.strptime(results.time, '%d-%m-%Y %H:%M') # The information is changed to a specific time format and stored locally.
     time_active = str(datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0))[:-3] # The difference in the current time and the initiation time is calculated and stored locally.
-    gpio_14, gpio_15, gpio_18, gpio_23 = return_status() # The return_status() function returns a list from gpio_module.py which contains the current status of every GPIO pin.
+    # gpio_14, gpio_15, gpio_18, gpio_23, gpio_16 = return_status() # The return_status() function returns a list from gpio_module.py which contains the current status of every GPIO pin.
     temperature = read_temp()
     time_span = x_data[-1]
     schedule_set = ""
@@ -193,10 +196,7 @@ def gyllcare():
     
     schedule_form.process()
 
-    return render_template("gyllcare.html", gpio_14=gpio_14,
-                                          gpio_15=gpio_15,
-                                          gpio_18=gpio_18,
-                                          gpio_23=gpio_23,
+    return render_template("gyllcare.html", #Is this still required after vanilla js update?
                                           time_active=time_active,
                                           schedule_form=schedule_form,
                                           schedule_set=schedule_set,
@@ -214,8 +214,8 @@ def fishlens():
 @login_required
 def status():
 
-    gpio_14, gpio_15, gpio_18, gpio_23 = return_status()
-    message = {'gpio_pin_14':gpio_14,'gpio_pin_15':gpio_15,'gpio_pin_18':gpio_18,'gpio_pin_23':gpio_23}
+    gpio_14, gpio_15, gpio_18, gpio_23, gpio_16 = return_status()
+    message = {'gpio_pin_14':gpio_14,'gpio_pin_15':gpio_15,'gpio_pin_18':gpio_18,'gpio_pin_23':gpio_23, 'gpio_pin_16':gpio_16}
     # print(message, type(message))
     # message2 = jsonify(message)
     # print(message2, type(message2))
@@ -274,20 +274,20 @@ def shutdown():
         print("shutting down")
         return "OK"
 
+
 @app.route("/alarm_mode", methods=["POST"])
 @login_required
 def alarm_mode():
     if request.method == "POST":
-        alarm_status = request.get_json()
-        if(alarm_status["alarm_status"]):
+        
+        gpio_14, gpio_15, gpio_18, gpio_23, gpio_16 = return_status()
+
+        if not gpio_16:
             threading.Thread(target=alarm_on).start()
-            # time.sleep(3)
-            return jsonify(alarm_status)
+            return jsonify(not gpio_16)
         else:
-            # threading.Thread(target=alarm_on).stop()
-            # Find a way how to kill a python thread in this section
             alarm_off()
-            return jsonify(alarm_status)
+            return jsonify(not gpio_16)
 
 @app.route("/logout")
 @login_required

@@ -19,7 +19,7 @@ GPIO.setup(16, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(21, GPIO.IN)
 
 def return_status():
-    gpio_status = [True if item == 1 else False for item in [GPIO.input(14), GPIO.input(15), GPIO.input(18), GPIO.input(23)]]
+    gpio_status = [True if item == 1 else False for item in [GPIO.input(14), GPIO.input(15), GPIO.input(18), GPIO.input(23), GPIO.input(16)]]
     # print(gpio_status)
     return gpio_status
     # The current status of every GPIO pin is requested and returned.
@@ -73,22 +73,27 @@ def toggle_temp_off():
     GPIO.output(23, GPIO.LOW)
     log("Temperature unit", "off as scheduled")
 
+# Temporary solution to kill thread using global variable.
+
 def alarm_on():
-    # print('alarm on')
-    # pass
+    global stop_threads
+    stop_threads = False
     GPIO.output(16, GPIO.HIGH)
     while True:
+        # print("test")
         if GPIO.input(21):
             GPIO.output(20, GPIO.HIGH)
             logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
             logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected!. \n")
             logfile.close()
-            time.sleep(60)
+            time.sleep(1)
             GPIO.output(20, GPIO.LOW)
         time.sleep(1)
+        if(stop_threads):
+            break
 
 def alarm_off():
-    # print('alarm off')
-    # pass
+    print('alarm off')
+    global stop_threads
+    stop_threads = True
     GPIO.output(16, GPIO.LOW)
-    # does not kill thread.
