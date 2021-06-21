@@ -13,27 +13,26 @@
                 </div>
 
                 <div id="menu_hidden">
-                    <div class='button'><h2>Clean aquarium</h2></div>
-                    <div class='button' id="send_log"><h2>Send log</h2></div>
+                    <div class='button'><h2 style="font-size: 80%">Clean aquarium</h2></div>
+                    <div class='button' id="send_log"><h2 style="font-size: 80%">Send log</h2></div>
                     <div class='main_modal hidden'>
                         <h2 class='main_modal_text'>The log file has been send.</h2>
                         <ion-icon class="main_modal_close", name="close-outline"></ion-icon>
                     </div>
-                    <div class='button' id="alarm_mode"><h2>Toggle alarm mode</h2></div>
-                    <div class='button'><h2>Log out</h2></div>
+                    <div class='button' id="alarm_mode"><h2 style="font-size: 80%">Toggle alarm</h2></div>
+                    <div class='button'><h2 style="font-size: 80%">Log out</h2></div>
                     <!-- <h2>App run time: {{ time_active }}</h2> -->
 
                     <!-- <h2 id="shut_down">Shutdown test button</h2> -->
                 </div>
 
                 <div class="main_switch_panel_buttons">
-                    <h2 style="float: right; font-size: 80%">App run time</h2>
                     <label class='switch_layout'> 
                         <h2 id="CO2_unit" class='label_layout'>CO<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_14" name='CO2' type='checkbox'>
                         <span class ='slider'></span>
                     </label>
-                    <h2 style="float: right; font-size: 80%">{{ time_active }}</h2>
+                    <!-- <h2 style="float: right; font-size: 80%">{{ time_active }}</h2> -->
                     <label class='switch_layout'>
                         <h2 id="O2_unit" class='label_layout'>O<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_15" name='O2' type='checkbox'>
@@ -44,12 +43,15 @@
                         <input class='relay_switch' id="gpio_pin_18" name='Light' type='checkbox'>
                         <span class ='slider'></span>
                     </label>
-                    <h2 class="alarm hidden" style="float: right; font-size: 80%">Alarm activated</h2>
                     <label class='switch_layout'>
                         <h2 id="thermostate_unit" class='label_layout'>Thermostate&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_23" name='Thermostate' type='checkbox'>
                         <span class ='slider'></span>
                     </label>
+                    <div style="display: flex; justify-content: space-between; padding-top: 10px">
+                        <h2 style="font-size: 80%">App run time {{ time_active }}</h2>
+                        <h2 class="alarm hidden" style="font-size: 100%; color:red">&#9673;</h2>
+                    </div>
                 </div>
             
 

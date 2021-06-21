@@ -154,6 +154,7 @@ def gyllcare():
     results = Events.query.filter_by(id=1).first() # The initiation time of the Gyllcare app is fetched from the Viinum database and stored locally.
     change_to_datetime = datetime.strptime(results.time, '%d-%m-%Y %H:%M') # The information is changed to a specific time format and stored locally.
     time_active = str(datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0))[:-3] # The difference in the current time and the initiation time is calculated and stored locally.
+    # print(time_active)
     # gpio_14, gpio_15, gpio_18, gpio_23, gpio_16 = return_status() # The return_status() function returns a list from gpio_module.py which contains the current status of every GPIO pin.
     temperature = read_temp()
     time_span = x_data[-1]
@@ -324,7 +325,7 @@ def read_temp_plot_data():
     x_data.append(x_data[-1] + 1)
     temperature_data.append(read_temp())
 
-    if len(temperature_data) > 72:
+    if len(temperature_data) > 48:
         del temperature_data[0:-4]
         x_data.clear()
         x_data.extend([1, 2, 3, 4])
