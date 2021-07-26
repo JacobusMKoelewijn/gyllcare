@@ -74,6 +74,7 @@ def toggle_temp_off():
     log("Temperature unit", "off as scheduled")
 
 # Temporary solution to kill thread using global variable.
+# Can this be improved using self? to access variables in a different name space / block?
 
 def alarm_on():
     logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
@@ -84,6 +85,7 @@ def alarm_on():
     GPIO.output(16, GPIO.HIGH)
     while True:
         # print("test")
+        # if True:
         if GPIO.input(21):
             GPIO.output(20, GPIO.HIGH)
             logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
@@ -91,6 +93,7 @@ def alarm_on():
             logfile.close()
             time.sleep(5)
             GPIO.output(20, GPIO.LOW)
+            # alarm_triggered()
         time.sleep(1)
         if(stop_threads):
             break
@@ -103,3 +106,7 @@ def alarm_off():
     logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
     logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Motion detector has been switched off. \n")
     logfile.close()
+
+# def alarm_triggered():
+    # print("alarm has been triggered")
+    # Save this for when AJAX requests have been studied.

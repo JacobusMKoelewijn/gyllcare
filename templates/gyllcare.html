@@ -9,44 +9,43 @@
 
                 <div class="menu">
                     <h1 style="float: left">Gyllcare</h1>
-                    <ion-icon class="toggle", style="color:#ffffff; font-size: 270%; float: right; cursor: pointer;", name="menu-outline"></ion-icon>
+                    <ion-icon class="toggle mouse_pointer", style="color:#ffffff; font-size: 270%; float: right; cursor: pointer;", name="menu-outline"></ion-icon>
                 </div>
 
                 <div id="menu_hidden">
-                    <div class='button'><h2 style="font-size: 80%">Clean aquarium</h2></div>
-                    <div class='button' id="send_log"><h2 style="font-size: 80%">Send log</h2></div>
+                    <div class='button mouse_pointer'><h2 style="font-size: 80%">Clean aquarium</h2></div>
+
+                    <div class='button mouse_pointer' id="send_log"><h2 style="font-size: 80%">Send log</h2></div>
                     <div class='main_modal hidden'>
                         <h2 class='main_modal_text'>The log file has been send.</h2>
                         <ion-icon class="main_modal_close", name="close-outline"></ion-icon>
                     </div>
-                    <div class='button' id="alarm_mode"><h2 style="font-size: 80%">Toggle alarm</h2></div>
-                    <div class='button'><h2 style="font-size: 80%">Log out</h2></div>
-                    <!-- <h2>App run time: {{ time_active }}</h2> -->
 
-                    <!-- <h2 id="shut_down">Shutdown test button</h2> -->
+                    <div class='button mouse_pointer' id="alarm_mode"><h2 style="font-size: 80%">Toggle alarm</h2></div>
+                    <div class='button mouse_pointer'><h2 style="font-size: 80%">Log out</h2></div>
                 </div>
 
                 <div class="main_switch_panel_buttons">
                     <label class='switch_layout'> 
                         <h2 id="CO2_unit" class='label_layout'>CO<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_14" name='CO2' type='checkbox'>
-                        <span class ='slider'></span>
+                        <span class ='slider mouse_pointer'></span>
                     </label>
                     <!-- <h2 style="float: right; font-size: 80%">{{ time_active }}</h2> -->
                     <label class='switch_layout'>
                         <h2 id="O2_unit" class='label_layout'>O<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_15" name='O2' type='checkbox'>
-                        <span class ='slider'></span>
+                        <span class ='slider mouse_pointer'></span>
                     </label>
                     <label class='switch_layout'>
                         <h2 id="main_light_unit" class='label_layout'>Light&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_18" name='Light' type='checkbox'>
-                        <span class ='slider'></span>
+                        <span class ='slider mouse_pointer'></span>
                     </label>
                     <label class='switch_layout'>
                         <h2 id="thermostate_unit" class='label_layout'>Thermostate&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_23" name='Thermostate' type='checkbox'>
-                        <span class ='slider'></span>
+                        <span class ='slider mouse_pointer'></span>
                     </label>
                     <div style="display: flex; justify-content: space-between; padding-top: 10px">
                         <h2 style="font-size: 80%">App run time {{ time_active }}</h2>
@@ -102,7 +101,7 @@
                                 {{ schedule_form.unit_temp_off(class_="form-control form-control-sm", id="temp_stop" ) }}
                             </div>
                             <div style="margin: 0 auto; margin-top: 20px;">
-                                <div class='button'><h2>Submit schedule</h2></div>
+                                <div class='button mouse_pointer'><h2>Submit schedule</h2></div>
                                 <!-- <button type="submit" class="btn btn-primary btn-sm my-1">Submit schedule</button> -->
                             </div>
                         </div>
@@ -114,7 +113,7 @@
                 </div>
                 <div class="photo_panel">
                     <img class="fishlens_layout" src="{{ url_for('static', filename='Resources/img/fishlens.jpg') }}">
-                    <div class='button' id="fishlens"><h2>Take photo</h2></div>
+                    <div class='button mouse_pointer' id="fishlens"><h2>Take photo</h2></div>
                 </div>
                 <div class="graph_panel">
                     <div class="graph_info">

@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* cursor: wait; */
 }
 
 /* Bootstrap override */
@@ -28,8 +29,16 @@ body {
     font-size: 20px;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    /* cursor: wait; */
 }
 
+.mouse_pointer {
+    cursor: pointer;
+}
+
+.mouse_waiting {
+    cursor: wait;
+}
 
 h1 {
     font-family: 'Pacifico', cursive;
@@ -92,7 +101,7 @@ h3 {
 }
 
 .button {
-    cursor: pointer;
+    /* cursor: pointer; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,7 +175,7 @@ h3 {
 
 .slider {
     position: absolute;
-    cursor: pointer;
+    /* cursor: pointer; */
     top: 0;
     left: 0;
     right: 0;
@@ -250,7 +259,7 @@ input:checked + .slider:before {
     position: fixed;
     top: 20px;
     right: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .main_modal_text {
@@ -277,6 +286,9 @@ input:checked + .slider:before {
     opacity: 0;
 }
 
+/* .waiting {
+    cursor: wait !important;
+} */
 
 
 

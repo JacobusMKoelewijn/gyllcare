@@ -1,5 +1,6 @@
 'use strict';
 
+const mousePointer = document.querySelectorAll('.mouse_pointer');
 const menuHidden = document.querySelector('#menu_hidden');
 const menuButton = document.querySelector('.toggle');
 const switchButtons = document.querySelectorAll('.relay_switch');
@@ -10,6 +11,37 @@ const mainModal = document.querySelector('.main_modal');
 const mainModalClose = document.querySelector('.main_modal_close');
 const alarmMode = document.querySelector('#alarm_mode');
 const alarm = document.querySelector('.alarm');
+// const body = document.body;
+
+const init = {
+    retrieveStatus() {
+        fetch('/status')
+            .then(function (response) {
+                console.log(response);
+                return response.json();
+            })
+            .then(function (data) {
+                // console.log(data);
+                if (data.gpio_pin_16) alarm.classList.remove('hidden');
+                for (const [gpio, status] of Object.entries(data)) {
+                    if (gpio != 'gpio_pin_16' && status) {
+                        const element = document.getElementById(`${gpio}`);
+                        element.checked = status;
+                        changeLabel(element);
+                    }
+                }
+            });
+    },
+
+    // setButtons() {
+    //     button.forEach(function (btn) {
+    //         btn.classList.add('mouse_pointer');
+    //     });
+    // },
+};
+
+init.retrieveStatus();
+// init.setButtons();
 
 const changeLabel = function (currentSwitch) {
     // console.log(currentSwitch);
@@ -41,19 +73,29 @@ mainModalClose.addEventListener('click', closeSendLogModal);
 overlay.addEventListener('click', closeSendLogModal);
 
 sendLog.addEventListener('click', function (e) {
-    fetch('/email', {
-        headers: {
-            'content-type': 'application/json',
-        },
-        method: 'POST',
-        body: 'lorem ipsum',
-    }).then(function (response) {
-        if (response.status == 200) {
-            openSendLogModal();
-        } else {
-            alert('Something went wrong, please try again later.');
-        }
+    document.body.style.cursor = 'wait';
+    mousePointer.forEach(function (btn) {
+        btn.classList.remove('mouse_pointer');
     });
+    fetch('/email', {
+        method: 'POST',
+    })
+        .then(function (response) {
+            console.log(response);
+            console.log(response.status);
+
+            if (response.status == 200) {
+                openSendLogModal();
+            } else {
+                alert('Something went wrong, please try again later.');
+            }
+        })
+        .finally(function () {
+            document.body.style.cursor = 'auto';
+            mousePointer.forEach(function (btn) {
+                btn.classList.add('mouse_pointer');
+            });
+        });
 });
 
 alarmMode.addEventListener('click', function (e) {
@@ -101,23 +143,6 @@ menuButton.addEventListener('click', function (e) {
     }
 });
 
-fetch('/status')
-    .then(function (response) {
-        return response.json(); // Goes to Python probably
-    })
-    .then(function (text) {
-        // console.log('GET response text:');
-        // console.log(text);
-        if (text.gpio_pin_16) alarm.classList.remove('hidden');
-        for (const [gpio, status] of Object.entries(text)) {
-            if (gpio != 'gpio_pin_16' && status) {
-                const element = document.getElementById(`${gpio}`);
-                element.checked = status;
-                changeLabel(element);
-            }
-        }
-    });
-
 switchButtons.forEach(function (button) {
     button.addEventListener('click', function (e) {
         changeLabel(this);
@@ -136,8 +161,8 @@ switchButtons.forEach(function (button) {
                 return response.text();
             })
             .then(function (text) {
-                console.log('POST response');
-                console.log(text);
+                // console.log('POST response');
+                // console.log(text);
             });
     });
 });
@@ -154,8 +179,8 @@ fishLens.addEventListener('click', function (e) {
             return response.text();
         })
         .then(function (text) {
-            console.log('POST response');
-            console.log(text);
+            // console.log('POST response');
+            // console.log(text);
         });
     // location.reload();
     // Make dynamic using AJAX in later stage

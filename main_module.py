@@ -217,21 +217,9 @@ def status():
 
     gpio_14, gpio_15, gpio_18, gpio_23, gpio_16 = return_status()
     message = {'gpio_pin_14':gpio_14,'gpio_pin_15':gpio_15,'gpio_pin_18':gpio_18,'gpio_pin_23':gpio_23, 'gpio_pin_16':gpio_16}
-    # print(message, type(message))
-    # message2 = jsonify(message)
-    # print(message2, type(message2))
 
     if request.method == "POST":
-        # print("Message received")
         status_info = request.get_json()
-        # print(status_info)
-        # print(status_info["state"])
-        # print(type(test))
-        # test2 = json.loads(test)
-        # print(test2)
-        # state = request.form['state']
-        # gpio = request.form['gpio']
-        # name = request.form['name']
         toggle(status_info["state"], status_info["gpio"], status_info["name"])
         return 'OK', 200
     
@@ -242,25 +230,27 @@ def status():
 def email():
     if request.method == "POST":
 
-        # print("succes")
+        time.sleep(5)
 
-        schedulefile = open("/home/pi/Desktop/logs/Schedule_log.txt", "w")
+        print("succes")
 
-        for i in schedule.get_jobs():
-            schedulefile.write(str(i) + "\n")
-        schedulefile.close()
+        # schedulefile = open("/home/pi/Desktop/logs/Schedule_log.txt", "w")
+
+        # for i in schedule.get_jobs():
+        #     schedulefile.write(str(i) + "\n")
+        # schedulefile.close()
  
-        msg = Message("Gyllcare has send you a message", recipients=["mklwn@hotmail.com"])
-        msg.body = "Attached you'll find the Gyllcare log files"
+        # msg = Message("Gyllcare has send you a message", recipients=["mklwn@hotmail.com"])
+        # msg.body = "Attached you'll find the Gyllcare log files"
 
-        with app.open_resource("/home/pi/Desktop/logs/Gyllcare_log.txt") as attach:
-            msg.attach("Gyllcare_log.txt", "text/plain", attach.read())
-        with app.open_resource("/home/pi/Desktop/logs/Schedule_log.txt") as attach_2:
-            msg.attach("Schedule_log.txt", "text/plain", attach_2.read())
+        # with app.open_resource("/home/pi/Desktop/logs/Gyllcare_log.txt") as attach:
+        #     msg.attach("Gyllcare_log.txt", "text/plain", attach.read())
+        # with app.open_resource("/home/pi/Desktop/logs/Schedule_log.txt") as attach_2:
+        #     msg.attach("Schedule_log.txt", "text/plain", attach_2.read())
         
-        mail.send(msg)
+        # mail.send(msg)
         
-        return "Log sent succesfully"
+        return ""
 
 @app.route("/shutdown", methods=["POST"])
 @login_required
