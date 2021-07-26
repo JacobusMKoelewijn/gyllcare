@@ -230,25 +230,25 @@ def status():
 def email():
     if request.method == "POST":
 
-        time.sleep(5)
+        # time.sleep(5)
 
-        print("succes")
+        # print("succes")
 
-        # schedulefile = open("/home/pi/Desktop/logs/Schedule_log.txt", "w")
+        schedulefile = open("/home/pi/Desktop/logs/Schedule_log.txt", "w")
 
-        # for i in schedule.get_jobs():
-        #     schedulefile.write(str(i) + "\n")
-        # schedulefile.close()
+        for i in schedule.get_jobs():
+            schedulefile.write(str(i) + "\n")
+        schedulefile.close()
  
-        # msg = Message("Gyllcare has send you a message", recipients=["mklwn@hotmail.com"])
-        # msg.body = "Attached you'll find the Gyllcare log files"
+        msg = Message("Gyllcare has send you a message", recipients=["mklwn@hotmail.com"])
+        msg.body = "Attached you'll find the Gyllcare log files"
 
-        # with app.open_resource("/home/pi/Desktop/logs/Gyllcare_log.txt") as attach:
-        #     msg.attach("Gyllcare_log.txt", "text/plain", attach.read())
-        # with app.open_resource("/home/pi/Desktop/logs/Schedule_log.txt") as attach_2:
-        #     msg.attach("Schedule_log.txt", "text/plain", attach_2.read())
+        with app.open_resource("/home/pi/Desktop/logs/Gyllcare_log.txt") as attach:
+            msg.attach("Gyllcare_log.txt", "text/plain", attach.read())
+        with app.open_resource("/home/pi/Desktop/logs/Schedule_log.txt") as attach_2:
+            msg.attach("Schedule_log.txt", "text/plain", attach_2.read())
         
-        # mail.send(msg)
+        mail.send(msg)
         
         return ""
 

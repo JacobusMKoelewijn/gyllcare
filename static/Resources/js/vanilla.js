@@ -73,10 +73,11 @@ mainModalClose.addEventListener('click', closeSendLogModal);
 overlay.addEventListener('click', closeSendLogModal);
 
 sendLog.addEventListener('click', function (e) {
-    document.body.style.cursor = 'wait';
-    mousePointer.forEach(function (btn) {
-        btn.classList.remove('mouse_pointer');
-    });
+    // document.body.style.cursor = 'wait';
+    // mousePointer.forEach(function (btn) {
+    // btn.classList.remove('mouse_pointer');
+    // });
+    overlay.classList.remove('hidden');
     fetch('/email', {
         method: 'POST',
     })
@@ -91,10 +92,9 @@ sendLog.addEventListener('click', function (e) {
             }
         })
         .finally(function () {
-            document.body.style.cursor = 'auto';
-            mousePointer.forEach(function (btn) {
-                btn.classList.add('mouse_pointer');
-            });
+            // document.body.style.cursor = 'auto';
+            // mousePointer.forEach(function (btn) {
+            // btn.classList.add('mouse_pointer');
         });
 });
 
