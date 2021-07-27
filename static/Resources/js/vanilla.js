@@ -6,7 +6,11 @@ const menuButton = document.querySelector('.toggle');
 const switchButtons = document.querySelectorAll('.relay_switch');
 const sendLog = document.querySelector('#send_log');
 const fishLens = document.querySelector('#fishlens');
+
 const overlay = document.querySelector('.overlay');
+const spinner = document.querySelector('#spinner');
+const logMessage = document.querySelector('#log_message');
+
 const mainModal = document.querySelector('.main_modal');
 const mainModalClose = document.querySelector('.main_modal_close');
 const alarmMode = document.querySelector('#alarm_mode');
@@ -60,23 +64,27 @@ const changeLabel = function (currentSwitch) {
 };
 
 const openSendLogModal = function () {
-    mainModal.classList.remove('hidden');
-    overlay.classList.remove('hidden');
-};
-
-const closeSendLogModal = function () {
-    mainModal.classList.add('hidden');
+    spinner.classList.add('hidden');
+    logMessage.classList.add('hidden');
     overlay.classList.add('hidden');
+    // mainModal.classList.remove('hidden');
+    // overlay.classList.remove('hidden');
 };
 
-mainModalClose.addEventListener('click', closeSendLogModal);
-overlay.addEventListener('click', closeSendLogModal);
+// const closeSendLogModal = function () {
+//     mainModal.classList.add('hidden');
+// };
+
+// mainModalClose.addEventListener('click', closeSendLogModal);
+// overlay.addEventListener('click', closeSendLogModal);
 
 sendLog.addEventListener('click', function (e) {
     // document.body.style.cursor = 'wait';
     // mousePointer.forEach(function (btn) {
     // btn.classList.remove('mouse_pointer');
     // });
+    spinner.classList.remove('hidden');
+    logMessage.classList.remove('hidden');
     overlay.classList.remove('hidden');
     fetch('/email', {
         method: 'POST',
@@ -100,18 +108,26 @@ sendLog.addEventListener('click', function (e) {
 
 alarmMode.addEventListener('click', function (e) {
     fetch('/alarm_mode', {
-        headers: {
-            'content-type': 'application/json',
-        },
         method: 'POST',
+        // body: 'request_1',
     })
         .then(function (response) {
             return response.json();
         })
         .then(function (text) {
-            // console.log(text);
+            console.log(text);
             if (text) {
                 alarm.classList.remove('hidden');
+                // fetch('/alarm_mode', {
+                //     method: 'POST',
+                //     body: 'request_2',
+                // })
+                //     .then(function (response) {
+                //         return response.json();
+                //     })
+                //     .then(function (text) {
+                //         console.log(text);
+                //     });
             } else {
                 alarm.classList.add('hidden');
             }
@@ -169,11 +185,11 @@ switchButtons.forEach(function (button) {
 
 fishLens.addEventListener('click', function (e) {
     fetch('/fishlens', {
-        headers: {
-            'content-type': 'application/json',
-        },
+        // headers: {
+        //     'content-type': 'application/json',
+        // },
         method: 'POST',
-        body: 'lorem ipsum',
+        // body: 'lorem ipsum',
     })
         .then(function (response) {
             return response.text();

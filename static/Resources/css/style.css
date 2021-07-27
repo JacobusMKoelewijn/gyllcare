@@ -42,13 +42,13 @@ body {
   /* cursor: wait; */
 }
 
-.mouse_pointer {
+/* .mouse_pointer {
   cursor: pointer;
-}
+} */
 
-.mouse_waiting {
+/* .mouse_waiting {
   cursor: wait;
-}
+} */
 
 h1 {
   font-family: "Pacifico", cursive;
@@ -110,7 +110,7 @@ h3 {
 }
 
 .button {
-  /* cursor: pointer; */
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -360,10 +360,11 @@ input:checked + .slider:before {
 /* style="color:#ffffff; font-size: 270%; float: right; cursor: pointer;" */
 
 .overlay {
- background-color:#2d3436;
+  background-color: #2d3436;
   position: absolute;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   top: 0;
   left: 0;
@@ -373,6 +374,13 @@ input:checked + .slider:before {
   z-index: 100;
   transition: all 0.5s;
   border-bottom-right-radius: 20px;
+}
+
+#log_message {
+  /* display: inline-block; */
+  position: relative;
+  margin-left: 10px;
+  font-size: 120%;
 }
 
 .hidden {

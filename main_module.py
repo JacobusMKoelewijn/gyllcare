@@ -47,8 +47,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://viinumco_JMKoelewijn:WW
 # An additional driver 'pymysql' has to be installed for the database connection to work. If not specified the browser might give a warning.
 # No configuration for the CSRF token is being used. Not sure if this is necessary.
 
-app.config["TEMPLATES_AUTO_RELOAD"] = True
-# Is specified to true but it seems it is not doing anything.
+app.config["TEMPLATES_AUTO_RELOAD"] = True # Is specified to true but it seems it is not doing anything.
 
 app.config["MAIL_SERVER"] = "am4.fcomet.com"
 app.config["MAIL_PORT"] = 465
@@ -150,6 +149,7 @@ def index():
 @login_required
 def gyllcare():
 
+    # active = True
     schedule_form = ScheduleForm() # An object is initiated with respect to the ScheduleForm class.
     results = Events.query.filter_by(id=1).first() # The initiation time of the Gyllcare app is fetched from the Viinum database and stored locally.
     change_to_datetime = datetime.strptime(results.time, '%d-%m-%Y %H:%M') # The information is changed to a specific time format and stored locally.
@@ -203,13 +203,14 @@ def gyllcare():
                                           schedule_set=schedule_set,
                                           temperature=temperature,
                                           time_span=time_span
+                                          
                                           )
 
 @app.route("/fishlens", methods=["GET", "POST"])
 @login_required
 def fishlens():
     get_picture()
-    return 'OK', 200
+    return ''
 
 @app.route("/status", methods=["GET", "POST"])
 @login_required
@@ -230,25 +231,26 @@ def status():
 def email():
     if request.method == "POST":
 
-        # time.sleep(5)
 
-        # print("succes")
 
-        schedulefile = open("/home/pi/Desktop/logs/Schedule_log.txt", "w")
+        # schedulefile = open("/home/pi/Desktop/logs/Schedule_log.txt", "w")
 
-        for i in schedule.get_jobs():
-            schedulefile.write(str(i) + "\n")
-        schedulefile.close()
+        # for i in schedule.get_jobs():
+        #     schedulefile.write(str(i) + "\n")
+        # schedulefile.close()
  
-        msg = Message("Gyllcare has send you a message", recipients=["mklwn@hotmail.com"])
-        msg.body = "Attached you'll find the Gyllcare log files"
+        # msg = Message("Gyllcare has send you a message", recipients=["mklwn@hotmail.com"])
+        # msg.body = "Attached you'll find the Gyllcare log files"
 
-        with app.open_resource("/home/pi/Desktop/logs/Gyllcare_log.txt") as attach:
-            msg.attach("Gyllcare_log.txt", "text/plain", attach.read())
-        with app.open_resource("/home/pi/Desktop/logs/Schedule_log.txt") as attach_2:
-            msg.attach("Schedule_log.txt", "text/plain", attach_2.read())
+        # with app.open_resource("/home/pi/Desktop/logs/Gyllcare_log.txt") as attach:
+        #     msg.attach("Gyllcare_log.txt", "text/plain", attach.read())
+        # with app.open_resource("/home/pi/Desktop/logs/Schedule_log.txt") as attach_2:
+        #     msg.attach("Schedule_log.txt", "text/plain", attach_2.read())
         
-        mail.send(msg)
+        # mail.send(msg)
+
+        time.sleep(2)
+        print("succes")
         
         return ""
 
@@ -270,15 +272,26 @@ def shutdown():
 @login_required
 def alarm_mode():
     if request.method == "POST":
-        
+
+   
         gpio_14, gpio_15, gpio_18, gpio_23, gpio_16 = return_status()
 
+        
+
+        # if (request.get_data() == b'request_1'):
         if not gpio_16:
+            # print("this is a 1st request")
             threading.Thread(target=alarm_on).start()
             return jsonify(not gpio_16)
         else:
             alarm_off()
             return jsonify(not gpio_16)
+        
+        # if request.get_data() == b'request_2':
+        #     time.sleep(60)
+        #     print("this is a 2nd request")
+        #     return jsonify("Data")
+        
 
 @app.route("/logout")
 @login_required
