@@ -2,110 +2,83 @@ import RPi.GPIO as GPIO
 import time
 from datetime import datetime
 
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-# Relay switchs
-GPIO.setup(14, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(14, GPIO.OUT, initial=GPIO.LOW)  # Relay switches
 GPIO.setup(15, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(23, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(20, GPIO.OUT, initial=GPIO.LOW)  # blue LED
+GPIO.setup(16, GPIO.OUT, initial=GPIO.LOW)  # red LED
+GPIO.setup(21, GPIO.IN)                     # PIR Sensor
 
-# LEDs
-GPIO.setup(20, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(16, GPIO.OUT, initial=GPIO.LOW)
+class ToggleSwitch:
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+        self.state = GPIO.input(self.id)
 
-# PIR Sensor
-GPIO.setup(21, GPIO.IN)
+    def toggle_state(self):
+        if self.state == 0:
+            GPIO.output(self.id, GPIO.HIGH)
+            self.state = GPIO.input(self.id)
+            self.log("manually")
 
-def return_status():
+        elif self.state == 1:
+            GPIO.output(self.id, GPIO.LOW)
+            self.state = GPIO.input(self.id)
+            self.log("manually")
+
+    def switch_on(self):
+        GPIO.output(self.id, GPIO.HIGH)
+        self.log("as scheduled")
+
+    def switch_off(self):
+        GPIO.output(self.id, GPIO.LOW)
+        self.log("as scheduled")
+
+    def log(self, operation):
+        logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
+        logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### The " + self.name + " unit has been turned " + ("on " if self.state == 1 else "off ") + operation + ". \n")
+        logfile.close()
+
+
+
+def return_status(): # return current status of GPIO pins.
     gpio_status = [True if item == 1 else False for item in [GPIO.input(14), GPIO.input(15), GPIO.input(18), GPIO.input(23), GPIO.input(16)]]
-    # print(gpio_status)
-    return gpio_status
-    # The current status of every GPIO pin is requested and returned.
-    # Using a list comprehension every value of 1 is changed to "on" and 0 is changed to "off".
+    return gpio_status    
 
-def toggle(state, gpio, name):
-    if state == True:
-        GPIO.output(int(gpio[-2:]), GPIO.HIGH)
-        # print("turned on", gpio)
-        # log(name, "on manually")
-    elif state == False:
-        GPIO.output(int(gpio[-2:]), GPIO.LOW)
-        # print("turned off", gpio)
-
-        # log(name, "off manually")
-
-def log(unit, state):
-    logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-    logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### " + unit + " has been turned " + state + ". \n")
-    logfile.close()
-
-def toggle_CO2_on():
-    GPIO.output(14, GPIO.HIGH)
-    log("CO2 unit", "on as scheduled")
-
-def toggle_CO2_off():
-    GPIO.output(14, GPIO.LOW)
-    log("CO2 unit", "off as scheduled")
-
-def toggle_O2_on():
-    GPIO.output(15, GPIO.HIGH)
-    log("O2 unit", "on as scheduled")
-
-def toggle_O2_off():
-    GPIO.output(15, GPIO.LOW)
-    log("O2 unit", "off as scheduled")
-
-def toggle_light_on():
-    GPIO.output(18, GPIO.HIGH)
-    log("Main light unit", "on as scheduled")
-
-def toggle_light_off():
-    GPIO.output(18, GPIO.LOW)
-    log("Main light unit", "off as scheduled")
-
-def toggle_temp_on():
-    GPIO.output(23, GPIO.HIGH)
-    log("Temperature unit", "on as scheduled")
-
-def toggle_temp_off():
-    GPIO.output(23, GPIO.LOW)
-    log("Temperature unit", "off as scheduled")
-
-# Temporary solution to kill thread using global variable.
-# Can this be improved using self? to access variables in a different name space / block?
-
-def alarm_on():
-    logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-    logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Motion detector has been switched on. \n")
-    logfile.close()
-    global stop_threads
-    stop_threads = False
+def alarm_on(stop):
+    # logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
+    # logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Motion detector has been switched on. \n")
+    # logfile.close()
     GPIO.output(16, GPIO.HIGH)
     while True:
-        # print("test")
-        # if True:
-        if GPIO.input(21):
-            GPIO.output(20, GPIO.HIGH)
-            logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-            logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected! \n")
-            logfile.close()
+        # if GPIO.input(21):
+        if (True):
+            # from main_module import socketio
+
+            print("alarm being triggered")
+            # from main_module import zwaarlelijk
+            # zwaarlelijk()
+            # helpmij()
+            # socketio.emit('alarm', 'the alarm has been triggered')
+            #  socketio.emit('alarm', 'the alarm has been triggered')
+            # GPIO.output(20, GPIO.HIGH)
+            # logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
+            # logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected! \n")
+            # logfile.close()
             time.sleep(5)
-            GPIO.output(20, GPIO.LOW)
-            # alarm_triggered()
+            # GPIO.output(20, GPIO.LOW)
+            # test_alarm()
         time.sleep(1)
-        if(stop_threads):
+        if(stop()):
+            GPIO.output(16, GPIO.LOW)
+            # print("stopped!")
             break
 
-def alarm_off():
-    # print('alarm off')
-    global stop_threads
-    stop_threads = True
-    GPIO.output(16, GPIO.LOW)
-    logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-    logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Motion detector has been switched off. \n")
-    logfile.close()
 
 # def alarm_triggered():
     # print("alarm has been triggered")

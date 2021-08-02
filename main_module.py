@@ -4,12 +4,14 @@
 #####################################
 
 from flask import Flask, render_template, request, url_for, redirect, jsonify
+from flask_socketio import SocketIO, send
 from flask_mail import Mail, Message
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField
-from gpio_module import toggle, return_status, toggle_CO2_on, toggle_CO2_off, toggle_O2_on, toggle_O2_off, toggle_light_on, toggle_light_off, toggle_temp_on, toggle_temp_off, alarm_on, alarm_off
+from gpio_module import return_status, alarm_on, ToggleSwitch
+# from gpio_module import ToggleSwitch
 from temp_module import read_temp
 from camera_module import get_picture
 from datetime import datetime, timedelta
@@ -23,15 +25,15 @@ import time
 
 # Idea! create shutdown button that gives unix commands!!
 
-# Libraries required to plot the temperature graph.
-import matplotlib
+
+import matplotlib # Libraries required to plot the temperature graph.
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import make_interp_spline
 matplotlib.use('Agg')
 
-from random import seed, random # For development
-seed(1) # For development
+# from random import seed, random # For development
+# seed(1) # For development
 
 # What does this do exactly? Needed after "RuntimeError: main thread is not in main loop. Related to Tkinter?"
 # Had to install sudo apt install libatlas-base-dev to surpress a warning
@@ -40,15 +42,14 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 app = Flask(__name__)
 
-app.config["SECRET_KEY"] = "WWOeeyV?cAnh"
-# A conflict in session initiation was found when os.urandom(24) was used to generate a secret key. Problem disappears when a static secret key is used instead.
+app.config["SECRET_KEY"] = "WWOeeyV?cAnh" # A conflict in session initiation was found when os.urandom(24) was used to generate a secret key. Problem disappears when a static secret key is used instead.
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://viinumco_JMKoelewijn:WWOeeyV?cAnh@viinum.com/viinumco_aquapi"
 # An additional driver 'pymysql' has to be installed for the database connection to work. If not specified the browser might give a warning.
 # No configuration for the CSRF token is being used. Not sure if this is necessary.
 
 app.config["TEMPLATES_AUTO_RELOAD"] = True # Is specified to true but it seems it is not doing anything.
-
+app.config["DEBUG"] = True
 app.config["MAIL_SERVER"] = "am4.fcomet.com"
 app.config["MAIL_PORT"] = 465
 app.config["MAIL_USE_TLS"] = False
@@ -65,6 +66,8 @@ db = SQLAlchemy(app)
 mail = Mail(app)
 schedule = BackgroundScheduler(daemon=True)
 # Inititation of the login manager, SQLAlchemy database, mail functionality and the APS background scheduler.
+
+socketio = SocketIO(app)
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -107,6 +110,20 @@ class ScheduleForm(FlaskForm):
     unit_temp_on = SelectField("Temp schedule on", choices=list_of_choices)
     unit_temp_off = SelectField("Temp schedule off", choices=list_of_choices)
 
+class AlarmMode():
+
+    def __init__(self):
+        pass
+        
+    def start(self):
+        AlarmMode.stop_thread = False
+        self.id = threading.Thread(target=alarm_on, args=(lambda : AlarmMode.stop_thread,))
+        self.id.start()
+    
+    def stop(self):
+        AlarmMode.stop_thread = True
+        self.id.join()
+
 
 # Start up
 app_start = Events.query.filter_by(id=1).first()
@@ -125,6 +142,14 @@ unit_light_time_off = Schedule.query.filter_by(id=3).first().time_off
 unit_temp_time_on = Schedule.query.filter_by(id=4).first().time_on
 unit_temp_time_off = Schedule.query.filter_by(id=4).first().time_off
 # The currently stored values for the 'on'  and 'off' time for all modules are queried and stored in the respective variables.
+
+
+CO2 = ToggleSwitch(14, "CO2")
+O2 = ToggleSwitch(15, "O2")
+Light = ToggleSwitch(18, "Light")
+Therm = ToggleSwitch(23, "Therm")
+alarm = AlarmMode()
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -175,14 +200,14 @@ def gyllcare():
         
         db.session.commit()
 
-        schedule.reschedule_job("toggle_CO2_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_on.data +':00')
-        schedule.reschedule_job("toggle_CO2_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_off.data +':00')
-        schedule.reschedule_job("toggle_O2_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_on.data +':00')
-        schedule.reschedule_job("toggle_O2_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_off.data +':00')
-        schedule.reschedule_job("toggle_light_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_on.data +':00')
-        schedule.reschedule_job("toggle_light_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_off.data +':00')
-        schedule.reschedule_job("toggle_temp_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_on.data +':00')
-        schedule.reschedule_job("toggle_temp_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_off.data +':00')
+        schedule.reschedule_job("CO2.switch_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_on.data +':00')
+        schedule.reschedule_job("CO2.switch_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_off.data +':00')
+        schedule.reschedule_job("O2.switch_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_on.data +':00')
+        schedule.reschedule_job("O2.switch_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_off.data +':00')
+        schedule.reschedule_job("Light.switch_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_on.data +':00')
+        schedule.reschedule_job("Light.switch_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_off.data +':00')
+        schedule.reschedule_job("Therm.switch_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_on.data +':00')
+        schedule.reschedule_job("Therm.switch_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_off.data +':00')
 
         schedule_set = "The new schedule has been initiated!"
     
@@ -212,17 +237,22 @@ def fishlens():
     get_picture()
     return ''
 
+# def test_function(switch):
+#     switch.toggle._state()
+
+
 @app.route("/status", methods=["GET", "POST"])
 @login_required
 def status():
 
     gpio_14, gpio_15, gpio_18, gpio_23, gpio_16 = return_status()
     message = {'gpio_pin_14':gpio_14,'gpio_pin_15':gpio_15,'gpio_pin_18':gpio_18,'gpio_pin_23':gpio_23, 'gpio_pin_16':gpio_16}
+    switch_dictionary = {'CO2': CO2.toggle_state, 'O2': O2.toggle_state, 'Light': Light.toggle_state, 'Therm': Therm.toggle_state}
 
     if request.method == "POST":
-        status_info = request.get_json()
-        toggle(status_info["state"], status_info["gpio"], status_info["name"])
-        return 'OK', 200
+        switch_name = request.get_json()["name"]
+        switch_dictionary[str(switch_name)]()
+        return ""
     
     return jsonify(message)
 
@@ -267,31 +297,45 @@ def shutdown():
         print("shutting down")
         return "OK"
 
+def helpmij():
+    socketio.emit('alarm', 'the alarm has been triggered')
+    print("kutjebewg")
+
 
 @app.route("/alarm_mode", methods=["POST"])
 @login_required
 def alarm_mode():
     if request.method == "POST":
 
+        # socketio.emit('alarm', 'the alarm has been triggered')
+        # helpmij()
+
+
+      
+
+        
+
+
    
-        gpio_14, gpio_15, gpio_18, gpio_23, gpio_16 = return_status()
+        gpio_16 = return_status()[-1]
 
-        
 
-        # if (request.get_data() == b'request_1'):
         if not gpio_16:
-            # print("this is a 1st request")
-            threading.Thread(target=alarm_on).start()
-            return jsonify(not gpio_16)
+            alarm.start()
         else:
-            alarm_off()
-            return jsonify(not gpio_16)
+            alarm.stop()
         
-        # if request.get_data() == b'request_2':
-        #     time.sleep(60)
-        #     print("this is a 2nd request")
-        #     return jsonify("Data")
+        return jsonify(not gpio_16)
         
+     
+
+
+
+@socketio.on('message')
+def receive_message(message):
+    print(f'####### {message}')
+    # send('This is a message from the server side!')
+
 
 @app.route("/logout")
 @login_required
@@ -384,17 +428,18 @@ def read_temp_plot_data():
     plt.savefig('/var/www/html/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
     # plt.savefig('/home/pi/Viinum/gyllcare/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
     
-schedule.add_job(toggle_CO2_on,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_on +':00', id="toggle_CO2_on")
-schedule.add_job(toggle_CO2_off,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_off +':00', id="toggle_CO2_off")
-schedule.add_job(toggle_O2_on,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_on +':00', id="toggle_O2_on")
-schedule.add_job(toggle_O2_off,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_off +':00', id="toggle_O2_off")
-schedule.add_job(toggle_light_on,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_on +':00', id="toggle_light_on")
-schedule.add_job(toggle_light_off,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_off +':00', id="toggle_light_off")
-schedule.add_job(toggle_temp_on,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_on +':00', id="toggle_temp_on")
-schedule.add_job(toggle_temp_off,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_off +':00', id="toggle_temp_off")
+schedule.add_job(CO2.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_on +':00', id="toggle_CO2_on")
+schedule.add_job(CO2.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_off +':00', id="toggle_CO2_off")
+schedule.add_job(O2.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_on +':00', id="toggle_O2_on")
+schedule.add_job(O2.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_off +':00', id="toggle_O2_off")
+schedule.add_job(Light.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_on +':00', id="toggle_light_on")
+schedule.add_job(Light.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_off +':00', id="toggle_light_off")
+schedule.add_job(Therm.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_on +':00', id="toggle_temp_on")
+schedule.add_job(Therm.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_off +':00', id="toggle_temp_off")
 schedule.add_job(read_temp_plot_data,'interval', minutes=60, start_date='2021-05-01 00:00:00', id="read_temp_plot_data")
 
 schedule.start()
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    # app.run(debug=False)
+    socketio.run(app)

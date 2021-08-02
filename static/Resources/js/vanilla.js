@@ -14,8 +14,32 @@ const logMessage = document.querySelector('#log_message');
 const mainModal = document.querySelector('.main_modal');
 const mainModalClose = document.querySelector('.main_modal_close');
 const alarmMode = document.querySelector('#alarm_mode');
+
 const alarm = document.querySelector('.alarm');
+const alarmBlue = document.querySelector('.alarm_blue');
 // const body = document.body;
+
+const socket = io.connect('http://127.0.0.1:5000');
+
+// socket.on('connect', function () {
+// socket.send('I am now connected')
+// console.log("Something got connected");
+// socket.on('message', function(msg) {
+//     console.log(msg);
+// })
+// });
+
+socket.on('alarm', function (msg) {
+    console.log('Something triggered the alarm');
+    // setTimeout()
+    setInterval(function () {
+        console.log('testing');
+        alarmBlue.classList.remove('hidden');
+    }, 1000);
+    setInterval(function () {
+        alarmBlue.classList.add('hidden');
+    }, 2000)
+});
 
 const init = {
     retrieveStatus() {
@@ -118,16 +142,6 @@ alarmMode.addEventListener('click', function (e) {
             console.log(text);
             if (text) {
                 alarm.classList.remove('hidden');
-                // fetch('/alarm_mode', {
-                //     method: 'POST',
-                //     body: 'request_2',
-                // })
-                //     .then(function (response) {
-                //         return response.json();
-                //     })
-                //     .then(function (text) {
-                //         console.log(text);
-                //     });
             } else {
                 alarm.classList.add('hidden');
             }
@@ -162,14 +176,15 @@ menuButton.addEventListener('click', function (e) {
 switchButtons.forEach(function (button) {
     button.addEventListener('click', function (e) {
         changeLabel(this);
+        console.log(this);
         fetch('/status', {
             headers: {
                 'content-type': 'application/json',
             },
             method: 'POST',
             body: JSON.stringify({
-                state: this.checked,
-                gpio: this.getAttribute('id'),
+                // state: this.checked,
+                // gpio: this.getAttribute('id'),
                 name: this.getAttribute('name'),
             }),
         })
