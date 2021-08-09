@@ -3,9 +3,10 @@ from . import main
 from .models import User, Events, Schedule
 from .forms import LoginForm, ScheduleForm
 from .base import schedule, CO2, O2, Therm, Light, alarm
-from .extensions import db, mail
+from .extensions import db, mail, socketio
 from .gpio import return_status
 from .camera import get_picture
+from flask_socketio import send
 
 from datetime import datetime
 from flask import render_template, request, redirect, url_for, jsonify
@@ -159,10 +160,10 @@ def alarm_mode():
         
         return jsonify(not gpio_16)
 
-# @socketio.on('message')
-# def receive_message(message):
-#     print(f'####### {message}')
-#     # send('This is a message from the server side!')
+@socketio.on('message')
+def receive_message(message):
+    print(f'####### {message}')
+    send('This is a message from the server side!')
 
 
 @main.route("/logout")

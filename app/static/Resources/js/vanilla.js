@@ -13,33 +13,34 @@ const logMessage = document.querySelector('#log_message');
 
 const mainModal = document.querySelector('.main_modal');
 const mainModalClose = document.querySelector('.main_modal_close');
-const alarmMode = document.querySelector('#alarm_mode');
 
+const alarmMode = document.querySelector('#alarm_mode');
 const alarm = document.querySelector('.alarm');
 const alarmBlue = document.querySelector('.alarm_blue');
 // const body = document.body;
 
-const socket = io.connect('http://127.0.0.1:5000');
+// const socket = io.connect('http://127.0.0.1:5000');
+const socket = io.connect('http://82.72.121.59:9000');
 
-// socket.on('connect', function () {
-// socket.send('I am now connected')
-// console.log("Something got connected");
-// socket.on('message', function(msg) {
-//     console.log(msg);
-// })
-// });
-
-socket.on('alarm', function (msg) {
-    console.log('Something triggered the alarm');
-    // setTimeout()
-    setInterval(function () {
-        console.log('testing');
-        alarmBlue.classList.remove('hidden');
-    }, 1000);
-    setInterval(function () {
-        alarmBlue.classList.add('hidden');
-    }, 2000)
+socket.on('connect', function () {
+    socket.send('I am now connected');
+    console.log('Something got connected');
+    socket.on('message', function (msg) {
+        console.log(msg);
+    });
 });
+
+// socket.on('alarm', function (msg) {
+//     console.log('Something triggered the alarm');
+//     // setTimeout()
+//     setInterval(function () {
+//         console.log('testing');
+//         alarmBlue.classList.remove('hidden');
+//     }, 1000);
+//     setInterval(function () {
+//         alarmBlue.classList.add('hidden');
+//     }, 2000);
+// });
 
 const init = {
     retrieveStatus() {

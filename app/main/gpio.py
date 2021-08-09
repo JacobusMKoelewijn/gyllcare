@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 from datetime import datetime
-
+from .extensions import socketio
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -60,10 +60,9 @@ def alarm_on(stop):
             # from main_module import socketio
 
             print("alarm being triggered")
-            # from main_module import zwaarlelijk
-            # zwaarlelijk()
-            # helpmij()
-            # socketio.emit('alarm', 'the alarm has been triggered')
+            # socketio
+
+            socketio.emit('alarm', 'the alarm has been triggered')
             #  socketio.emit('alarm', 'the alarm has been triggered')
             # GPIO.output(20, GPIO.HIGH)
             # logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
