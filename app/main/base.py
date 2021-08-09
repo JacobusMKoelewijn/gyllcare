@@ -1,4 +1,5 @@
 from .gpio import ToggleSwitch, alarm_on
+from .temp import read_temp
 
 import matplotlib
 import matplotlib.pyplot as plt

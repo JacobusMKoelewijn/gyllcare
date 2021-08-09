@@ -2,7 +2,7 @@ DEBUG = False
 SECRET_KEY = "WWOeeyV?cAnh"
 
 SQLALCHEMY_DATABASE_URI = "mysql+pymysql://viinumco_JMKoelewijn:WWOeeyV?cAnh@viinum.com/viinumco_aquapi"
-SQLALCHEMY_TRACK_MODIFICATIONS = False # Required?
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 TEMPLATES_AUTO_RELOAD = True
 

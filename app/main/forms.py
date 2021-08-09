@@ -12,7 +12,8 @@ def generate_options():
         list_of_choices.append(second)
         list_of_choices.append(third)
         list_of_choices.append(fourth)
-        return list_of_choices
+
+    return list_of_choices
 
 class LoginForm(FlaskForm):
     name = StringField("name")
