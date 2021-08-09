@@ -45,7 +45,6 @@ class ToggleSwitch:
         logfile.close()
 
 
-
 def return_status(): # return current status of GPIO pins.
     gpio_status = [True if item == 1 else False for item in [GPIO.input(14), GPIO.input(15), GPIO.input(18), GPIO.input(23), GPIO.input(16)]]
     return gpio_status    

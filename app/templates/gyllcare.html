@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">    
+    <div class="row">
+        <div class="col-12">
+           
+            <div class="app_body">
+                
+                
+
+                <div class="menu">
+                    <h1 style="float: left">Gyllcare</h1>
+                    <ion-icon class="toggle", style="color:#ffffff; font-size: 270%; float: right; cursor: pointer;", name="menu-outline"></ion-icon>
+                </div>
+
+                <div id="menu_hidden">
+                    <div class='button'><h2 style="font-size: 80%">Clean aquarium</h2></div>
+
+                    <div class='button' id="send_log"><h2 style="font-size: 80%">Send log</h2></div>
+
+                    <div class='main_modal hidden'>
+                        <h2 class='main_modal_text'>The log file has been send.</h2>
+                        <ion-icon class="main_modal_close", name="close-outline"></ion-icon>
+                    </div>
+
+                    <div class='button' id="alarm_mode"><h2 style="font-size: 80%">Toggle alarm</h2></div>
+                    <div class='button'><h2 style="font-size: 80%">Log out</h2></div>
+                </div>
+
+                <div class="main_switch_panel_buttons">
+
+                    <div class="overlay hidden">
+                        <div id="spinner" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                        <div id="log_message" class=""><h2>Sending log file</h2></div>
+                    </div>
+
+                    <label class='switch_layout'> 
+                        <h2 id="CO2_unit" class='label_layout'>CO<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
+                        <input class='relay_switch' id="gpio_pin_14" name='CO2' type='checkbox'>
+                        <span class ='slider'></span>
+                    </label>
+                   
+                    <label class='switch_layout'>
+                        <h2 id="O2_unit" class='label_layout'>O<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
+                        <input class='relay_switch' id="gpio_pin_15" name='O2' type='checkbox'>
+                        <span class ='slider'></span>
+                    </label>
+                    
+                    <label class='switch_layout'>
+                        <h2 id="main_light_unit" class='label_layout'>Light&nbsp;is&nbsp;switched&nbsp;off</h2>
+                        <input class='relay_switch' id="gpio_pin_18" name='Light' type='checkbox'>
+                        <span class ='slider'></span>
+                    </label>
+
+                    <label class='switch_layout'>
+                        <h2 id="thermostate_unit" class='label_layout'>Thermostate&nbsp;is&nbsp;switched&nbsp;off</h2>
+                        <input class='relay_switch' id="gpio_pin_23" name='Therm' type='checkbox'>
+                        <span class ='slider'></span>
+                    </label>
+
+                    <div style="display: flex; justify-content: space-between; padding-top: 10px">
+                        <h2 style="font-size: 80%">App run time {{ time_active }}</h2>
+                        <div>
+                            <h2 class="alarm_blue hidden" style="font-size: 100%; display: inline-block; color: lightblue">&#9673;</h2>
+                            <h2 class="alarm hidden" style="font-size: 100%; display: inline-block; color:red">&#9673;</h2>
+                        </div>
+                    </div>
+                </div>
+            
+
+
+                <div class="schedule_panel">
+                    <form action="{{ url_for('main.gyllcare') }}" method="POST" novalidate>
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label col-form-label-sm">CO<sub>2</sub> schedule</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_co2_on(class_="form-control form-control-sm", id="co2_start" ) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_co2_off(class_="form-control form-control-sm", id="co2_stop" ) }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label col-form-label-sm">O<sub>2</sub> schedule</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_o2_on(class_="form-control form-control-sm", id="o2_start" ) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_o2_off(class_="form-control form-control-sm", id="o2_stop" ) }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label col-form-label-sm">Main light schedule</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_light_on(class_="form-control form-control-sm", id="light_start" ) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_light_off(class_="form-control form-control-sm", id="light_stop" ) }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label class="col-form-label col-form-label-sm">&#916;T schedule</label>
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_temp_on(class_="form-control form-control-sm", id="temp_start" ) }}
+                            </div>
+                            <div class="col-sm-4">
+                                {{ schedule_form.unit_temp_off(class_="form-control form-control-sm", id="temp_stop" ) }}
+                            </div>
+                            <div style="margin: 0 auto; margin-top: 20px;">
+                                <div class='button'><h2>Submit schedule</h2></div>
+                                <!-- <button type="submit" class="btn btn-primary btn-sm my-1">Submit schedule</button> -->
+                            </div>
+                        </div>
+                        
+                    </form>
+                    <div class="schedule_panel_output">
+                        <h3 style="color: #0d6efd;">{{ schedule_set }}</h3>
+                    </div>
+                </div>
+
+                <div class="photo_panel">
+                    <img class="fishlens_layout" src="{{ url_for('static', filename='Resources/img/fishlens.jpg') }}">
+                    <div class='button' id="fishlens"><h2>Take photo</h2></div>
+                </div>
+
+                <div class="graph_panel">
+                    <div class="graph_info">
+                        <h3>Current temperature: <span style="color: #ffffff">{{ temperature }}</span> &#8451;</h3>
+                    </div>
+                    <img class="graph" src="{{ url_for('static', filename='Resources/img/plot.svg') }}">
+                </div>
+
+                <!-- <div class="main_modal hidden">
+                    <h2 style="color: black;">test</h2>
+                </div> -->
+
+                <!-- <div class="overlay">
+
+                    
+                    
+
+                </div> -->
+                <!-- <button class="btn btn-primary btn-sm my-1 btn-block log_file">Email log files</button> -->
+                <!-- <a href="{{ url_for('main.logout') }}"><button class="btn btn-primary btn-sm my-1 btn-block">Logout</button></a> -->
+              </div>            
+          </div>
+    </div>
+</div>
+
+{% endblock %}
