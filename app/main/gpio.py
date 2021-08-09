@@ -50,34 +50,22 @@ def return_status(): # return current status of GPIO pins.
     return gpio_status    
 
 def alarm_on(stop):
-    # logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-    # logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Motion detector has been switched on. \n")
-    # logfile.close()
+    logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
+    logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Motion detector has been switched on. \n")
+    logfile.close()
     GPIO.output(16, GPIO.HIGH)
     while True:
-        # if GPIO.input(21):
-        if (True):
-            # from main_module import socketio
+        if GPIO.input(21):
 
-            print("alarm being triggered")
-            # socketio
+            # socketio.emit('alarm', 'the alarm has been triggered') -- FIX THIS AFTER HOLIDAY WITH NGYNX/GUNICORN OR A DIFFERENT APPROACH
 
-            socketio.emit('alarm', 'the alarm has been triggered')
-            #  socketio.emit('alarm', 'the alarm has been triggered')
-            # GPIO.output(20, GPIO.HIGH)
-            # logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-            # logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected! \n")
-            # logfile.close()
+            GPIO.output(20, GPIO.HIGH)
+            logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
+            logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected! \n")
+            logfile.close()
             time.sleep(5)
-            # GPIO.output(20, GPIO.LOW)
-            # test_alarm()
+            GPIO.output(20, GPIO.LOW)
         time.sleep(1)
         if(stop()):
             GPIO.output(16, GPIO.LOW)
-            # print("stopped!")
             break
-
-
-# def alarm_triggered():
-    # print("alarm has been triggered")
-    # Save this for when AJAX requests have been studied.

@@ -5,7 +5,7 @@ from .main.models import Events, Schedule
 from .main.camera import get_picture
 
 from datetime import datetime
-import eventlet
+# import eventlet
 
 from .main import main as main_blueprint
 from .main.extensions import db, socketio, mail, login_manager
@@ -16,7 +16,7 @@ def create_app(config_file='config.py'):
     app = Flask(__name__)
     app.config.from_pyfile(config_file)
     
-    eventlet.monkey_patch()
+    # eventlet.monkey_patch()
     login_manager.login_view = "main.index"
     
     get_picture()
@@ -24,10 +24,10 @@ def create_app(config_file='config.py'):
     db.init_app(app)
     mail.init_app(app)
     login_manager.init_app(app)
-    socketio.init_app(app, asyncmode='eventlet')
+    # socketio.init_app(app)
 
     with app.app_context():
-        print("initiating")
+        # print("initiating")
         
         app_start = Events.query.filter_by(id=1).first()
         app_start.time = datetime.now().strftime("%d-%m-%Y %H:%M")
