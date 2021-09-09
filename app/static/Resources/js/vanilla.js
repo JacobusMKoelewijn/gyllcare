@@ -18,8 +18,8 @@ const alarmMode = document.querySelector('#alarm_mode');
 const alarm = document.querySelector('.alarm');
 const alarmBlue = document.querySelector('.alarm_blue');
 
-const socket = io.connect('http://127.0.0.1:5000');
-// const socket = io.connect('http://82.72.121.59:9000');
+// const socket = io.connect('http://127.0.0.1:5000');
+const socket = io.connect('http://82.72.121.59:9000');
 
 socket.on('connect', function () {
     socket.send('I am now connected');
