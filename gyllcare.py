@@ -6,8 +6,11 @@
 from app import create_app
 from app.main.extensions import socketio
 
-app = create_app()
+# app = create_app()
 
-if __name__ == '__main__':
-    app.run()
+print("works like charm")
+
+# if __name__ == '__main__':
+    # app.run()
     # socketio.run(app)
+

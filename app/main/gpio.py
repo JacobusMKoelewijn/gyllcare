@@ -57,7 +57,8 @@ def alarm_on(stop):
     while True:
         if GPIO.input(21):
 
-            # socketio.emit('alarm', 'the alarm has been triggered') -- FIX THIS AFTER HOLIDAY WITH NGYNX/GUNICORN OR A DIFFERENT APPROACH
+            socketio.emit('alarm', 'the alarm has been triggered') 
+            # -- FIX THIS AFTER HOLIDAY WITH NGYNX/GUNICORN OR A DIFFERENT APPROACH
 
             GPIO.output(20, GPIO.HIGH)
             logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")

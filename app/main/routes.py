@@ -160,10 +160,10 @@ def alarm_mode():
         
         return jsonify(not gpio_16)
 
-# @socketio.on('message')
-# def receive_message(message):
-#     print(f'####### {message}')
-#     send('This is a message from the server side!')
+@socketio.on('message')
+def receive_message(message):
+    print(f'####### {message}')
+    send('This is a message from the server side!')
 
 
 @main.route("/logout")
