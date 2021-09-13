@@ -1,6 +1,9 @@
 from picamera import PiCamera
 from time import sleep
 
+# The camera module contains a time out error which has to be resolved!
+# For now the solution is to put it in a try/error block (as is proper python code)
+
 def get_picture():
     camera = PiCamera()
     camera.rotation = 180
@@ -8,12 +11,11 @@ def get_picture():
     try:
         camera.start_preview()
         sleep(5)
-        print("Madness 1")
+        print("Camera will now capture")
         camera.capture('/var/www/html/gyllcare/app/static/Resources/img/fishlens.jpg')
         # camera.capture('/home/pi/Viinum/gyllcare/app/static/Resources/img/fishlens.jpg')
-        print("Madness 2")
         camera.stop_preview()
-        print("maddnes 3")
     finally:
         camera.close()
-        print("maddnes 4")
+        print("Camera closed confirmed")
+        

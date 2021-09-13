@@ -8,7 +8,7 @@ from app.main.extensions import socketio
 
 # app = create_app()
 
-print("works like charm v2.0")
+print("Gyllcare seems to work.. awaiting response")
 
 # if __name__ == '__main__':
     # app.run()
