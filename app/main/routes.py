@@ -151,7 +151,7 @@ def shutdown():
         subprocess.call(command_3.split())
         
         print("####### Shutting down Gyllcare...")
-        
+
         return ""
 
 @main.route("/alarm_mode", methods=["POST"])
@@ -173,8 +173,8 @@ def alarm_mode():
 
 @socketio.on('message')
 def receive_message(message):
-    print(f'####### {message}')
-    send('This is a message from the server side!')
+    print(f'{message}')
+    send('####### Greetings from Gyllcare...')
 
 
 @main.route("/logout")
