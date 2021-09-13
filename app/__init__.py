@@ -19,7 +19,7 @@ def create_app(config_file='config.py'):
     eventlet.monkey_patch()
     login_manager.login_view = "main.index"
     
-    get_picture()
+    # get_picture()
     
     db.init_app(app)
     mail.init_app(app)

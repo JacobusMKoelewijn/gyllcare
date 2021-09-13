@@ -137,6 +137,8 @@ def shutdown():
         command_1 = "sudo service apache2 stop"
         command_2 = "sudo shutdown -h now"
         command_dev = "echo works"
+
+        # sudo pkill gunicorn
         # subprocess.call(command_1.split())
         # subprocess.call(command_2.split())
         subprocess.call(command_dev.split())
