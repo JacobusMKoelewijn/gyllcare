@@ -11,4 +11,4 @@ def get_picture():
     # camera.capture('/home/pi/Viinum/gyllcare/app/static/Resources/img/fishlens.jpg')
     camera.stop_preview()
     camera.close()
-    # print("picture taken")
+    print("Does camera.close work??")
