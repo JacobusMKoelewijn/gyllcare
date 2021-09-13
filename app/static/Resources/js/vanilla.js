@@ -6,7 +6,7 @@ const menuButton = document.querySelector('.toggle');
 const switchButtons = document.querySelectorAll('.relay_switch');
 
 const sendLog = document.querySelector('#send_log');
-// const cleanAq = docment.querySelector('#clean_aq');
+const cleanAq = docment.querySelector('#clean_aq');
 
 const fishLens = document.querySelector('#fishlens');
 
@@ -25,7 +25,9 @@ const alarmBlue = document.querySelector('.alarm_blue');
 const socket = io.connect('http://82.72.121.59:9000');
 
 socket.on('connect', function () {
-    socket.send('####### The browser has succesfully connected with Gyllcare...');
+    socket.send(
+        '####### The browser has succesfully connected with Gyllcare...'
+    );
     socket.on('message', function (msg) {
         console.log(msg);
     });
@@ -104,7 +106,11 @@ const openSendLogModal = function () {
 // mainModalClose.addEventListener('click', closeSendLogModal);
 // overlay.addEventListener('click', closeSendLogModal);
 
-
+cleanAq.addEventListener('click', function (e) {
+    fetch('/shutdown', {
+        method: 'POST',
+    });
+});
 
 sendLog.addEventListener('click', function (e) {
     // document.body.style.cursor = 'wait';
