@@ -8,10 +8,12 @@ def get_picture():
     try:
         camera.start_preview()
         sleep(5)
+        print("Madness 1")
         camera.capture('/var/www/html/gyllcare/app/static/Resources/img/fishlens.jpg')
         # camera.capture('/home/pi/Viinum/gyllcare/app/static/Resources/img/fishlens.jpg')
+        print("Madness 2")
         camera.stop_preview()
-        print("Madness 1")
+        print("maddnes 3")
     finally:
         camera.close()
-        print("maddnes 2")
+        print("maddnes 4")
