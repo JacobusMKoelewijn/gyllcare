@@ -6,9 +6,9 @@
 from app import create_app
 from app.main.extensions import socketio
 
-# app = create_app()
+print("####### Gyllcare seems to work.. awaiting response from the browser")
 
-print("Gyllcare seems to work.. awaiting response")
+# app = create_app()
 
 # if __name__ == '__main__':
     # app.run()

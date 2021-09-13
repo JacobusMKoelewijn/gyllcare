@@ -134,16 +134,25 @@ def email():
 @login_required
 def shutdown():
     if request.method == "POST":
-        command_1 = "sudo service apache2 stop"
-        command_2 = "sudo shutdown -h now"
-        command_dev = "echo works"
 
-        # sudo pkill gunicorn
-        # subprocess.call(command_1.split())
-        # subprocess.call(command_2.split())
-        subprocess.call(command_dev.split())
-        print("shutting down")
-        return "OK"
+        # When using Apache2/mod_wsgi:
+        # command_1 = "sudo service apache2 stop"
+        # command_2 = "sudo shutdown -h now"
+
+        # When using Nginx/gunicorn:
+        command_1 = "sudo pkill gunicorn"
+        command_2 = "sudo service nginx stop"
+        command_3 = "sudo shutdown -h now"
+        
+        subprocess.call(command_1.split())
+        time.sleep(5)
+        subprocess.call(command_2.split())
+        time.sleep(5)
+        subprocess.call(command_3.split())
+        
+        print("####### Shutting down Gyllcare...")
+        
+        return ""
 
 @main.route("/alarm_mode", methods=["POST"])
 @login_required

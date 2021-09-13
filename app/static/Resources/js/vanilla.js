@@ -22,8 +22,8 @@ const alarmBlue = document.querySelector('.alarm_blue');
 const socket = io.connect('http://82.72.121.59:9000');
 
 socket.on('connect', function () {
-    socket.send('I am now connected');
-    console.log('Something got connected');
+    socket.send('####### The browser has succesfully connected with Gyllcare...');
+    console.log('####### Greetings from Gyllcare...');
     socket.on('message', function (msg) {
         console.log(msg);
     });
