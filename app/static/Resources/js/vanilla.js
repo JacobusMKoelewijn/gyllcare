@@ -6,7 +6,7 @@ const menuButton = document.querySelector('.toggle');
 const switchButtons = document.querySelectorAll('.relay_switch');
 
 const sendLog = document.querySelector('#send_log');
-const cleanAq = docment.querySelector('#clean_aq');
+const cleanAq = document.querySelector('#clean_aq');
 
 const fishLens = document.querySelector('#fishlens');
 
