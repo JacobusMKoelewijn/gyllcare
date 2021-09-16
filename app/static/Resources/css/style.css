@@ -393,15 +393,27 @@ input:checked + .slider:before {
 } */
 
 .schedule_panel {
+  background-color: var(--color-background);
+  margin-top: 10px;
+  padding: 10px;
+  border-top-right-radius: 20px;
   /* color: #00a8ff; */
-  margin-bottom: 30px;
-  background-color: #ffffff;
+  margin-bottom: 100px;
+  /* background-color: #ffffff; */
   /* border-radius: 20px; */
   /* padding-left: 10px;
     padding-right: 10px;
     padding-top: 30px;
     padding-bottom: 30px; */
 }
+
+/* .main_switch_panel_buttons {
+  position: relative;
+  background-color: var(--color-background);
+  padding: 10px;
+  width: 100%;
+  border-bottom-right-radius: 20px;
+} */
 
 .graph_panel {
   background-image: var(--gradient-primary);

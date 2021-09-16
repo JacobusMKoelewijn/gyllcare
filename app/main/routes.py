@@ -42,6 +42,8 @@ def gyllcare():
     # temperature = read_temp()
     # time_span = x_data[-1]
 
+    # Alarm.query.filter_by(id=1).first().status = True
+
     if request.method == "POST":
         Schedule.query.filter_by(id=1).first().time_on = schedule_form.unit_co2_on.data
         Schedule.query.filter_by(id=1).first().time_off = schedule_form.unit_co2_off.data
@@ -72,6 +74,8 @@ def gyllcare():
     schedule_form.unit_light_off.default = Schedule.query.filter_by(id=3).first().time_off
     schedule_form.unit_temp_on.default = Schedule.query.filter_by(id=4).first().time_on
     schedule_form.unit_temp_off.default = Schedule.query.filter_by(id=4).first().time_off
+
+    # Schedule.query.filter_by(id=1).first().active
     
     schedule_form.process()
 
@@ -87,18 +91,80 @@ def fishlens():
     get_picture()
     return ''
 
-
 @main.route("/status", methods=["GET", "POST"])
 @login_required
 def status():
 
-    gpio_14, gpio_15, gpio_18, gpio_23, gpio_16 = return_status()
-    message = {'gpio_pin_14':gpio_14,'gpio_pin_15':gpio_15,'gpio_pin_18':gpio_18,'gpio_pin_23':gpio_23, 'gpio_pin_16':gpio_16}
-    switch_dictionary = {'CO2': CO2.toggle_state, 'O2': O2.toggle_state, 'Light': Light.toggle_state, 'Therm': Therm.toggle_state}
+
+    # Temporary code which is very ugly, please change to classes!
+    def change_schedule_CO2():
+        if(Schedule.query.filter_by(id=1).first().active):
+            Schedule.query.filter_by(id=1).first().active = False
+        else:
+            Schedule.query.filter_by(id=1).first().active = True
+        
+        db.session.commit()
+
+    def change_schedule_O2():
+        if(Schedule.query.filter_by(id=2).first().active):
+            Schedule.query.filter_by(id=2).first().active = False
+        else:
+            Schedule.query.filter_by(id=2).first().active = True
+        
+        db.session.commit()
+    
+    def change_schedule_light():
+        if(Schedule.query.filter_by(id=3).first().active):
+            Schedule.query.filter_by(id=3).first().active = False
+        else:
+            Schedule.query.filter_by(id=3).first().active = True
+        
+        db.session.commit()
+
+    def change_schedule_temp():
+        if(Schedule.query.filter_by(id=4).first().active):
+            Schedule.query.filter_by(id=4).first().active = False
+        else:
+            Schedule.query.filter_by(id=4).first().active = True
+        
+        db.session.commit()
+    
+
+    CO2_schedule = Schedule.query.filter_by(id=1).first().active
+    O2_schedule = Schedule.query.filter_by(id=2).first().active
+    light_schedule = Schedule.query.filter_by(id=3).first().active
+    temp_schedule = Schedule.query.filter_by(id=4).first().active
+
+    gpio_14, gpio_15, gpio_18, gpio_23, gpio_16, gpio_20 = return_status()
+    
+    message = {
+        'gpio_pin_14':gpio_14,
+        'gpio_pin_15':gpio_15,
+        'gpio_pin_18':gpio_18,
+        'gpio_pin_23':gpio_23, 
+        'gpio_pin_16':gpio_16, 
+        'gpio_pin_20':gpio_20,
+        'CO2_schedule':CO2_schedule,
+        'O2_schedule':O2_schedule,
+        'light_schedule':light_schedule,
+        'temp_schedule':temp_schedule
+               }
+
+    switch_dictionary = {
+        'CO2': CO2.toggle_state,
+        'O2': O2.toggle_state,
+        'Light': Light.toggle_state,
+        'Therm': Therm.toggle_state,
+        'CO2_schedule': change_schedule_CO2,
+        'O2_schedule': change_schedule_O2,
+        'light_schedule': change_schedule_light,
+        'temp_schedule' : change_schedule_temp
+        }
 
     if request.method == "POST":
         switch_name = request.get_json()["name"]
         switch_dictionary[str(switch_name)]()
+        print("test")
         return ""
     
     return jsonify(message)
@@ -158,11 +224,8 @@ def shutdown():
 @login_required
 def alarm_mode():
     if request.method == "POST":
-
-        # socketio.emit('alarm', 'the alarm has been triggered')
-   
+  
         gpio_16 = return_status()[-1]
-
 
         if not gpio_16:
             alarm.start()

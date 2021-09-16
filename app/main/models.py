@@ -9,6 +9,7 @@ class Events(db.Model):
 class Schedule(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     unit = db.Column(db.String(30), unique=True)
+    active = db.Column(db.Boolean)
     time_on = db.Column(db.String(30), unique=False)
     time_off = db.Column(db.String(30), unique=False)
 

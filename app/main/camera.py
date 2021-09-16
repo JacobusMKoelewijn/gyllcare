@@ -17,5 +17,5 @@ def get_picture():
         camera.stop_preview()
     finally:
         camera.close()
-        print("Camera closed confirmed")
+        # print("Camera closed confirmed")
         

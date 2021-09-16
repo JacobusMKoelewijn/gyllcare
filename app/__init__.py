@@ -11,6 +11,7 @@ from .main import main as main_blueprint
 from .main.extensions import db, socketio, mail, login_manager
 
 
+
 def create_app(config_file='config.py'):
 
     app = Flask(__name__)
@@ -28,6 +29,7 @@ def create_app(config_file='config.py'):
 
     with app.app_context():
         # print("initiating")
+        # db.create_all()
         
         app_start = Events.query.filter_by(id=1).first()
         app_start.time = datetime.now().strftime("%d-%m-%Y %H:%M")

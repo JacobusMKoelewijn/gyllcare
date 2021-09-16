@@ -19,6 +19,7 @@ class AlarmMode():
         AlarmMode.stop_thread = True
         self.id.join()
 
+
 CO2 = ToggleSwitch(14, "CO2")
 O2 = ToggleSwitch(15, "O2")
 Light = ToggleSwitch(18, "Light")

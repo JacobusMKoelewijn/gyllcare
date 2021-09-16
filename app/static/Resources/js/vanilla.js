@@ -3,7 +3,9 @@
 const mousePointer = document.querySelectorAll('.mouse_pointer');
 const menuHidden = document.querySelector('#menu_hidden');
 const menuButton = document.querySelector('.toggle');
+
 const switchButtons = document.querySelectorAll('.relay_switch');
+const scheduleButtons = document.querySelectorAll('.schedule_switch');
 
 const sendLog = document.querySelector('#send_log');
 const cleanAq = document.querySelector('#clean_aq');
@@ -18,11 +20,11 @@ const mainModal = document.querySelector('.main_modal');
 const mainModalClose = document.querySelector('.main_modal_close');
 
 const alarmMode = document.querySelector('#alarm_mode');
-const alarm = document.querySelector('.alarm');
+const alarmRed = document.querySelector('.alarm_red');
 const alarmBlue = document.querySelector('.alarm_blue');
 
-// const socket = io.connect('http://127.0.0.1:5000');
-const socket = io.connect('http://82.72.121.59:9000');
+const socket = io.connect('http://127.0.0.1:5000');
+// const socket = io.connect('http://82.72.121.59:9000');
 
 socket.on('connect', function () {
     socket.send(
@@ -34,15 +36,14 @@ socket.on('connect', function () {
 });
 
 socket.on('alarm', function (msg) {
-    console.log('Something triggered the alarm');
-    // setTimeout()
-    setInterval(function () {
-        console.log('testing');
-        alarmBlue.classList.remove('hidden');
-    }, 1000);
-    setInterval(function () {
-        alarmBlue.classList.add('hidden');
-    }, 2000);
+    alarmBlue.classList.remove('hidden');
+
+    // setInterval(function () {
+    //     alarmBlue.classList.remove('hidden');
+    // }, 1000);
+    // setInterval(function () {
+    //     alarmBlue.classList.add('hidden');
+    // }, 2000);
 });
 
 const init = {
@@ -53,10 +54,15 @@ const init = {
                 return response.json();
             })
             .then(function (data) {
-                // console.log(data);
-                if (data.gpio_pin_16) alarm.classList.remove('hidden');
+                console.log(data);
+                if (data.gpio_pin_16) alarmRed.classList.remove('hidden');
+                if (data.gpio_pin_20) alarmBlue.classList.remove('hidden');
                 for (const [gpio, status] of Object.entries(data)) {
-                    if (gpio != 'gpio_pin_16' && status) {
+                    if (
+                        gpio != 'gpio_pin_16' &&
+                        gpio != 'gpio_pin_20' &&
+                        status
+                    ) {
                         const element = document.getElementById(`${gpio}`);
                         element.checked = status;
                         changeLabel(element);
@@ -76,7 +82,7 @@ init.retrieveStatus();
 // init.setButtons();
 
 const changeLabel = function (currentSwitch) {
-    // console.log(currentSwitch);
+    console.log(currentSwitch);
     currentSwitch.previousElementSibling.innerHTML = '';
     currentSwitch.checked
         ? currentSwitch.previousElementSibling.classList.add('neon')
@@ -151,9 +157,10 @@ alarmMode.addEventListener('click', function (e) {
         .then(function (text) {
             console.log(text);
             if (text) {
-                alarm.classList.remove('hidden');
+                alarmRed.classList.remove('hidden');
             } else {
-                alarm.classList.add('hidden');
+                alarmRed.classList.add('hidden');
+                alarmBlue.classList.add('hidden');
             }
         });
 });
@@ -204,6 +211,27 @@ switchButtons.forEach(function (button) {
             .then(function (text) {
                 // console.log('POST response');
                 // console.log(text);
+            });
+    });
+});
+
+scheduleButtons.forEach(function (button) {
+    button.addEventListener('click', function (e) {
+        console.log(this);
+        fetch('/status', {
+            headers: {
+                'content-type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                name: this.getAttribute('name'),
+            }),
+        })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                // document.querySelector('#co2_start').setAttribute('disabled', true);
             });
     });
 });

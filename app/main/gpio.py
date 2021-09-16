@@ -46,7 +46,7 @@ class ToggleSwitch:
 
 
 def return_status(): # return current status of GPIO pins.
-    gpio_status = [True if item == 1 else False for item in [GPIO.input(14), GPIO.input(15), GPIO.input(18), GPIO.input(23), GPIO.input(16)]]
+    gpio_status = [True if item == 1 else False for item in [GPIO.input(14), GPIO.input(15), GPIO.input(18), GPIO.input(23), GPIO.input(16), GPIO.input(20)]]
     return gpio_status    
 
 def alarm_on(stop):
@@ -57,16 +57,17 @@ def alarm_on(stop):
     while True:
         if GPIO.input(21):
 
-            socketio.emit('alarm', 'the alarm has been triggered') 
-            # -- FIX THIS AFTER HOLIDAY WITH NGYNX/GUNICORN OR A DIFFERENT APPROACH
-
             GPIO.output(20, GPIO.HIGH)
+            socketio.emit('alarm')
+
             logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
             logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected! \n")
             logfile.close()
+            
             time.sleep(5)
-            GPIO.output(20, GPIO.LOW)
+            # GPIO.output(20, GPIO.LOW)
         time.sleep(1)
         if(stop()):
             GPIO.output(16, GPIO.LOW)
+            GPIO.output(20, GPIO.LOW)
             break
