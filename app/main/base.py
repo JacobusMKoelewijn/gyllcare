@@ -1,6 +1,7 @@
 from .gpio import ToggleSwitch, alarm_on
 from .temp import read_temp
-
+from .models import Schedule
+from .extensions import db
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -9,7 +10,10 @@ from scipy.interpolate import make_interp_spline
 from apscheduler.schedulers.background import BackgroundScheduler
 import threading
 
-class AlarmMode():       
+# from gyllcare import create_app
+# app = create_app()
+
+class AlarmMode():      
     def start(self):
         AlarmMode.stop_thread = False
         self.id = threading.Thread(target=alarm_on, args=(lambda : AlarmMode.stop_thread,))
@@ -20,10 +24,29 @@ class AlarmMode():
         self.id.join()
 
 
+class Scheduler():
+    def __init__(self, id):
+        self.id = id
+
+    def toggle_state(self):
+        if(Schedule.query.filter_by(id=self.id).first().active):
+            Schedule.query.filter_by(id=self.id).first().active = False  
+        else:
+            Schedule.query.filter_by(id=self.id).first().active = True
+        
+        db.session.commit()
+
+
 CO2 = ToggleSwitch(14, "CO2")
 O2 = ToggleSwitch(15, "O2")
 Light = ToggleSwitch(18, "Light")
 Therm = ToggleSwitch(23, "Therm")
+
+CO2_scheduler = Scheduler(1)
+O2_scheduler = Scheduler(2)
+Light_scheduler = Scheduler(3)
+Therm_scheduler = Scheduler(4)
+
 alarm = AlarmMode()
 schedule = BackgroundScheduler(daemon=True)
 

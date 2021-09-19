@@ -2,7 +2,7 @@ from flask import Flask
 
 from .main.base import read_temp_plot_data, schedule, CO2, O2, Therm, Light
 from .main.models import Events, Schedule
-from .main.camera import get_picture
+# from .main.camera import get_picture
 
 from datetime import datetime
 import eventlet
@@ -19,8 +19,7 @@ def create_app(config_file='config.py'):
     
     eventlet.monkey_patch()
     login_manager.login_view = "main.index"
-    
-    # get_picture()
+       
     
     db.init_app(app)
     mail.init_app(app)
@@ -28,9 +27,7 @@ def create_app(config_file='config.py'):
     socketio.init_app(app)
 
     with app.app_context():
-        # print("initiating")
-        # db.create_all()
-        
+
         app_start = Events.query.filter_by(id=1).first()
         app_start.time = datetime.now().strftime("%d-%m-%Y %H:%M")
         db.session.commit()

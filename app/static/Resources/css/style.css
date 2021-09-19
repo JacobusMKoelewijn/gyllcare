@@ -320,6 +320,8 @@ input:checked + .slider:before {
 }
 
 .photo_panel {
+  margin-bottom: 10px;
+  /* border-top-right-radius: 20px; */
 }
 
 .fishlens_layout {
@@ -398,7 +400,7 @@ input:checked + .slider:before {
   padding: 10px;
   border-top-right-radius: 20px;
   /* color: #00a8ff; */
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   /* background-color: #ffffff; */
   /* border-radius: 20px; */
   /* padding-left: 10px;
@@ -414,6 +416,19 @@ input:checked + .slider:before {
   width: 100%;
   border-bottom-right-radius: 20px;
 } */
+
+.schedule_in {
+  /* background-color:#3f4446; */
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  /* padding-bottom: 1px; */
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+}
+
+
 
 .graph_panel {
   background-image: var(--gradient-primary);

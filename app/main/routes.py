@@ -2,7 +2,7 @@ from . import main
 
 from .models import User, Events, Schedule
 from .forms import LoginForm, ScheduleForm
-from .base import schedule, CO2, O2, Therm, Light, alarm
+from .base import CO2_scheduler, O2_scheduler, Light_scheduler, Therm_scheduler, schedule, CO2, O2, Therm, Light, alarm
 from .extensions import db, mail, socketio
 from .gpio import return_status
 from .camera import get_picture
@@ -91,44 +91,11 @@ def fishlens():
     get_picture()
     return ''
 
+
+
 @main.route("/status", methods=["GET", "POST"])
 @login_required
 def status():
-
-
-    # Temporary code which is very ugly, please change to classes!
-    def change_schedule_CO2():
-        if(Schedule.query.filter_by(id=1).first().active):
-            Schedule.query.filter_by(id=1).first().active = False
-        else:
-            Schedule.query.filter_by(id=1).first().active = True
-        
-        db.session.commit()
-
-    def change_schedule_O2():
-        if(Schedule.query.filter_by(id=2).first().active):
-            Schedule.query.filter_by(id=2).first().active = False
-        else:
-            Schedule.query.filter_by(id=2).first().active = True
-        
-        db.session.commit()
-    
-    def change_schedule_light():
-        if(Schedule.query.filter_by(id=3).first().active):
-            Schedule.query.filter_by(id=3).first().active = False
-        else:
-            Schedule.query.filter_by(id=3).first().active = True
-        
-        db.session.commit()
-
-    def change_schedule_temp():
-        if(Schedule.query.filter_by(id=4).first().active):
-            Schedule.query.filter_by(id=4).first().active = False
-        else:
-            Schedule.query.filter_by(id=4).first().active = True
-        
-        db.session.commit()
-    
 
     CO2_schedule = Schedule.query.filter_by(id=1).first().active
     O2_schedule = Schedule.query.filter_by(id=2).first().active
@@ -155,16 +122,16 @@ def status():
         'O2': O2.toggle_state,
         'Light': Light.toggle_state,
         'Therm': Therm.toggle_state,
-        'CO2_schedule': change_schedule_CO2,
-        'O2_schedule': change_schedule_O2,
-        'light_schedule': change_schedule_light,
-        'temp_schedule' : change_schedule_temp
+        'CO2_schedule': CO2_scheduler.toggle_state,
+        'O2_schedule': O2_scheduler.toggle_state,
+        'light_schedule': Light_scheduler.toggle_state,
+        'temp_schedule' : Therm_scheduler.toggle_state
         }
 
     if request.method == "POST":
         switch_name = request.get_json()["name"]
         switch_dictionary[str(switch_name)]()
-        print("test")
+        # print("test")
         return ""
     
     return jsonify(message)

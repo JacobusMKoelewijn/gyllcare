@@ -5,17 +5,17 @@ from time import sleep
 # For now the solution is to put it in a try/error block (as is proper python code)
 
 def get_picture():
-    camera = PiCamera()
-    camera.rotation = 180
-    camera.resolution = (2592, 1944)
-    try:
-        camera.start_preview()
-        sleep(5)
-        print("Camera will now capture")
-        camera.capture('/var/www/html/gyllcare/app/static/Resources/img/fishlens.jpg')
-        # camera.capture('/home/pi/Viinum/gyllcare/app/static/Resources/img/fishlens.jpg')
-        camera.stop_preview()
-    finally:
-        camera.close()
-        # print("Camera closed confirmed")
+    # camera = PiCamera()
+    # camera.rotation = 180
+    # camera.resolution = (2592, 1944)
+    # try:
+    #     camera.start_preview()
+    #     sleep(5)
+    #     print("Camera will now capture")
+    #     camera.capture('/var/www/html/gyllcare/app/static/Resources/img/fishlens.jpg')
+    #     # camera.capture('/home/pi/Viinum/gyllcare/app/static/Resources/img/fishlens.jpg')
+    #     camera.stop_preview()
+    # finally:
+    #     camera.close()
+        print("Camera closed confirmed")
         
