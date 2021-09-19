@@ -8,12 +8,12 @@ from app.main.extensions import socketio
 
 
 # When using Apache2
-app = create_app()
+# app = create_app()
 
 # In development mode:
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # app.run()
-    socketio.run(app)
+    # socketio.run(app)
 
 print("####### Gyllcare seems to work.. awaiting response from the browser")
 
