@@ -72,84 +72,97 @@
 
 
                 <div class="schedule_panel">
+                    
 
                     <form action="{{ url_for('main.gyllcare') }}" method="POST" novalidate>
+                        
 
                         <div class='schedule_in'>
-                        <label class='switch_layout'> 
-                            <h2 class='label_layout'>CO<sub>2</sub>&nbsp;scheduler</h2>
-                            <input class='schedule_switch' id="CO2_schedule" name="CO2_schedule" type='checkbox'>
-                            <span class ='slider'></span>
-                        </label>
+                            <div class='schedule_in_label'>
+                            <label class='switch_layout'> 
+                                <h2 class='label_layout'>CO<sub>2</sub>&nbsp;scheduler</h2>
+                                <input class='schedule_switch' id="CO2_schedule" name="CO2_schedule" type='checkbox'>
+                                <span class ='slider'></span>
+                            </label>
+                            </div>
+
+                            <div style='margin-top: 10px; margin-bottom: 10px' class="form-row">
+                                <div class="col-sm-6">
+                                    {{ schedule_form.unit_co2_on(class_="form-control form-control-sm", id="co2_start", disabled=true) }}
+                                </div>
+                                <div class="col-sm-6">
+                                    {{ schedule_form.unit_co2_off(class_="form-control form-control-sm", id="co2_stop", disabled=true) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='schedule_in'>
+                            <div class='schedule_in_label'>
+                            <label style='margin-top: 10px;' class='switch_layout'> 
+                                <h2 class='label_layout'>O<sub>2</sub>&nbsp;scheduler</h2>
+                                <input class='schedule_switch' id="O2_schedule" name="O2_schedule" type='checkbox'>
+                                <span class ='slider'></span>
+                            </label>
+                            </div>
 
                         <div style='margin-top: 10px; margin-bottom: 10px' class="form-row">
                             <div class="col-sm-6">
-                                {{ schedule_form.unit_co2_on(class_="form-control form-control-sm", id="co2_start" ) }}
+                                {{ schedule_form.unit_o2_on(class_="form-control form-control-sm", id="o2_start", disabled=true) }}
                             </div>
                             <div class="col-sm-6">
-                                {{ schedule_form.unit_co2_off(class_="form-control form-control-sm", id="co2_stop" ) }}
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class='schedule_in'>
-
-                        <label style='margin-top: 10px' class='switch_layout'> 
-                            <h2 class='label_layout'>O<sub>2</sub>&nbsp;scheduler</h2>
-                            <input class='schedule_switch' id="O2_scheulde" name="O2_schedule" type='checkbox'>
-                            <span class ='slider'></span>
-                        </label>
-
-                        <div style='margin-top: 10px; margin-bottom: 10px' class="form-row">
-                            <div class="col-sm-6">
-                                {{ schedule_form.unit_o2_on(class_="form-control form-control-sm", id="o2_start" ) }}
-                            </div>
-                            <div class="col-sm-6">
-                                {{ schedule_form.unit_o2_off(class_="form-control form-control-sm", id="o2_stop" ) }}
+                                {{ schedule_form.unit_o2_off(class_="form-control form-control-sm", id="o2_stop", disabled=true) }}
                             </div>
                         </div>
                         </div>
                         
                         <div class='schedule_in'>
+                            <div class='schedule_in_label'>
                         <label style='margin-top: 10px' class='switch_layout'> 
                             <h2 class='label_layout'>Main&nbsp;light&nbsp;scheduler</h2>
                             <input class='schedule_switch' id='light_schedule' name="light_schedule" type='checkbox'>
                             <span class ='slider'></span>
                         </label>
+                        </div>
 
                         <div style='margin-top: 10px; margin-bottom: 10px' class="form-row">
                             <div class="col-sm-6">
-                                {{ schedule_form.unit_light_on(class_="form-control form-control-sm", id="light_start" ) }}
+                                {{ schedule_form.unit_light_on(class_="form-control form-control-sm", id="light_start", disabled=true) }}
                             </div>
                             <div class="col-sm-6">
-                                {{ schedule_form.unit_light_off(class_="form-control form-control-sm", id="light_stop" ) }}
+                                {{ schedule_form.unit_light_off(class_="form-control form-control-sm", id="light_stop", disabled=true) }}
                             </div>
                         </div>
                         </div>
 
                         <div class='schedule_in'>
+                            <div class='schedule_in_label'>
                         <label style='margin-top: 10px' class='switch_layout'> 
                             <h2 class='label_layout'>Thermostate&nbsp;scheduler</h2>
                             <input class='schedule_switch' id='temp_schedule' name="temp_schedule" type='checkbox'>
                             <span class ='slider'></span>
                         </label>
+                        </div>
 
                         <div style='margin-top: 10px; margin-bottom: 0px' class="form-row">
                             <div class="col-sm-6">
-                                {{ schedule_form.unit_temp_on(class_="form-control form-control-sm", id="temp_start" ) }}
+                                {{ schedule_form.unit_temp_on(class_="form-control form-control-sm", id="temp_start", disabled=true) }}
                             </div>
                             <div class="col-sm-6">
-                                {{ schedule_form.unit_temp_off(class_="form-control form-control-sm", id="temp_stop" ) }}
+                                {{ schedule_form.unit_temp_off(class_="form-control form-control-sm", id="temp_stop", disabled=true) }}
                             </div>
                         </div>   
-                        </div>                
+                        </div>
+                        
+                        
+                        
 
                         
                         
                         <div style="margin: 0 auto; margin-top: 20px;">
-                            <div class='button'><h2>Submit schedule</h2></div>
-                            <!-- <button type="submit" class="btn btn-primary btn-sm my-1">Submit schedule</button> -->
+                            <!-- <div class='button'><h2>Submit schedule</h2></div> -->
+                            <button type="submit" class="button">Submit schedule</button>
                         </div>
+                        
                         
                     </form>
                     <!-- <div class="schedule_panel_output">

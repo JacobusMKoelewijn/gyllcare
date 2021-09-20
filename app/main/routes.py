@@ -56,16 +56,15 @@ def gyllcare():
         
         db.session.commit()
 
-        schedule.reschedule_job("CO2.switch_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_on.data +':00')
-        schedule.reschedule_job("CO2.switch_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_off.data +':00')
-        schedule.reschedule_job("O2.switch_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_on.data +':00')
-        schedule.reschedule_job("O2.switch_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_off.data +':00')
-        schedule.reschedule_job("Light.switch_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_on.data +':00')
-        schedule.reschedule_job("Light.switch_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_off.data +':00')
-        schedule.reschedule_job("Therm.switch_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_on.data +':00')
-        schedule.reschedule_job("Therm.switch_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_off.data +':00')
+        schedule.reschedule_job("toggle_CO2_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_on.data +':00')
+        schedule.reschedule_job("toggle_CO2_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_off.data +':00')
+        schedule.reschedule_job("toggle_O2_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_on.data +':00')
+        schedule.reschedule_job("toggle_O2_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_off.data +':00')
+        schedule.reschedule_job("toggle_light_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_on.data +':00')
+        schedule.reschedule_job("toggle_light_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_off.data +':00')
+        schedule.reschedule_job("toggle_temp_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_on.data +':00')
+        schedule.reschedule_job("toggle_temp_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_off.data +':00')
 
-    
     schedule_form.unit_co2_on.default = Schedule.query.filter_by(id=1).first().time_on
     schedule_form.unit_co2_off.default = Schedule.query.filter_by(id=1).first().time_off
     schedule_form.unit_o2_on.default = Schedule.query.filter_by(id=2).first().time_on
@@ -134,6 +133,8 @@ def status():
         # print("test")
         return ""
     
+    schedule.print_jobs()
+
     return jsonify(message)
 
 @main.route("/email", methods=["POST"])

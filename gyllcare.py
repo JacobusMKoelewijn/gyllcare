@@ -9,7 +9,7 @@ from app.main.extensions import socketio
 
 # When using Apache2
 # app = create_app()
-
+# 
 # In development mode:
 # if __name__ == '__main__':
     # app.run()

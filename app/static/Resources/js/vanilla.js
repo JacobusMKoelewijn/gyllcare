@@ -65,6 +65,7 @@ const init = {
                     ) {
                         const element = document.getElementById(`${gpio}`);
                         element.checked = status;
+                        // console.log(element);
                         changeLabel(element);
                     }
                 }
@@ -82,19 +83,39 @@ init.retrieveStatus();
 // init.setButtons();
 
 const changeLabel = function (currentSwitch) {
-    console.log(currentSwitch);
-    currentSwitch.previousElementSibling.innerHTML = '';
-    currentSwitch.checked
-        ? currentSwitch.previousElementSibling.classList.add('neon')
-        : currentSwitch.previousElementSibling.classList.remove('neon');
-    currentSwitch.previousElementSibling.insertAdjacentHTML(
-        'afterbegin',
-        `${currentSwitch
-            .getAttribute('name')
-            .replace(/(\d+)/g, '<sub>$1</sub>')}&nbsp;is&nbsp;switched&nbsp;${
-            currentSwitch.checked ? 'on' : 'off'
-        }`
-    );
+    if (currentSwitch.id[0] == 'g') {
+        currentSwitch.previousElementSibling.innerHTML = '';
+        currentSwitch.checked
+            ? currentSwitch.previousElementSibling.classList.add('neon')
+            : currentSwitch.previousElementSibling.classList.remove('neon');
+        currentSwitch.previousElementSibling.insertAdjacentHTML(
+            'afterbegin',
+            `${currentSwitch
+                .getAttribute('name')
+                .replace(
+                    /(\d+)/g,
+                    '<sub>$1</sub>'
+                )}&nbsp;is&nbsp;switched&nbsp;${
+                currentSwitch.checked ? 'on' : 'off'
+            }`
+        );
+    } else {
+        const [select_on, select_off] = currentSwitch.parentElement.parentElement.nextElementSibling.querySelectorAll('select');
+        console.log(select_on);
+        currentSwitch.checked ? (select_on.removeAttribute('disabled'), select_off.removeAttribute('disabled')) : (select_on.setAttribute('disabled', true), select_off.setAttribute('disabled', true));
+        // console.log(selecton_on);
+        //  : select_on.setAttribute('disabled', true)
+        //     change.setAttribute('disabled', true);
+        // });
+
+        // switchButtons.forEach(function (button) {
+        //     button.addEventListener('click', function (e) {
+        //         changeLabel(this);
+        //         console.log(this);
+        //         fetch('/status', {
+
+        // document.querySelector('#co2_start').setAttribute('disabled', true);
+    }
 };
 
 const openSendLogModal = function () {
@@ -217,7 +238,8 @@ switchButtons.forEach(function (button) {
 
 scheduleButtons.forEach(function (button) {
     button.addEventListener('click', function (e) {
-        console.log(this);
+        // console.log(this);
+        changeLabel(this);
         fetch('/status', {
             headers: {
                 'content-type': 'application/json',

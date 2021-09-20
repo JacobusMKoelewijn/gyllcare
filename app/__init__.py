@@ -1,6 +1,6 @@
 from flask import Flask
 
-from .main.base import read_temp_plot_data, schedule, CO2, O2, Therm, Light
+from .main.base import read_temp_plot_data, schedule, CO2, O2, Therm, Light, CO2_scheduler, O2_scheduler, Therm_scheduler, Light_scheduler
 from .main.models import Events, Schedule
 # from .main.camera import get_picture
 
@@ -52,6 +52,18 @@ def create_app(config_file='config.py'):
         schedule.add_job(read_temp_plot_data,'interval', minutes=60, start_date='2021-05-01 00:00:00', id="read_temp_plot_data")
 
         schedule.start()
+
+        if not CO2_scheduler.return_status():
+            CO2_scheduler.pause_schedule()
+        
+        if not O2_scheduler.return_status():
+            O2_scheduler.pause_schedule()
+        
+        if not Light_scheduler.return_status():
+            Light_scheduler.pause_schedule()
+
+        if not Therm_scheduler.return_status():
+            Therm_scheduler.pause_schedule()
 
         app.register_blueprint(main_blueprint)
 
