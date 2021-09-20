@@ -41,15 +41,15 @@ def create_app(config_file='config.py'):
         unit_temp_time_on = Schedule.query.filter_by(id=4).first().time_on
         unit_temp_time_off = Schedule.query.filter_by(id=4).first().time_off
 
-        schedule.add_job(CO2.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_on +':00', id="toggle_CO2_on")
-        schedule.add_job(CO2.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_off +':00', id="toggle_CO2_off")
-        schedule.add_job(O2.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_on +':00', id="toggle_O2_on")
-        schedule.add_job(O2.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_off +':00', id="toggle_O2_off")
-        schedule.add_job(Light.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_on +':00', id="toggle_light_on")
-        schedule.add_job(Light.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_off +':00', id="toggle_light_off")
-        schedule.add_job(Therm.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_on +':00', id="toggle_temp_on")
-        schedule.add_job(Therm.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_off +':00', id="toggle_temp_off")
-        schedule.add_job(read_temp_plot_data,'interval', minutes=60, start_date='2021-05-01 00:00:00', id="read_temp_plot_data")
+        schedule.add_job(CO2.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_on +':00', id="toggle_CO2_on", misfire_grace_time=120)
+        schedule.add_job(CO2.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_co2_time_off +':00', id="toggle_CO2_off", misfire_grace_time=120)
+        schedule.add_job(O2.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_on +':00', id="toggle_O2_on", misfire_grace_time=120)
+        schedule.add_job(O2.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_o2_time_off +':00', id="toggle_O2_off", misfire_grace_time=120)
+        schedule.add_job(Light.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_on +':00', id="toggle_light_on", misfire_grace_time=120)
+        schedule.add_job(Light.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_light_time_off +':00', id="toggle_light_off", misfire_grace_time=120)
+        schedule.add_job(Therm.switch_on,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_on +':00', id="toggle_temp_on", misfire_grace_time=120)
+        schedule.add_job(Therm.switch_off,'interval', days=1, start_date='2021-05-01 ' + unit_temp_time_off +':00', id="toggle_temp_off", misfire_grace_time=120)
+        schedule.add_job(read_temp_plot_data,'interval', minutes=60, start_date='2021-05-01 00:00:00', id="read_temp_plot_data", misfire_grace_time=120)
 
         schedule.start()
 

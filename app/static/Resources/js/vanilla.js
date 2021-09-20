@@ -102,19 +102,15 @@ const changeLabel = function (currentSwitch) {
     } else {
         const [select_on, select_off] = currentSwitch.parentElement.parentElement.nextElementSibling.querySelectorAll('select');
         console.log(select_on);
-        currentSwitch.checked ? (select_on.removeAttribute('disabled'), select_off.removeAttribute('disabled')) : (select_on.setAttribute('disabled', true), select_off.setAttribute('disabled', true));
-        // console.log(selecton_on);
-        //  : select_on.setAttribute('disabled', true)
-        //     change.setAttribute('disabled', true);
-        // });
-
-        // switchButtons.forEach(function (button) {
-        //     button.addEventListener('click', function (e) {
-        //         changeLabel(this);
-        //         console.log(this);
-        //         fetch('/status', {
-
-        // document.querySelector('#co2_start').setAttribute('disabled', true);
+        currentSwitch.checked ? (select_on.removeAttribute('disabled'),
+                                 select_on.style.backgroundColor = '#2d3436',
+                                 select_off.removeAttribute('disabled'),
+                                 select_off.style.backgroundColor = '#2d3436') 
+                              : (select_on.setAttribute('disabled', true),
+                                 select_on.style.backgroundColor = '#55efc4',
+                                 select_off.setAttribute('disabled', true),
+                                 select_off.style.backgroundColor = '#55efc4');
+      
     }
 };
 

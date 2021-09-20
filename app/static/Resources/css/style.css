@@ -1,5 +1,7 @@
 :root {
   --color-background: #2d3436;
+  /* --color-background: #000000; */
+
   --color-primary: #55efc4;
   --color-secondary: #00b893;
   --gradient-primary: linear-gradient(
@@ -133,6 +135,15 @@ h3 {
   transition: background-color 0.25s ease;
 }
 
+.schedulebutton {
+  color:#ffffff;
+  font-size: 80%;
+  border-left: 3px solid var(--color-secondary);
+  border-right: 3px solid var(--color-secondary);
+  height: 200px;
+  border-radius: 20px;
+}
+
 .main_switch_panel {
   /* position: relative; */
   background-color: var(--color-background);
@@ -192,7 +203,7 @@ h3 {
   bottom: 0;
   /* background-color: black; */
   transition: 0.4s;
-  border: 3px solid var(--color-primary);
+  border: 3px solid var(--color-secondary);
   border-radius: 34px;
 }
 
@@ -421,19 +432,18 @@ input:checked + .slider:before {
 
 .schedule_in {
   /* background-color: var(--color-background); */
-  padding-top: 10px;
+  /* padding-top: 10px; */
   /* margin-right: 100px; */
   /* padding-right: 40px; */
   /* padding-left: 10px; */
   /* padding-bottom: 1px; */
   /* border-top-right-radius: 20px; */
   /* border-bottom-right-radius: 20px; */
-
 }
 
 .schedule_in_label {
   background-color: var(--color-background);
-  /* padding-top: 5px; */
+  /* padding: 5px; */
   /* padding-bottom: 8px; */
   border-radius: 20px;
 }

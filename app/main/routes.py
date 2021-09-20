@@ -45,25 +45,32 @@ def gyllcare():
     # Alarm.query.filter_by(id=1).first().status = True
 
     if request.method == "POST":
-        Schedule.query.filter_by(id=1).first().time_on = schedule_form.unit_co2_on.data
-        Schedule.query.filter_by(id=1).first().time_off = schedule_form.unit_co2_off.data
-        Schedule.query.filter_by(id=2).first().time_on = schedule_form.unit_o2_on.data
-        Schedule.query.filter_by(id=2).first().time_off = schedule_form.unit_o2_off.data
-        Schedule.query.filter_by(id=3).first().time_on = schedule_form.unit_light_on.data
-        Schedule.query.filter_by(id=3).first().time_off = schedule_form.unit_light_off.data
-        Schedule.query.filter_by(id=4).first().time_on = schedule_form.unit_temp_on.data
-        Schedule.query.filter_by(id=4).first().time_off = schedule_form.unit_temp_off.data
+
+        if CO2_scheduler.return_status():
+            Schedule.query.filter_by(id=1).first().time_on = schedule_form.unit_co2_on.data
+            Schedule.query.filter_by(id=1).first().time_off = schedule_form.unit_co2_off.data
+            schedule.reschedule_job("toggle_CO2_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_on.data +':00')
+            schedule.reschedule_job("toggle_CO2_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_off.data +':00')
+        
+        if O2_scheduler.return_status():
+            Schedule.query.filter_by(id=2).first().time_on = schedule_form.unit_o2_on.data
+            Schedule.query.filter_by(id=2).first().time_off = schedule_form.unit_o2_off.data
+            schedule.reschedule_job("toggle_O2_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_on.data +':00')
+            schedule.reschedule_job("toggle_O2_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_off.data +':00')
+        
+        if Light_scheduler.return_status():
+           Schedule.query.filter_by(id=3).first().time_on = schedule_form.unit_light_on.data
+           Schedule.query.filter_by(id=3).first().time_off = schedule_form.unit_light_off.data
+           schedule.reschedule_job("toggle_light_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_on.data +':00')
+           schedule.reschedule_job("toggle_light_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_off.data +':00')
+
+        if Therm_scheduler.return_status():
+             Schedule.query.filter_by(id=4).first().time_on = schedule_form.unit_temp_on.data
+             Schedule.query.filter_by(id=4).first().time_off = schedule_form.unit_temp_off.data
+             schedule.reschedule_job("toggle_temp_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_on.data +':00')
+             schedule.reschedule_job("toggle_temp_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_off.data +':00')
         
         db.session.commit()
-
-        schedule.reschedule_job("toggle_CO2_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_on.data +':00')
-        schedule.reschedule_job("toggle_CO2_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_co2_off.data +':00')
-        schedule.reschedule_job("toggle_O2_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_on.data +':00')
-        schedule.reschedule_job("toggle_O2_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_o2_off.data +':00')
-        schedule.reschedule_job("toggle_light_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_on.data +':00')
-        schedule.reschedule_job("toggle_light_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_light_off.data +':00')
-        schedule.reschedule_job("toggle_temp_on", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_on.data +':00')
-        schedule.reschedule_job("toggle_temp_off", trigger="interval", days=1, start_date='2020-12-10 ' + schedule_form.unit_temp_off.data +':00')
 
     schedule_form.unit_co2_on.default = Schedule.query.filter_by(id=1).first().time_on
     schedule_form.unit_co2_off.default = Schedule.query.filter_by(id=1).first().time_off
@@ -73,9 +80,7 @@ def gyllcare():
     schedule_form.unit_light_off.default = Schedule.query.filter_by(id=3).first().time_off
     schedule_form.unit_temp_on.default = Schedule.query.filter_by(id=4).first().time_on
     schedule_form.unit_temp_off.default = Schedule.query.filter_by(id=4).first().time_off
-
-    # Schedule.query.filter_by(id=1).first().active
-    
+     
     schedule_form.process()
 
     return render_template("gyllcare.html", #Is this still required after vanilla js update?
