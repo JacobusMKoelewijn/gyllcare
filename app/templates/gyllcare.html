@@ -20,10 +20,10 @@
 
                     <div class='button' id="send_log"><h2 style="font-size: 80%">Send log</h2></div>
 
-                    <div class='main_modal hidden'>
+                    <!-- <div class='main_modal hidden'>
                         <h2 class='main_modal_text'>The log file has been send.</h2>
                         <ion-icon class="main_modal_close", name="close-outline"></ion-icon>
-                    </div>
+                    </div> -->
 
                     <div class='button' id="alarm_mode"><h2 style="font-size: 80%">Toggle alarm</h2></div>
                     <a style="text-decoration: none" class='button' href="{{ url_for('main.logout') }}"><h2 style="font-size: 80%">Log out</h2></a>
@@ -189,8 +189,17 @@
 
 
                 <div class="photo_panel">
-                    <img class="fishlens_layout" src="{{ url_for('static', filename='Resources/img/fishlens.jpg') }}">
-                    <div class='button' id="fishlens"><h2>Take photo</h2></div>
+
+
+                    <div class="overlay_2 hidden">
+                        <div id="spinner_2" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                        <div id="log_message_2" class=""><h2>Capturing image...</h2></div>
+                    </div>
+
+                    <div>
+                        <img class="fishlens_layout" id="fishlens_photo" src="{{ url_for('static', filename='Resources/img/fishlens.jpg') }}">
+                        <div class='button' id="fishlens"><h2>Take photo</h2></div>
+                    </div>
                 </div>
 
                 <div class="graph_panel">

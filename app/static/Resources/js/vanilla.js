@@ -11,10 +11,15 @@ const sendLog = document.querySelector('#send_log');
 const cleanAq = document.querySelector('#clean_aq');
 
 const fishLens = document.querySelector('#fishlens');
+const fishLensPhoto = document.querySelector('#fishlens_photo');
 
 const overlay = document.querySelector('.overlay');
 const spinner = document.querySelector('#spinner');
 const logMessage = document.querySelector('#log_message');
+
+const overlay_2 = document.querySelector('.overlay_2');
+const spinner_2 = document.querySelector('#spinner_2');
+const logMessage_2 = document.querySelector('#log_message_2');
 
 const mainModal = document.querySelector('.main_modal');
 const mainModalClose = document.querySelector('.main_modal_close');
@@ -100,26 +105,33 @@ const changeLabel = function (currentSwitch) {
             }`
         );
     } else {
-        const [select_on, select_off] = currentSwitch.parentElement.parentElement.nextElementSibling.querySelectorAll('select');
+        const [select_on, select_off] =
+            currentSwitch.parentElement.parentElement.nextElementSibling.querySelectorAll(
+                'select'
+            );
         console.log(select_on);
-        currentSwitch.checked ? (select_on.removeAttribute('disabled'),
-                                 select_on.style.backgroundColor = '#2d3436',
-                                 select_off.removeAttribute('disabled'),
-                                 select_off.style.backgroundColor = '#2d3436') 
-                              : (select_on.setAttribute('disabled', true),
-                                 select_on.style.backgroundColor = '#55efc4',
-                                 select_off.setAttribute('disabled', true),
-                                 select_off.style.backgroundColor = '#55efc4');
-      
+        currentSwitch.checked
+            ? (select_on.removeAttribute('disabled'),
+              (select_on.style.backgroundColor = '#2d3436'),
+              select_off.removeAttribute('disabled'),
+              (select_off.style.backgroundColor = '#2d3436'))
+            : (select_on.setAttribute('disabled', true),
+              (select_on.style.backgroundColor = '#55efc4'),
+              select_off.setAttribute('disabled', true),
+              (select_off.style.backgroundColor = '#55efc4'));
     }
 };
 
-const openSendLogModal = function () {
+const removeSpinnerMenuPanel = function () {
     spinner.classList.add('hidden');
     logMessage.classList.add('hidden');
     overlay.classList.add('hidden');
-    // mainModal.classList.remove('hidden');
-    // overlay.classList.remove('hidden');
+};
+
+const removeSpinnerPhotoPanel = function () {
+    spinner_2.classList.add('hidden');
+    logMessage_2.classList.add('hidden');
+    overlay_2.classList.add('hidden');
 };
 
 // const closeSendLogModal = function () {
@@ -147,11 +159,11 @@ sendLog.addEventListener('click', function (e) {
         method: 'POST',
     })
         .then(function (response) {
-            console.log(response);
-            console.log(response.status);
+            // console.log(response);
+            // console.log(response.status);
 
             if (response.status == 200) {
-                openSendLogModal();
+                removeSpinnerMenuPanel();
             } else {
                 alert('Something went wrong, please try again later.');
             }
@@ -255,20 +267,56 @@ scheduleButtons.forEach(function (button) {
 });
 
 fishLens.addEventListener('click', function (e) {
+    spinner_2.classList.remove('hidden');
+    logMessage_2.classList.remove('hidden');
+    overlay_2.classList.remove('hidden');
     fetch('/fishlens', {
-        // headers: {
-        //     'content-type': 'application/json',
-        // },
         method: 'POST',
-        // body: 'lorem ipsum',
     })
         .then(function (response) {
-            return response.text();
+            if (response.status == 200) {
+                console.log('Message received');
+                const timestamp = new Date().getTime();
+                fishLensPhoto.src = "/static/Resources/img/fishlens.jpg?t=" + timestamp;
+                // console.log(timestamp);
+                removeSpinnerPhotoPanel();
+               
+            } else {
+                console.log('Something went wrong');
+            }
         })
-        .then(function (text) {
+        .finally(function () {
             // console.log('POST response');
             // console.log(text);
         });
     // location.reload();
     // Make dynamic using AJAX in later stage
 });
+
+// sendLog.addEventListener('click', function (e) {
+//     // document.body.style.cursor = 'wait';
+//     // mousePointer.forEach(function (btn) {
+//     // btn.classList.remove('mouse_pointer');
+//     // });
+//     spinner.classList.remove('hidden');
+//     logMessage.classList.remove('hidden');
+//     overlay.classList.remove('hidden');
+//     fetch('/email', {
+//         method: 'POST',
+//     })
+//         .then(function (response) {
+//             console.log(response);
+//             console.log(response.status);
+
+//             if (response.status == 200) {
+//                 openSendLogModal();
+//             } else {
+//                 alert('Something went wrong, please try again later.');
+//             }
+//         })
+//         .finally(function () {
+//             // document.body.style.cursor = 'auto';
+//             // mousePointer.forEach(function (btn) {
+//             // btn.classList.add('mouse_pointer');
+//         });
+// });
