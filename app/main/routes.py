@@ -7,7 +7,7 @@ from .extensions import db, mail, socketio
 from .gpio import return_status
 from .camera import get_picture
 from flask_socketio import send
-
+from .temp import read_temp
 from datetime import datetime
 from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import login_user, login_required, logout_user
@@ -39,7 +39,7 @@ def gyllcare():
     results = Events.query.filter_by(id=1).first()
     change_to_datetime = datetime.strptime(results.time, '%d-%m-%Y %H:%M')
     time_active = str(datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0))[:-3] 
-    # temperature = read_temp()
+    temperature = read_temp()
     # time_span = x_data[-1]
 
     # Alarm.query.filter_by(id=1).first().status = True
@@ -86,7 +86,7 @@ def gyllcare():
     return render_template("gyllcare.html", #Is this still required after vanilla js update?
                                           time_active=time_active,
                                           schedule_form=schedule_form,
-                                        #   temperature=temperature,
+                                          temperature=temperature,
                                           )
 
 @main.route("/fishlens", methods=["GET", "POST"])

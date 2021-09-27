@@ -279,13 +279,12 @@ fishLens.addEventListener('click', function (e) {
                 const timestamp = new Date().getTime();
                 fishLensPhoto.src = "/static/Resources/img/fishlens.jpg?t=" + timestamp;
                 // console.log(timestamp);
-                removeSpinnerPhotoPanel();
-               
             } else {
                 console.log('Something went wrong');
             }
         })
         .finally(function () {
+            removeSpinnerPhotoPanel();
             // console.log('POST response');
             // console.log(text);
         });

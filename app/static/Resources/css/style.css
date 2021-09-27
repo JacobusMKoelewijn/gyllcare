@@ -4,6 +4,7 @@
 
   --color-primary: #55efc4;
   --color-secondary: #00b893;
+  --color-tertiary: #00a181;
   --gradient-primary: linear-gradient(
     to bottom,
     var(--color-background),
@@ -12,6 +13,12 @@
   --gradient-secondary: linear-gradient(
     to left,
     var(--color-background),
+    var(--color-primary)
+  );
+  --gradient-tertiary: linear-gradient(
+    to right,
+    var(--color-tertiary),
+    var(--color-tertiary), 
     var(--color-primary)
   );
   /* --gradient-secondary: linear-gradient(to bottom, var(--color-background), #5e5e5e); */
@@ -136,12 +143,14 @@ h3 {
 }
 
 .schedulebutton {
+  margin: 0px;
+  /* padding: 0px; */
   color:#ffffff;
-  font-size: 80%;
+  font-size: 90%;
   border-left: 3px solid var(--color-secondary);
   border-right: 3px solid var(--color-secondary);
-  height: 200px;
-  border-radius: 20px;
+  height: 50px;
+  border-radius: 5px;
 }
 
 .main_switch_panel {
@@ -332,7 +341,7 @@ input:checked + .slider:before {
 
 .photo_panel {
   margin-bottom: 10px;
-  position: relative;
+  /* position: relative; */
   /* border-top-right-radius: 20px; */
 }
 
@@ -349,8 +358,9 @@ input:checked + .slider:before {
   height: 100%;
   backdrop-filter: blur(4px);
   z-index: 100;
+  opacity: 0.5;
   transition: all 0.5s;
-  border-bottom-right-radius: 20px;
+  /* border-bottom-right-radius: 20px; */
 }
 
 .fishlens_layout {
@@ -451,14 +461,19 @@ input:checked + .slider:before {
 } */
 
 .schedule_in {
-  /* background-color: var(--color-background); */
+  /* background-color: */
+  background-image: var(--gradient-tertiary);
+  margin-top: 15px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
   /* padding-top: 10px; */
   /* margin-right: 100px; */
   /* padding-right: 40px; */
   /* padding-left: 10px; */
   /* padding-bottom: 1px; */
   /* border-top-right-radius: 20px; */
-  /* border-bottom-right-radius: 20px; */
+  border-radius: 5px;
 }
 
 .schedule_in_label {
@@ -515,4 +530,8 @@ input:checked + .slider:before {
 
 .grey {
   color: #adb5bd;
+}
+
+.artwork {
+  /* background-color: #2d3436; */
 }

@@ -5,8 +5,8 @@ from time import sleep
 # For now the solution is to put it in a try/error block (as is proper python code)
 
 def get_picture():
-    # sleep(5)
-    # print("picture is taken")
+    sleep(5)
+    print("picture is taken")
 
     camera = PiCamera()
     camera.rotation = 180

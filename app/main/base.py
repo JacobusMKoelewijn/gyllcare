@@ -125,6 +125,6 @@ def read_temp_plot_data():
 
     plt.annotate(str(Y_smooth[0]), (X_smooth[0], Y_smooth[0]), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000)
     plt.annotate(str(Y_smooth[-1]), (X_smooth[-1], Y_smooth[-1]), xytext=(-12, -4), xycoords="data", textcoords="offset pixels", color='white', fontweight=1000)
-    plt.text(1, min_temp - 2, f"Change in temperature since last {x_data[-1]} hours", color="#ffffff", fontsize="x-large")
+    plt.text(1, min_temp - 2, f"Change in water temperature since last {x_data[-1]} hours.", color="#ffffff", fontsize="x-large")
 
     plt.savefig('/var/www/html/gyllcare/app/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
