@@ -1,2 +1,2 @@
 # gyllcare
-A simple aquarium control unit.
+An aquarium control unit.
