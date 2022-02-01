@@ -1,3 +1,5 @@
+IN_DEVELOPMENT_MODE = False
+
 DEBUG = False
 SECRET_KEY = "WWOeeyV?cAnh"
 

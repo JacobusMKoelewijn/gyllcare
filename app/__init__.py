@@ -5,7 +5,7 @@ from .main.models import Events, Schedule
 # from .main.camera import get_picture
 
 from datetime import datetime
-import eventlet
+# import eventlet
 
 from .main import main as main_blueprint
 from .main.extensions import db, socketio, mail, login_manager
@@ -17,7 +17,7 @@ def create_app(config_file='config.py'):
     app = Flask(__name__)
     app.config.from_pyfile(config_file)
     
-    eventlet.monkey_patch()
+    # eventlet.monkey_patch()
     login_manager.login_view = "main.index"
        
     
