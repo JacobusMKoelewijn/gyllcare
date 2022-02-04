@@ -46,7 +46,7 @@ class ToggleSwitch:
 
 
 def return_status(): # return current status of GPIO pins.
-    gpio_status = [True if item == 1 else False for item in [GPIO.input(14), GPIO.input(15), GPIO.input(18), GPIO.input(23), GPIO.input(16), GPIO.input(20)]]
+    gpio_status = [True if item == 1 else False for item in [GPIO.input(25), GPIO.input(8), GPIO.input(7), GPIO.input(1), GPIO.input(16), GPIO.input(20)]]
     return gpio_status    
 
 def alarm_on(stop):
