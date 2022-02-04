@@ -10,8 +10,9 @@ from app.config import IN_DEVELOPMENT_MODE
 
 # Initiate finalizatin of project.
 print(IN_DEVELOPMENT_MODE)
+
 # When using Apache2
-app = create_app()
+# app = create_app()
 
 if IN_DEVELOPMENT_MODE:
     if __name__ == '__main__':

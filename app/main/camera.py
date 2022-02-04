@@ -1,9 +1,9 @@
-from app.config import IN_DEVELOPMENT_MODE
+from app.config import IN_PRODUCTION
 
 from picamera import PiCamera
 from time import sleep
 
-if not IN_DEVELOPMENT_MODE:
+if IN_PRODUCTION:
 
     # The camera module contains a time out error which has to be resolved!
     # For now the solution is to put it in a try/error block (as is proper python code)
@@ -26,7 +26,7 @@ if not IN_DEVELOPMENT_MODE:
             camera.close()
         # print("Camera closed confirmed")
 
-if IN_DEVELOPMENT_MODE:
+if not IN_PRODUCTION:
     def get_picture():
         print("Development mode: Image has been captured.")
         
