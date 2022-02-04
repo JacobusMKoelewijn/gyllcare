@@ -5,16 +5,16 @@
 
 from app import create_app
 from app.main.extensions import socketio
-from app.config import IN_DEVELOPMENT_MODE
+from app.config import IN_PRODUCTION
 
 
 # Initiate finalizatin of project.
-print(IN_DEVELOPMENT_MODE)
+# print(IN_DEVELOPMENT_MODE)
 
 # When using Apache2
 # app = create_app()
 
-if IN_DEVELOPMENT_MODE:
+if not IN_PRODUCTION:
     if __name__ == '__main__':
         socketio.run(app)
         print("Starting in development mode.")

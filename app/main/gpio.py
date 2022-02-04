@@ -6,10 +6,10 @@ from .extensions import socketio
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-GPIO.setup(14, GPIO.OUT, initial=GPIO.LOW)  # Relay switches
-GPIO.setup(15, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(23, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(25, GPIO.OUT, initial=GPIO.LOW)  # Relay switches
+GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(7, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(1, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(20, GPIO.OUT, initial=GPIO.LOW)  # blue LED
 GPIO.setup(16, GPIO.OUT, initial=GPIO.LOW)  # red LED
 GPIO.setup(21, GPIO.IN)                     # PIR Sensor

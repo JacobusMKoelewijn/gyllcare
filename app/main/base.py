@@ -60,10 +60,10 @@ class Scheduler():
         
         db.session.commit()
 
-CO2 = ToggleSwitch(14, "CO2")
-O2 = ToggleSwitch(15, "O2")
-Light = ToggleSwitch(18, "Light")
-Therm = ToggleSwitch(23, "Therm")
+CO2 = ToggleSwitch(25, "CO2")
+O2 = ToggleSwitch(8, "O2")
+Light = ToggleSwitch(7, "Light")
+Therm = ToggleSwitch(1, "Therm")
 
 CO2_scheduler = Scheduler(1, "toggle_CO2")
 O2_scheduler = Scheduler(2, "toggle_O2")
