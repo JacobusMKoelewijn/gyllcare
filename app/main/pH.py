@@ -3,6 +3,8 @@ import sys
 import time
 from serial import SerialException
 
+from app.config import IN_PRODUCTION
+
 def read_line():
 	"""
 	taken from the ftdi library and modified to 
@@ -63,8 +65,11 @@ def command_EZO_pH_circuit(cmd):
 	for i in range(len(lines)):
 		print( lines[i].decode('utf-8'))
 
+if IN_PRODUCTION:
+	usbport = '/dev/ttyAMA0'
+else:
+	usbport = '/dev/ttyAMA1'
 
-usbport = '/dev/ttyAMA1'
 
 try:
 	ser = serial.Serial(usbport, 9600, timeout=0)

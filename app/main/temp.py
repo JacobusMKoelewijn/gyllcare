@@ -1,4 +1,4 @@
-from app.config import IN_DEVELOPMENT_MODE
+from app.config import IN_PRODUCTION
 
 import os
 import glob
@@ -9,7 +9,7 @@ import time
 # Default GPIO4.
 # circuitbasics.com/raspberry-pi-ds18B20-temperature-sensor-tutorial
 
-if not IN_DEVELOPMENT_MODE:
+if IN_PRODUCTION:
     os.system('modprobe w1-gpio')
     os.system('modprobe w1-therm')
     
@@ -34,7 +34,7 @@ if not IN_DEVELOPMENT_MODE:
             temp_c = float(temp_string) / 1000.0
             return round(temp_c, 1)
 
-if IN_DEVELOPMENT_MODE:
+if not IN_PRODUCTION:
     def read_temp():
         return 50.0
 
