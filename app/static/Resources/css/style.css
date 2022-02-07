@@ -1,7 +1,9 @@
+/* ################ */
+/* Primary settings */
+/* ################ */
+
 :root {
   --color-background: #2d3436;
-  /* --color-background: #000000; */
-
   --color-primary: #55efc4;
   --color-secondary: #00b893;
   --color-tertiary: #00a181;
@@ -18,24 +20,16 @@
   --gradient-tertiary: linear-gradient(
     to right,
     var(--color-tertiary),
-    var(--color-tertiary), 
+    var(--color-tertiary),
     var(--color-primary)
   );
-  /* --gradient-secondary: linear-gradient(to bottom, var(--color-background), #5e5e5e); */
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* cursor: wait; */
 }
-
-/* Bootstrap override */
-
-/* .container {
-    margin: 0;
-} */
 
 html {
   overflow-y: scroll;
@@ -48,16 +42,7 @@ body {
   font-size: 20px;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  /* cursor: wait; */
 }
-
-/* .mouse_pointer {
-  cursor: pointer;
-} */
-
-/* .mouse_waiting {
-  cursor: wait;
-} */
 
 h1 {
   font-family: "Pacifico", cursive;
@@ -66,46 +51,57 @@ h1 {
 }
 
 h2 {
-  font-size: 90%;
+  font-size: 60%;
   color: #ffffff;
-  margin: 0px; /* temporary bootstrap override */
+  margin: 0px;
   text-align: center;
 }
 
 h3 {
   font-size: 125%;
-  /* color: #00a8ff; */
 }
 
 .container {
   margin-top: 150px;
 }
 
-.login_panel {
-  max-width: 600px;
-  margin: 0 auto;
-}
+/* ########### */
+/* Login panel */
+/* ########### */
 
 .app_body {
-  /* position: relative; */
-  /* background-image: var(--gradient-primary); */
   max-width: 600px;
-  /* max-width: 100%; */
   margin: 0 auto;
-  /* border-radius: 20px; */
-  /* background-color: orange; */
 }
 
-.menu {
+.title_panel {
   background-color: var(--color-primary);
-  /* background-image: var(--color-primary); */
-  /* border-bottom: 3px solid var(--color-secondary); */
-  /* width: 100%; */
   height: 80px;
   padding: 15px;
 }
 
-#menu_hidden {
+.submit_button {
+  border: none;
+  padding: 3px;
+  color: #ffffff;
+  background-color: var(--color-secondary);
+  width: 50%;
+  border-bottom-right-radius: 20px;
+  justify-content: center;
+}
+
+.submit_button:hover {
+  background-color: var(--color-primary);
+  transition: background-color 0.25s ease;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 5px;
+  right:20px;
+}
+
+#hidden_menu_panel {
   /* background-image: var(--gradient-secondary); */
   display: flex;
   justify-content: center;
@@ -114,9 +110,18 @@ h3 {
   /* border-bottom-right-radius: 20px; */
 }
 
-#menu_hidden:not(.active) {
+#hidden_menu_panel:not(.active) {
   display: none;
 }
+
+.main_control_panel {
+  position: relative;
+  background-color: var(--color-background);
+  padding: 10px;
+  width: 100%;
+  border-bottom-right-radius: 20px;
+}
+
 
 .button {
   cursor: pointer;
@@ -145,7 +150,7 @@ h3 {
 .schedulebutton {
   margin: 0px;
   /* padding: 0px; */
-  color:#ffffff;
+  color: #ffffff;
   font-size: 90%;
   border-left: 3px solid var(--color-secondary);
   border-right: 3px solid var(--color-secondary);
@@ -170,13 +175,6 @@ h3 {
   /* padding-bottom: 30px; */
 }
 
-.main_switch_panel_buttons {
-  position: relative;
-  background-color: var(--color-background);
-  padding: 10px;
-  width: 100%;
-  border-bottom-right-radius: 20px;
-}
 
 /* ###################### */
 /* CSS for slider buttons */
@@ -417,8 +415,6 @@ input:checked + .slider:before {
   border-bottom-right-radius: 20px;
 }
 
-
-
 #log_message {
   /* display: inline-block; */
   position: relative;
@@ -483,8 +479,6 @@ input:checked + .slider:before {
   border-radius: 20px;
 }
 
-
-
 .graph_panel {
   background-image: var(--gradient-primary);
   color: var(--color-primary);
@@ -513,20 +507,9 @@ input:checked + .slider:before {
   margin-top: 20px;
 }
 
-.login_form {
-  border: 3px solid #ffffff;
-  background-color: #00a8ff;
-  color: #0d6efd;
-  border-radius: 20px;
-  padding: 30px;
-  position: relative;
-}
 
-.version {
-  position: absolute;
-  bottom: 0px;
-  right: 50px;
-}
+
+
 
 .grey {
   color: #adb5bd;

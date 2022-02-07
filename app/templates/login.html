@@ -2,26 +2,34 @@
 
 {% block content %}
 
-<div class="container">    
+<div class="container">
   <div class="row">
-        <div class="col">
-          <div class="login_panel">
-            <form class="login_form" action="{{ url_for('main.index') }}" method="POST" novalidate>
-
-                {{ form.csrf_token }}
-                
-                <div class="form-group">
-                    {{ form.name(class_="form-control form-control-sm", placeholder="username", id="name") }}
-                </div>
-                <div class="form-group">
-                    {{ form.password(class_="form-control form-control-sm", placeholder="password", id="password", type="password") }}
-                </div>
-                <button type="submit" class="btn btn-primary btn-sm btn-block">Enter</button>
-                <h2 class="version"><strong>{{ time }} (v {{ version }})</strong></h2>
-              </form>
-              </div>
+    <div class="col">
+      <div class="app_body">
+        <div class="title_panel">
+          <h1 style="float: left">Gyllcare</h1>
         </div>
+        <div class="main_control_panel">
+          <form style="padding: 10px" action="{{ url_for('main.index') }}" method="POST" novalidate>
+
+            {{ form.csrf_token }}
+
+            <div class="form-row">
+              {{ form.name(class_="form-control form-control-sm shadow-none", placeholder="Username", id="name",
+              style="background-color: #2d3436; border: solid 3px #00b893; color: #55efc4;") }}
+            </div>
+            <div style="margin-top: 10px" class="form-row">
+              {{ form.password(class_="form-control form-control-sm shadow-none", placeholder="Password", id="password",
+              style="background-color: #2d3436; border: solid 3px #00b893; color: #55efc4", type="password") }}
+            </div>
+            <button style="margin-top: 10px" type="submit" class="form-row submit_button">Enter</button>
+            <h2 class="copyright"><em><span style="color: #55efc4">&#169;</span> J. M. Koelewijn <span
+                style="color: #55efc4">v 1.0</span></em></h2>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 {% endblock %}

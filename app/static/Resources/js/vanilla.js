@@ -1,7 +1,7 @@
 'use strict';
 
 const mousePointer = document.querySelectorAll('.mouse_pointer');
-const menuHidden = document.querySelector('#menu_hidden');
+const menuHidden = document.querySelector('#hidden_menu_panel');
 const menuButton = document.querySelector('.toggle');
 
 const switchButtons = document.querySelectorAll('.relay_switch');
@@ -50,7 +50,7 @@ socket.on('alarm', function (msg) {
     //     alarmBlue.classList.add('hidden');
     // }, 2000);
 });
-
+// Make IIFE?
 const init = {
     retrieveStatus() {
         fetch('/status')
