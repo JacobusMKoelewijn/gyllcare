@@ -89,7 +89,9 @@ def read_temp_pH_plot_data():
     plt.xticks(fontsize="20")
     plt.box(False)
 
-    # plt.savefig('/var/www/html/gyllcare/app/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
-    plt.savefig('/home/pi/Viinum/gyllcare/app/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
+    if IN_PRODUCTION:
+        plt.savefig('/var/www/html/gyllcare/app/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
+    else:
+        plt.savefig('/home/pi/Viinum/gyllcare/app/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
 
 read_temp_pH_plot_data()
