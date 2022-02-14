@@ -51,7 +51,7 @@ h1 {
 }
 
 h2 {
-  font-size: 60%;
+  font-size: 80%;
   color: #ffffff;
   margin: 0px;
   text-align: center;
@@ -61,15 +61,18 @@ h3 {
   font-size: 125%;
 }
 
+h4 {
+  font-size: 60%;
+  color: #ffffff;
+  margin: 0px;
+  text-align: center;
+}
+
 .container {
   margin-top: 150px;
 }
 
-/* ########### */
-/* Login panel */
-/* ########### */
-
-.app_body {
+.app_body_panel {
   max-width: 600px;
   margin: 0 auto;
 }
@@ -79,6 +82,10 @@ h3 {
   height: 80px;
   padding: 15px;
 }
+
+/* ########### */
+/* Login panel */
+/* ########### */
 
 .submit_button {
   border: none;
@@ -97,7 +104,7 @@ h3 {
 
 .copyright {
   position: absolute;
-  bottom: 5px;
+  top: 5px;
   right:20px;
 }
 
@@ -146,6 +153,86 @@ h3 {
   background-color: var(--color-primary);
   transition: background-color 0.25s ease;
 }
+
+.data_panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  
+
+}
+
+.temperature {
+  /* margin-top: 2px;
+  margin-right: 1px; */
+  margin-right: 1.5px;
+
+  background-color: #DD7373;
+
+}
+
+.pH {
+  background-color: #63ADF2;
+  margin-left: 1.5px;
+  /* margin-top: 2px;
+  margin-left: 1px; */
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+}
+
+.data {
+  /* position: flex; */
+  font-size: 200%;
+  /* justify-content: center; */
+  /* vertical-align: center; */
+  /* text-align: center; */
+  /* top: 30%; */
+  /* left: 100px; */
+}
+
+.data_label {
+  font-size: 65%;
+  
+  position: absolute;
+  top: 10px;
+  right: 10px
+}
+
+.data_logo {
+  font-size: 160%;
+  position: absolute;
+  color: #ffffff;
+  top: 10px;
+  left: 10px;
+}
+
+.graph_panel {
+  /* background-image: var(--gradient-primary); */
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  padding: 10px;
+  padding-bottom: 50px;
+  /* border: 3px solid #55efc4; */
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.graph_info {
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.graph {
+  width: 100%;
+}
+
+
 
 .schedulebutton {
   margin: 0px;
@@ -435,7 +522,7 @@ input:checked + .slider:before {
   /* background-color: var(--color-background); */
   background-color: var(--color-primary);
 
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding: 10px;
   border-top-right-radius: 20px;
   /* color: #00a8ff; */
@@ -479,28 +566,7 @@ input:checked + .slider:before {
   border-radius: 20px;
 }
 
-.graph_panel {
-  background-image: var(--gradient-primary);
-  color: var(--color-primary);
-  margin-bottom: 30px;
-  padding: 10px;
-  padding-bottom: 50px;
-  /* background-color: #ffffff; */
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  /* padding-left: 10px; */
-  /* padding-top: 30px; */
-  /* padding-bottom: 30px; */
-}
 
-.graph_info {
-  padding: 10px;
-  padding-left: 20px;
-}
-
-.graph {
-  width: 100%;
-}
 
 .schedule_panel_output {
   text-align: center;

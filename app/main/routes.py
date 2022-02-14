@@ -8,6 +8,7 @@ from .gpio import return_status
 from .camera import get_picture
 from flask_socketio import send
 from .temp import read_temp
+from .pH import read_pH
 from datetime import datetime
 from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import login_user, login_required, logout_user
@@ -40,6 +41,8 @@ def gyllcare():
     change_to_datetime = datetime.strptime(results.time, '%d-%m-%Y %H:%M')
     time_active = str(datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0))[:-3] 
     temperature = read_temp()
+    pH = read_pH("R")
+    # print(type(pH))
     # time_span = x_data[-1]
 
     # Alarm.query.filter_by(id=1).first().status = True
@@ -87,6 +90,7 @@ def gyllcare():
                                           time_active=time_active,
                                           schedule_form=schedule_form,
                                           temperature=temperature,
+                                          pH=pH,
                                           )
 
 @main.route("/fishlens", methods=["GET", "POST"])

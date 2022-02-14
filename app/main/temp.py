@@ -36,5 +36,5 @@ if IN_PRODUCTION:
 
 if not IN_PRODUCTION:
     def read_temp():
-        return 50.0
+        return 40.0
 

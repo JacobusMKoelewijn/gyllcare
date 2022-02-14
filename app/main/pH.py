@@ -58,12 +58,15 @@ def send_cmd(cmd):
 		return None
 			
 
-def command_EZO_pH_circuit(cmd):
+def read_pH(cmd):
 	send_cmd(cmd)
 	time.sleep(1.3)
 	lines = read_lines()
-	for i in range(len(lines)):
-		print( lines[i].decode('utf-8'))
+	pretty_pH = str(lines[0])[2:7]
+	print(type(pretty_pH))
+	return pretty_pH
+	# for i in range(len(lines)):
+		# print( lines[i].decode('utf-8'))
 
 if IN_PRODUCTION:
 	usbport = '/dev/ttyAMA0'
@@ -77,4 +80,4 @@ except serial.SerialException as e:
 	print( "Error, ", e)
 	sys.exit(0)
 
-command_EZO_pH_circuit("R")
+# command_EZO_pH_circuit("T,?")
