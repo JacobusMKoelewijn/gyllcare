@@ -18,8 +18,8 @@ else:
     def read_temp():
         return(40)
 
-    def read_pH():
-        return(6)
+    def read_pH(cmd):
+        return(6.000)
 
 # Dummy data
 # time_data = [i for i in pd.date_range((datetime.today() - timedelta(days=2)).strftime("%Y-%m-%d"), periods=48, freq="H")]
@@ -31,9 +31,9 @@ else:
 # pH_data = [4, 5, 6, 5, 8, 5, 8, 7, 4, 7, 4, 5, 7, 5, 4, 6, 4, 4, 7, 4, 6, 6, 8, 5, 4, 7, 4, 7, 5, 4, 4, 4, 5, 7, 4, 8, 7, 7, 8, 6]
 # temperature_data = [31, 35, 27, 29, 25, 34, 32, 35, 31, 29, 32, 27, 35, 26, 26, 26, 27, 26, 25, 34, 27, 26, 28, 28, 25, 33, 33, 29, 27, 29, 32, 28, 32, 27, 32, 28, 31, 25, 34, 34]
 
-time_data = [i for i in pd.date_range((datetime.today() - timedelta(hours=10)).strftime("%Y-%m-%d"), periods=6, freq="H")]
-pH_data = [7, 7, 7, 7, 7, 7]
-temperature_data = [30, 30, 30, 30, 30, 30]
+time_data = [i for i in pd.date_range((datetime.now().replace(microsecond=0, second=0, minute=0) - timedelta(hours=4)), periods=5, freq="H")]
+pH_data = [7, 7, 7, 7, 6]
+temperature_data = [30, 30, 30, 30, 40]
 
 
 def read_temp_pH_plot_data():
@@ -45,7 +45,7 @@ def read_temp_pH_plot_data():
 
     # time_data.append(datetime.fromisoformat("2022-02-14 17:00:00"))
     
-    time_data.append(datetime.now())
+    time_data.append(datetime.now().replace(microsecond=0, second=0))
     pH_data.append(read_pH("R"))
     temperature_data.append(read_temp())
 

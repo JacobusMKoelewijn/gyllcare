@@ -1,5 +1,5 @@
 from . import main
-
+from app.config import IN_PRODUCTION
 from .models import User, Events, Schedule
 from .forms import LoginForm, ScheduleForm
 from .base import CO2_scheduler, O2_scheduler, Light_scheduler, Therm_scheduler, schedule, CO2, O2, Therm, Light, alarm
@@ -7,8 +7,8 @@ from .extensions import db, mail, socketio
 from .gpio import return_status
 from .camera import get_picture
 from flask_socketio import send
-from .temp import read_temp
-from .pH import read_pH
+# from .temp import read_temp
+# from .pH import read_pH
 from datetime import datetime
 from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import login_user, login_required, logout_user
@@ -17,6 +17,15 @@ from flask_mail import Message
 
 import subprocess
 
+if IN_PRODUCTION:
+    from .temp import read_temp
+    from .pH import read_pH
+else:
+    def read_temp():
+        return(40)
+
+    def read_pH(cmd):
+        return(6.000)
 
 
 @main.route("/", methods=["GET", "POST"])
