@@ -1,4 +1,4 @@
-IN_PRODUCTION = Truep
+IN_PRODUCTION = True
 
 DEBUG = False
 SECRET_KEY = "WWOeeyV?cAnh"
