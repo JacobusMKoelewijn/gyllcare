@@ -62,7 +62,7 @@ def read_pH(cmd):
 	send_cmd(cmd)
 	time.sleep(1.3)
 	lines = read_lines()
-	pretty_pH = str(lines[0])[2:7]
+	pretty_pH = float(str(lines[0])[2:7])
 	print(type(pretty_pH))
 	return pretty_pH
 	# for i in range(len(lines)):
