@@ -46,7 +46,7 @@ def read_temp_pH_plot_data():
     # time_data.append(datetime.fromisoformat("2022-02-14 17:00:00"))
     
     time_data.append(datetime.now())
-    pH_data.append(read_pH())
+    pH_data.append(read_pH("R"))
     temperature_data.append(read_temp())
 
     print(time_data)
