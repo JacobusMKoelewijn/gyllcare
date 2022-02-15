@@ -94,4 +94,4 @@ def read_temp_pH_plot_data():
     else:
         plt.savefig('/home/pi/Viinum/gyllcare/app/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
 
-read_temp_pH_plot_data()
+# read_temp_pH_plot_data()
