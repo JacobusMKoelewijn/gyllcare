@@ -62,9 +62,12 @@ def read_temp_pH_plot_data():
     print(df)
 
     if len(df) > 6:
-        df = df.iloc[1: , :]
+        # df = df.iloc[1: , :]
+        del time_data[0]
+        del pH_data[0]
+        del temperature_data[0]
     
-    print(df)
+    # print(df)
 
     resampled_df = df.resample('T').asfreq()
     
