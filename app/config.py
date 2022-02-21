@@ -1,4 +1,7 @@
+import os
+
 IN_PRODUCTION = False
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = False
 SECRET_KEY = "WWOeeyV?cAnh"
