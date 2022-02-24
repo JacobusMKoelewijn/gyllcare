@@ -8,6 +8,7 @@
 			<div class="app_body_panel">
 				<div class="title_panel">
 					<h1 style="float: left">Gyllcare</h1>
+					<h4 class="copyright"><strong><em>&#169; J.M. Koelewijn v {{ version }}</em></strong></h4>
 				</div>
 				<div class="main_control_panel">
 					<form style="padding: 10px" action="{{ url_for('main.index') }}" method="POST" novalidate>
@@ -24,8 +25,6 @@
 							type="password") }}
 						</div>
 						<button style="margin-top: 10px" type="submit" class="form-row submit_button">Enter</button>
-						<h4 class="copyright"><em><span style="color: #55efc4">&#169;</span> J. M. Koelewijn <span
-									style="color: #55efc4">v {{ version }}</span></em></h4>
 					</form>
 				</div>
 			</div>

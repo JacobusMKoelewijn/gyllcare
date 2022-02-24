@@ -28,6 +28,12 @@ const alarmMode = document.querySelector('#alarm_mode');
 const alarmRed = document.querySelector('.alarm_red');
 const alarmBlue = document.querySelector('.alarm_blue');
 
+const scheduleSlider = document.querySelector('.js--schedule_slider')
+const scheduleSlides = document.querySelectorAll('.js--schedule_slide')
+const arrowLeft = document.querySelector('.js--arrow_btn_left')
+const arrowRight = document.querySelector('.js--arrow_btn_right')
+
+
 // const socket = io.connect('http://127.0.0.1:5000');
 const socket = io.connect('http://82.72.121.59:9000');
 
@@ -50,6 +56,8 @@ socket.on('alarm', function (msg) {
     //     alarmBlue.classList.add('hidden');
     // }, 2000);
 });
+
+
 // Make IIFE?
 const init = {
     retrieveStatus() {
@@ -75,7 +83,9 @@ const init = {
                     }
                 }
             });
+            
     },
+    
 
     // setButtons() {
     //     button.forEach(function (btn) {
@@ -319,3 +329,38 @@ fishLens.addEventListener('click', function (e) {
 //             // btn.classList.add('mouse_pointer');
 //         });
 // });
+
+
+
+
+// Scheduler
+
+let curSlide = 0;
+const maxSlide = scheduleSlides.length;
+
+const goToSlide = function(slide) {
+    scheduleSlides.forEach((s, i) => s.style.transform = `translateX(${110 * (i - slide)}%)`)
+}
+
+const nextSlide = function() {
+    if(curSlide === maxSlide - 1) {
+        curSlide = 0;
+    } else {
+        curSlide++;
+    }
+    goToSlide(curSlide)
+}
+
+const prevSlide = function() {
+    if(curSlide === 0) {
+        curSlide = maxSlide - 1;
+    } else {
+        curSlide--;
+    }
+    goToSlide(curSlide);
+}
+
+arrowRight.addEventListener('click', nextSlide);
+arrowLeft.addEventListener('click', prevSlide)
+
+goToSlide(0)
