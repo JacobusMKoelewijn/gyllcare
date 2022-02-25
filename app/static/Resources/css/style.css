@@ -155,7 +155,7 @@ h4 {
   border-bottom-right-radius: 20px;
 }
 
-.overlay_spinner {
+.overlay_log {
   background-color: #2d3436;
   position: absolute;
   display: flex;
