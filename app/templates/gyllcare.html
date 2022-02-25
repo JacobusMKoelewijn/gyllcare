@@ -37,7 +37,7 @@
 
                 <div class="main_control_panel">
 
-                    <div class="overlay hidden">
+                    <div class="overlay_spinner hidden">
                         <div id="spinner" class="lds-spinner">
                             <div></div>
                             <div></div>
@@ -57,7 +57,19 @@
                         </div>
                     </div>
 
-                    <!-- <h2 style="position: absolute; right: 5px; top: 5px; font-size: 110%;">{{ temperature }} &#176C</h2> -->
+                    <div class="overlay_clean hidden">
+                        <div>
+                            <h2>Are you sure you want to shut down?</h2>
+                            <div class="overlay_clean_btn_layout">
+                                <div class='button yes_btn' id="yes_clean">
+                                    <h2 style="font-size: 80%">Yes</h2>
+                                </div>
+                                <div class='button no_btn' id="no_clean">
+                                    <h2 style="font-size: 80%">No</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <label class='switch_layout'>
                         <h2 id="CO2_unit" class='label_layout'>CO<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
@@ -83,18 +95,7 @@
                         <span class='slider'></span>
                     </label>
 
-                    <div style="display: flex; justify-content: space-between; padding-top: 10px">
-                        <h2 style="font-size: 80%; margin-top: 5px">App run time {{ time_active }}</h2>
-                        <div>
-                            <h2 class="alarm_blue hidden"
-                                style="font-size: 100%; display: inline-block; color: lightblue">&#9673;</h2>
-                            <h2 class="alarm_red hidden" style="font-size: 100%; display: inline-block; color:red">
-                                &#9673;</h2>
-                        </div>
-                    </div>
-
-					<!-- <h4 class="copyright"><em><span style="color: #55efc4">&#169;</span> J. M. Koelewijn <span
-						style="color: #55efc4">v {{ version }}</span></em></h4> -->
+                    
                 </div>
 
 				<div class='row no-gutters'>
@@ -124,6 +125,17 @@
 						<!-- <ion-icon name="analytics-outline"></ion-icon> -->
                     </div>
                     <img class="graph" src="{{ url_for('static', filename='Resources/img/plot.svg') }}">
+                    
+                    <div padding-top: 10px>
+                        <h2 style="font-size: 110%; margin-top: 20px">Gyllcare runtime: {{ time_since_start }}</h2>
+                        <h2 style="font-size: 110%; margin-top: 20px">Aquarium cleaned since {{ time_since_clean.days }} days.</h2>
+                        <!-- <div>
+                            <h2 class="alarm_blue hidden"
+                                style="font-size: 100%; display: inline-block; color: lightblue">&#9673;</h2>
+                            <h2 class="alarm_red hidden" style="font-size: 100%; display: inline-block; color:red">
+                                &#9673;</h2>
+                        </div> -->
+                    </div>
                 </div>
 
 
@@ -296,7 +308,7 @@
 
 
                     <div style="position: relative;">
-                        <div class="overlay_2 hidden">
+                        <div class="overlay_lens hidden">
                             <div id="spinner_2" class="lds-spinner">
                                 <div></div>
                                 <div></div>

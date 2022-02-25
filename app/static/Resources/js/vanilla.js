@@ -1,37 +1,44 @@
 'use strict';
 
-const mousePointer = document.querySelectorAll('.mouse_pointer');
 const menuHidden = document.querySelector('#hidden_menu_panel');
 const menuButton = document.querySelector('.toggle');
 
 const switchButtons = document.querySelectorAll('.relay_switch');
 const scheduleButtons = document.querySelectorAll('.schedule_switch');
 
-const sendLog = document.querySelector('#send_log');
-const cleanAq = document.querySelector('#clean_aq');
+// BUTTONS
 
-const fishLens = document.querySelector('#fishlens');
+const cleanAq = document.querySelector('#clean_aq');
+const sendLog = document.querySelector('#send_log');
+const alarmMode = document.querySelector('#alarm_mode');
+const yesClean = document.querySelector('#yes_clean');
+const noClean = document.querySelector('#no_clean');
+const arrowLeft = document.querySelector('.js--arrow_btn_left')
+const arrowRight = document.querySelector('.js--arrow_btn_right')
 const fishLensPhoto = document.querySelector('#fishlens_photo');
 
+// OVERLAYS
+
 const overlay = document.querySelector('.overlay');
+const overlayClean = document.querySelector('.overlay_clean');
+const overlayLens = document.querySelector('.overlay_lens');
+
+
+const fishLens = document.querySelector('#fishlens');
+
 const spinner = document.querySelector('#spinner');
 const logMessage = document.querySelector('#log_message');
-
-const overlay_2 = document.querySelector('.overlay_2');
 const spinner_2 = document.querySelector('#spinner_2');
 const logMessage_2 = document.querySelector('#log_message_2');
 
-const mainModal = document.querySelector('.main_modal');
-const mainModalClose = document.querySelector('.main_modal_close');
+// const mainModal = document.querySelector('.main_modal');
+// const mainModalClose = document.querySelector('.main_modal_close');
 
-const alarmMode = document.querySelector('#alarm_mode');
 const alarmRed = document.querySelector('.alarm_red');
 const alarmBlue = document.querySelector('.alarm_blue');
 
 const scheduleSlider = document.querySelector('.js--schedule_slider')
 const scheduleSlides = document.querySelectorAll('.js--schedule_slide')
-const arrowLeft = document.querySelector('.js--arrow_btn_left')
-const arrowRight = document.querySelector('.js--arrow_btn_right')
 
 
 // const socket = io.connect('http://127.0.0.1:5000');
@@ -152,10 +159,20 @@ const removeSpinnerPhotoPanel = function () {
 // overlay.addEventListener('click', closeSendLogModal);
 
 cleanAq.addEventListener('click', function (e) {
+    overlayClean.classList.remove('hidden')
+});
+
+yesClean.addEventListener('click', function (e) {
     fetch('/shutdown', {
         method: 'POST',
     });
-});
+})
+
+noClean.addEventListener('click', function (e) {
+    overlayClean.classList.add('hidden')
+})
+
+
 
 sendLog.addEventListener('click', function (e) {
     // document.body.style.cursor = 'wait';

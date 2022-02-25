@@ -10,6 +10,7 @@ from flask_socketio import send
 # from .temp import read_temp
 # from .pH import read_pH
 from datetime import datetime
+from datetime import timedelta
 from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import login_user, login_required, logout_user
 import time
@@ -30,7 +31,7 @@ else:
 
 @main.route("/", methods=["GET", "POST"])
 def index():
-    time = datetime.now().strftime(("%d/%m/%Y"))
+    # time = datetime.now().strftime(("%d/%m/%Y"))
     form = LoginForm()
     user = User.query.filter_by(username="JMKoelewijn").first() 
     if request.method == "POST":
@@ -39,22 +40,25 @@ def index():
                 login_user(user)
                 return redirect(url_for("main.gyllcare"))
 
-    return render_template("login.html", form=form, time=time)
+    return render_template("login.html", form=form)
 
 @main.route("/gyllcare", methods=["GET", "POST"])
 @login_required
 def gyllcare():
 
     schedule_form = ScheduleForm()
-    results = Events.query.filter_by(id=1).first()
-    change_to_datetime = datetime.strptime(results.time, '%d-%m-%Y %H:%M')
-    time_active = str(datetime.now().replace(microsecond=0) - change_to_datetime.replace(microsecond=0))[:-3] 
+    event_start = Events.query.filter_by(id=1).first()
+    event_clean = Events.query.filter_by(id=2).first()
+
+    change_event_start_to_datetime = datetime.strptime(event_start.time, '%d-%m-%Y %H:%M')
+    change_event_clean_to_datetime = datetime.strptime(event_clean.time, '%d-%m-%Y %H:%M')
+
+    time_since_start = datetime.now().replace(microsecond=0) - change_event_start_to_datetime.replace(microsecond=0)
+    time_since_clean = datetime.now().replace(microsecond=0) - change_event_clean_to_datetime.replace(microsecond=0)
+    
+    print(type(time_since_start))
     temperature = read_temp()
     pH = read_pH("R")
-    # print(type(pH))
-    # time_span = x_data[-1]
-
-    # Alarm.query.filter_by(id=1).first().status = True
 
     if request.method == "POST":
 
@@ -95,8 +99,9 @@ def gyllcare():
      
     schedule_form.process()
 
-    return render_template("gyllcare.html", #Is this still required after vanilla js update?
-                                          time_active=time_active,
+    return render_template("gyllcare.html",
+                                          time_since_start=time_since_start,
+                                          time_since_clean=time_since_clean,
                                           schedule_form=schedule_form,
                                           temperature=temperature,
                                           pH=pH,
@@ -187,6 +192,10 @@ def email():
 def shutdown():
     if request.method == "POST":
 
+        clean_aquarium = Events.query.filter_by(id=2).first()
+        clean_aquarium.time = datetime.now().strftime("%d-%m-%Y %H:%M")
+        db.commit()
+
         # When using Apache2/mod_wsgi:
         # command_1 = "sudo service apache2 stop"
         # command_2 = "sudo shutdown -h now"
@@ -202,7 +211,7 @@ def shutdown():
         time.sleep(5)
         subprocess.call(command_3.split())
         
-        print("####### Shutting down Gyllcare...")
+        print("####### Shutting down Gyllcare for cleaning...")
 
         return ""
 

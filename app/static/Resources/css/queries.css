@@ -1,7 +1,8 @@
-@media only screen and (max-width: 400) {
+@media only screen and (max-width: 575px) {
+    .schedule_slider {
+        height: 169px;
+    }
     .h2 {
         font-size: 50%;
     }
 }
-
-/* For mobile versions */
