@@ -19,7 +19,7 @@ const fishLensPhoto = document.querySelector('#fishlens_photo');
 
 // OVERLAYS
 
-const overlay = document.querySelector('.overlay');
+const overlayLog = document.querySelector('.overlay_log');
 const overlayClean = document.querySelector('.overlay_clean');
 const overlayLens = document.querySelector('.overlay_lens');
 
@@ -142,13 +142,13 @@ const changeLabel = function (currentSwitch) {
 const removeSpinnerMenuPanel = function () {
     spinner.classList.add('hidden');
     logMessage.classList.add('hidden');
-    overlay.classList.add('hidden');
+    overlayLog.classList.add('hidden');
 };
 
 const removeSpinnerPhotoPanel = function () {
     spinner_2.classList.add('hidden');
     logMessage_2.classList.add('hidden');
-    overlay_2.classList.add('hidden');
+    overlayLens.classList.add('hidden');
 };
 
 // const closeSendLogModal = function () {
@@ -181,7 +181,7 @@ sendLog.addEventListener('click', function (e) {
     // });
     spinner.classList.remove('hidden');
     logMessage.classList.remove('hidden');
-    overlay.classList.remove('hidden');
+    overlayLog.classList.remove('hidden');
     fetch('/email', {
         method: 'POST',
     })
@@ -296,7 +296,7 @@ scheduleButtons.forEach(function (button) {
 fishLens.addEventListener('click', function (e) {
     spinner_2.classList.remove('hidden');
     logMessage_2.classList.remove('hidden');
-    overlay_2.classList.remove('hidden');
+    overlayLens.classList.remove('hidden');
     fetch('/fishlens', {
         method: 'POST',
     })

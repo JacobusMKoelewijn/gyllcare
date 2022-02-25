@@ -2,6 +2,9 @@
     .schedule_slider {
         height: 169px;
     }
+    .container {
+        margin-top: 0px;
+    }
     .h2 {
         font-size: 50%;
     }
