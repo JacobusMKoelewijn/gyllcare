@@ -1,24 +1,24 @@
 import multiprocessing
-
+from gyllcare.main import create_app
 import gunicorn.app.base
 
 
-def number_of_workers():
-    return 1
+# def number_of_workers():
+    # return 1
     # return (multiprocessing.cpu_count() * 2) + 1
 
 
-def handler_app(environ, start_response):
-    response_body = b'Works fine'
-    status = '200 OK'
+# def handler_app(environ, start_response):
+#     response_body = b'Works fine'
+#     status = '200 OK'
 
-    response_headers = [
-        ('Content-Type', 'text/plain'),
-    ]
+#     response_headers = [
+#         ('Content-Type', 'text/plain'),
+#     ]
 
-    start_response(status, response_headers)
+#     start_response(status, response_headers)
 
-    return [response_body]
+#     return [response_body]
 
 
 class StandaloneApplication(gunicorn.app.base.BaseApplication):
@@ -41,8 +41,8 @@ class StandaloneApplication(gunicorn.app.base.BaseApplication):
 if __name__ == '__main__':
     options = {
         'bind': '%s:%s' % ('192.168.178.31', '9000'),
-        'workers': number_of_workers(),
+        'workers': 1,
         'timeout': 120,
-        'worker-class': "gevent",
+        'worker_class': "gevent",
     }
-    StandaloneApplication(handler_app, options).run()
+    StandaloneApplication(create_app, options).run()
