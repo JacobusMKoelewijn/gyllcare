@@ -28,8 +28,10 @@ if __name__ == '__main__':
             'timeout': 120,
             'worker_class': "gevent",
         }
-        StandaloneApplication("gyllcare:create_app()", options).run()
+        StandaloneApplication(create_app(), options).run()
     else:
         app = create_app()
         socketio.run(app)
         print("Starting in development mode.")
+
+        # Does this run the app twice??
