@@ -8,8 +8,8 @@ import pickle
 
 import random
 
-from app.config import IN_PRODUCTION
-from app.config import ROOT_DIR
+from gyllcare.app.config import IN_PRODUCTION
+from gyllcare.app.config import ROOT_DIR
 
 # also need temperature corrected!
 

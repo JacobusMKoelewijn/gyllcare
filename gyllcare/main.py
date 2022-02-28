@@ -4,10 +4,10 @@
 ####################################
 
 import os
-from app import create_app
-from app.main.extensions import socketio
-from app.config import IN_PRODUCTION
-from app.config import ROOT_DIR
+from gyllcare.app import create_app
+from gyllcare.app.main.extensions import socketio
+from gyllcare.app.config import IN_PRODUCTION
+from gyllcare.app.config import ROOT_DIR
 
 # import gunicorn
 # gunicorn.app

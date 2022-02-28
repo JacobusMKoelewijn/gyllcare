@@ -1,4 +1,4 @@
-from app.config import IN_PRODUCTION
+from gyllcare.app.config import IN_PRODUCTION
 
 from picamera import PiCamera
 from time import sleep
