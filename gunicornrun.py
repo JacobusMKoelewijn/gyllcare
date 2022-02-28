@@ -43,5 +43,6 @@ if __name__ == '__main__':
         'bind': '%s:%s' % ('192.168.178.31', '9000'),
         'workers': number_of_workers(),
         'timeout': 120,
+        'worker': "gevent",
     }
     StandaloneApplication(handler_app, options).run()
