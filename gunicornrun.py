@@ -37,6 +37,7 @@ class StandaloneApplication(gunicorn.app.base.BaseApplication):
     def load(self):
         return self.application
 
+# Make use of environment variables
 
 if __name__ == '__main__':
     options = {
