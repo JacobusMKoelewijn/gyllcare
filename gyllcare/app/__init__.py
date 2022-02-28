@@ -1,3 +1,5 @@
+# import logging
+
 from flask import Flask
 
 from .main.base import schedule, CO2, O2, Therm, Light, CO2_scheduler, O2_scheduler, Therm_scheduler, Light_scheduler
@@ -10,6 +12,11 @@ from datetime import datetime
 
 from .main import main as main_blueprint
 from .main.extensions import db, socketio, mail, login_manager
+
+# def createLogger(name):
+    # logger = logging.getLogger(name)
+    # return logger
+    # pass
 
 
 
@@ -73,3 +80,6 @@ def create_app(config_file='config.py'):
         logfile.close()
 
         return app
+
+def poep():
+    pass

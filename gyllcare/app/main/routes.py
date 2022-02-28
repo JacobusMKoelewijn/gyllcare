@@ -15,8 +15,15 @@ from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import login_user, login_required, logout_user
 import time
 from flask_mail import Message
-
 import subprocess
+
+# from app import poep
+# from app import createLogger
+
+# log = createLogger(__name__)
+
+# print(log)
+
 
 if IN_PRODUCTION:
     from .temp import read_temp
@@ -194,7 +201,7 @@ def shutdown():
 
         clean_aquarium = Events.query.filter_by(id=2).first()
         clean_aquarium.time = datetime.now().strftime("%d-%m-%Y %H:%M")
-        db.commit()
+        db.session.commit()
 
         # When using Apache2/mod_wsgi:
         # command_1 = "sudo service apache2 stop"

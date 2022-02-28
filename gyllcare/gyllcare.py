@@ -8,6 +8,9 @@ from app import create_app
 from app.main.extensions import socketio
 from app.config import IN_PRODUCTION
 from app.config import ROOT_DIR
+
+# import gunicorn
+# gunicorn.app
 # Add infor regarding gunicorn and apache etc.
 # Initiate finalizatin of project.
 # print(IN_DEVELOPMENT_MODE)
