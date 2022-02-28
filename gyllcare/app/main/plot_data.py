@@ -8,8 +8,8 @@ import pickle
 
 import random
 
-from gyllcare.app.config import IN_PRODUCTION
-from gyllcare.app.config import ROOT_DIR
+from gyllcare.config import IN_PRODUCTION
+from gyllcare.config import ROOT_DIR
 
 # also need temperature corrected!
 
@@ -25,8 +25,8 @@ else:
 
 
 time_data = [i for i in pd.date_range((datetime.now().replace(microsecond=0, second=0, minute=0) - timedelta(hours=47)), periods=48, freq="H")]
-pH_data = pickle.load(open(ROOT_DIR + '/main/saved_pH_data', 'rb'))
-temperature_data = pickle.load(open(ROOT_DIR + '/main/saved_temperature_data', 'rb'))
+pH_data = pickle.load(open(ROOT_DIR + '/saved_pH_data', 'rb'))
+temperature_data = pickle.load(open(ROOT_DIR + '/saved_temperature_data', 'rb'))
 # print('succes')
 # print(len(time_data))
 # print(pH_data, len(pH_data))

@@ -1,4 +1,4 @@
-from gyllcare.app.config import IN_PRODUCTION
+from gyllcare.config import IN_PRODUCTION
 
 import os
 import glob

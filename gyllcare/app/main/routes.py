@@ -1,5 +1,5 @@
 from . import main
-from app.config import IN_PRODUCTION
+from gyllcare.config import IN_PRODUCTION
 from .models import User, Events, Schedule
 from .forms import LoginForm, ScheduleForm
 from .base import CO2_scheduler, O2_scheduler, Light_scheduler, Therm_scheduler, schedule, CO2, O2, Therm, Light, alarm

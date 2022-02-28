@@ -6,7 +6,7 @@ from .main.base import schedule, CO2, O2, Therm, Light, CO2_scheduler, O2_schedu
 from .main.plot_data import read_temp_pH_plot_data
 from .main.models import Events, Schedule
 # from .main.camera import get_picture
-
+from gyllcare.config import ROOT_DIR
 from datetime import datetime
 # import eventlet
 
@@ -20,7 +20,8 @@ from .main.extensions import db, socketio, mail, login_manager
 
 
 
-def create_app(config_file='config.py'):
+
+def create_app(config_file=ROOT_DIR + '/config.py'):
 
     app = Flask(__name__)
     app.config.from_pyfile(config_file)

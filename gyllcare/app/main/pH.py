@@ -3,7 +3,7 @@ import sys
 import time
 from serial import SerialException
 
-from gyllcare.app.config import IN_PRODUCTION
+from gyllcare.config import IN_PRODUCTION
 
 def read_line():
 	"""

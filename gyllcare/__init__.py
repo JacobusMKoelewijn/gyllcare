@@ -3,11 +3,11 @@
 ########## J. M. Koelewijn #########
 ####################################
 
-import os
-from gyllcare.app import create_app
-from gyllcare.app.main.extensions import socketio
-from gyllcare.app.config import IN_PRODUCTION
-from gyllcare.app.config import ROOT_DIR
+# import os
+# from gyllcare.app import create_app
+# from gyllcare.app.main.extensions import socketio
+# from gyllcare.config import IN_PRODUCTION
+# from gyllcare.config import ROOT_DIR
 
 # import gunicorn
 # gunicorn.app
@@ -18,11 +18,7 @@ from gyllcare.app.config import ROOT_DIR
 # print(ROOT_DIR)
 
 
-if not IN_PRODUCTION:
-    if __name__ == '__main__':
-        app = create_app()
-        socketio.run(app)
-        print("Starting in development mode.")
+
 
 print("####### Gyllcare seems to work.. awaiting response from the browser")
 
