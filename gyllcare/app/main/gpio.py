@@ -2,6 +2,9 @@ import RPi.GPIO as GPIO
 import time
 from datetime import datetime
 from .extensions import socketio
+from gyllcare import create_logger
+
+log = create_logger(__name__)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -40,33 +43,26 @@ class ToggleSwitch:
         self.log("as scheduled")
 
     def log(self, operation):
-        logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-        logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### The " + self.name + " unit has been turned " + ("on " if self.state == 1 else "off ") + operation + ". \n")
-        logfile.close()
+        log.info(f"{self.name} unit has been turned {'on' if self.state == 1 else 'off'} {operation}.")
 
 
-def return_status(): # return current status of GPIO pins.
+def return_status():
+    """Return current status of GPIO pins."""
     gpio_status = [True if item == 1 else False for item in [GPIO.input(25), GPIO.input(8), GPIO.input(7), GPIO.input(1), GPIO.input(16), GPIO.input(20)]]
     return gpio_status    
 
 def alarm_on(stop):
-    logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-    logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Motion detector has been switched on. \n")
-    logfile.close()
+    """Activates the PIR Sensor"""
+    log.info("Motion detector has been switched on.")
     GPIO.output(16, GPIO.HIGH)
     while True:
         if GPIO.input(21):
-
             GPIO.output(20, GPIO.HIGH)
             socketio.emit('alarm')
-
-            logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-            logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ### Some motion was detected! \n")
-            logfile.close()
-            
+            log.info("Motion was detected!")
             time.sleep(5)
-            # GPIO.output(20, GPIO.LOW)
         time.sleep(1)
+
         if(stop()):
             GPIO.output(16, GPIO.LOW)
             GPIO.output(20, GPIO.LOW)

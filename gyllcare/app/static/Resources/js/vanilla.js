@@ -319,35 +319,6 @@ fishLens.addEventListener('click', function (e) {
     // Make dynamic using AJAX in later stage
 });
 
-// sendLog.addEventListener('click', function (e) {
-//     // document.body.style.cursor = 'wait';
-//     // mousePointer.forEach(function (btn) {
-//     // btn.classList.remove('mouse_pointer');
-//     // });
-//     spinner.classList.remove('hidden');
-//     logMessage.classList.remove('hidden');
-//     overlay.classList.remove('hidden');
-//     fetch('/email', {
-//         method: 'POST',
-//     })
-//         .then(function (response) {
-//             console.log(response);
-//             console.log(response.status);
-
-//             if (response.status == 200) {
-//                 openSendLogModal();
-//             } else {
-//                 alert('Something went wrong, please try again later.');
-//             }
-//         })
-//         .finally(function () {
-//             // document.body.style.cursor = 'auto';
-//             // mousePointer.forEach(function (btn) {
-//             // btn.classList.add('mouse_pointer');
-//         });
-// });
-
-
 
 
 // Scheduler

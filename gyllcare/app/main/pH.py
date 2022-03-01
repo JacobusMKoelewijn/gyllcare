@@ -2,8 +2,10 @@ import serial
 import sys
 import time
 from serial import SerialException
-
 from gyllcare.config import IN_PRODUCTION
+from gyllcare import create_logger
+
+log = create_logger(__name__)
 
 def read_line():
 	"""
@@ -49,7 +51,7 @@ def send_cmd(cmd):
 	:param cmd:
 	:return:
 	"""
-	buf = cmd + "\r"     	# add carriage return
+	buf = cmd + "\r"
 	try:
 		ser.write(buf.encode('utf-8'))
 		return True
@@ -63,21 +65,15 @@ def read_pH(cmd):
 	time.sleep(1.3)
 	lines = read_lines()
 	pretty_pH = float(str(lines[0])[2:7])
-	print(type(pretty_pH))
 	return pretty_pH
-	# for i in range(len(lines)):
-		# print( lines[i].decode('utf-8'))
 
 if IN_PRODUCTION:
 	usbport = '/dev/ttyAMA0'
 else:
 	usbport = '/dev/ttyAMA1'
 
-
 try:
 	ser = serial.Serial(usbport, 9600, timeout=0)
 except serial.SerialException as e:
-	print( "Error, ", e)
+	log.error(e)
 	sys.exit(0)
-
-# command_EZO_pH_circuit("T,?")

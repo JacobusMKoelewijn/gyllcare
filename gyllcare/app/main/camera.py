@@ -1,16 +1,18 @@
 from gyllcare.config import IN_PRODUCTION
-
+from gyllcare.config import ROOT_DIR
+from gyllcare import create_logger
 from picamera import PiCamera
 from time import sleep
 
+# The camera module contains a time out error which is difficult to resolve.
+# A work around is to make use of aa try/except block.
+
+log = create_logger(__name__)
+
 if IN_PRODUCTION:
-
-    # The camera module contains a time out error which has to be resolved!
-    # For now the solution is to put it in a try/error block (as is proper python code)
-
     def get_picture():
         sleep(5)
-        print("picture is taken")
+        log.info("Image has been captured has been captured")
 
         camera = PiCamera()
         camera.rotation = 180
@@ -18,15 +20,12 @@ if IN_PRODUCTION:
         try:
             camera.start_preview()
             sleep(5)
-            print("Camera will now capture")
-            camera.capture('/var/www/html/gyllcare/app/static/Resources/img/fishlens.jpg')
-            # camera.capture('/home/pi/Viinum/gyllcare/app/static/Resources/img/fishlens.jpg')
+            camera.capture(ROOT_DIR + '/app/static/Resources/img/fishlens.jpg')
             camera.stop_preview()
+        except Exception as e:
+            log.error(e)
         finally:
             camera.close()
-        # print("Camera closed confirmed")
-
-if not IN_PRODUCTION:
+else:
     def get_picture():
         print("Development mode: Image has been captured.")
-        

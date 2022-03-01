@@ -1,5 +1,6 @@
 from . import main
 from gyllcare.config import IN_PRODUCTION
+from gyllcare.config import ROOT_DIR
 from .models import User, Events, Schedule
 from .forms import LoginForm, ScheduleForm
 from .base import CO2_scheduler, O2_scheduler, Light_scheduler, Therm_scheduler, schedule, CO2, O2, Therm, Light, alarm
@@ -16,14 +17,11 @@ from flask_login import login_user, login_required, logout_user
 import time
 from flask_mail import Message
 import subprocess
+from key import keys
 
-# from app import poep
-# from app import createLogger
+from gyllcare import create_logger
 
-# log = createLogger(__name__)
-
-# print(log)
-
+log = create_logger(__name__)
 
 if IN_PRODUCTION:
     from .temp import read_temp
@@ -172,25 +170,18 @@ def status():
 def email():
     if request.method == "POST":
 
-        schedulefile = open("/home/pi/Desktop/logs/Schedule_log.txt", "w")
-
         for i in schedule.get_jobs():
-            schedulefile.write(str(i) + "\n")
-        schedulefile.close()
- 
-        msg = Message("Gyllcare has send you a message", recipients=["mklwn@hotmail.com"])
+            log.info(i)
+    
+        msg = Message("Gyllcare has send you a message", recipients=[keys.get('MAIL_RECIPIENT')])
         msg.body = "Attached you'll find the Gyllcare log files"
 
-        with main.open_resource("/home/pi/Desktop/logs/Gyllcare_log.txt") as attach:
-            msg.attach("Gyllcare_log.txt", "text/plain", attach.read())
-        with main.open_resource("/home/pi/Desktop/logs/Schedule_log.txt") as attach_2:
-            msg.attach("Schedule_log.txt", "text/plain", attach_2.read())
-        
+        with main.open_resource(ROOT_DIR + "/gyllcare.log") as attach:
+            msg.attach("gyllcare.log", "text/plain", attach.read())
         
         mail.send(msg)
 
         time.sleep(2)
-        print("succes")
         
         return ""
 

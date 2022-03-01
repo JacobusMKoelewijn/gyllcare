@@ -11,7 +11,7 @@ import random
 from gyllcare.config import IN_PRODUCTION
 from gyllcare.config import ROOT_DIR
 
-# also need temperature corrected!
+# also need temperature corrected! Introduce LOGGING!
 
 if IN_PRODUCTION:
     from .temp import read_temp
@@ -55,8 +55,8 @@ def read_temp_pH_plot_data():
 
 
 
-    pickle.dump(pH_data, open(ROOT_DIR + '/main/saved_pH_data', 'wb'))
-    pickle.dump(temperature_data, open(ROOT_DIR + '/main/saved_temperature_data', 'wb'))
+    pickle.dump(pH_data, open(ROOT_DIR + '/saved_pH_data', 'wb'))
+    pickle.dump(temperature_data, open(ROOT_DIR + '/saved_temperature_data', 'wb'))
 
     print(time_data, len(time_data))
     print(pH_data, len(pH_data))

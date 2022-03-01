@@ -1,7 +1,7 @@
 import os
 from key import keys
 
-IN_PRODUCTION = False
+IN_PRODUCTION = True
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = False
