@@ -94,7 +94,9 @@
                         <input class='relay_switch' id="gpio_pin_23" name='Therm' type='checkbox'>
                         <span class='slider'></span>
                     </label>
-
+                    
+                    <h2 class="alarm_red hidden" style="font-size: 130%; display: inline-block; color:red">&#9673;</h2>
+                    <h2 class="alarm_blue hidden" style="font-size: 130%; display: inline-block; color:lightblue">&#9673;</h2>
                     
                 </div>
 
@@ -121,20 +123,12 @@
 
                 <div class="graph_panel">
                     <div class="graph_info">
-                        <!-- <h3>Current temperature: <span style="color: #ffffff">{{ temperature }}</span> &#8451;</h3> -->
-						<!-- <ion-icon name="analytics-outline"></ion-icon> -->
                     </div>
                     <img class="graph" src="{{ url_for('static', filename='Resources/img/plot.svg') }}">
                     
-                    <div padding-top: 10px>
-                        <h2 style="font-size: 110%; margin-top: 20px">Gyllcare runtime: {{ time_since_start }}</h2>
-                        <h2 style="font-size: 110%; margin-top: 20px">Aquarium cleaned since {{ time_since_clean.days }} days.</h2>
-                        <!-- <div>
-                            <h2 class="alarm_blue hidden"
-                                style="font-size: 100%; display: inline-block; color: lightblue">&#9673;</h2>
-                            <h2 class="alarm_red hidden" style="font-size: 100%; display: inline-block; color:red">
-                                &#9673;</h2>
-                        </div> -->
+                    <div style="padding-top: 10px;">
+                        <h2 style="float: left; font-size: 80%; margin-top: 10px; margin-left: 15px">Gyllcare runtime: <span style="color:#55efc4">{{ time_since_start }}</span></h2>
+                        <h2 style="float: right; font-size: 80%; margin-top: 10px; margin-right: 15px">Last cleaned since: <span style="color:#55efc4">{{ time_since_clean.days }} days</span></h2>
                     </div>
                 </div>
 

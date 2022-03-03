@@ -22,6 +22,8 @@ from .main.extensions import db, socketio, mail, login_manager
 
 
 def create_app(config_file=ROOT_DIR + '/config.py'):
+    # print(ROOT_DIR)
+    # print("above")
 
     app = Flask(__name__)
     app.config.from_pyfile(config_file)

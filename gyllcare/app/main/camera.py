@@ -12,7 +12,6 @@ log = create_logger(__name__)
 if IN_PRODUCTION:
     def get_picture():
         sleep(5)
-        log.info("Image has been captured has been captured")
 
         camera = PiCamera()
         camera.rotation = 180
@@ -21,6 +20,7 @@ if IN_PRODUCTION:
             camera.start_preview()
             sleep(5)
             camera.capture(ROOT_DIR + '/app/static/Resources/img/fishlens.jpg')
+            log.info("An Image has been captured.")
             camera.stop_preview()
         except Exception as e:
             log.error(e)

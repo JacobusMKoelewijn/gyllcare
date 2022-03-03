@@ -36,13 +36,13 @@ else:
 
 @main.route("/", methods=["GET", "POST"])
 def index():
-    # time = datetime.now().strftime(("%d/%m/%Y"))
     form = LoginForm()
     user = User.query.filter_by(username="JMKoelewijn").first() 
     if request.method == "POST":
         if form.validate_on_submit():
             if User.query.first().username == form.name.data and User.query.first().password == form.password.data:
                 login_user(user)
+                log.info(f'{form.name.data} has logged in Gyllcare.')
                 return redirect(url_for("main.gyllcare"))
 
     return render_template("login.html", form=form)
@@ -158,7 +158,6 @@ def status():
     if request.method == "POST":
         switch_name = request.get_json()["name"]
         switch_dictionary[str(switch_name)]()
-        # print("test")
         return ""
     
     schedule.print_jobs()
@@ -174,7 +173,7 @@ def email():
             log.info(i)
     
         msg = Message("Gyllcare has send you a message", recipients=[keys.get('MAIL_RECIPIENT')])
-        msg.body = "Attached you'll find the Gyllcare log files"
+        msg.body = "Attached you'll find the Gyllcare.log file."
 
         with main.open_resource(ROOT_DIR + "/gyllcare.log") as attach:
             msg.attach("gyllcare.log", "text/plain", attach.read())
@@ -182,7 +181,7 @@ def email():
         mail.send(msg)
 
         time.sleep(2)
-        
+
         return ""
 
 @main.route("/shutdown", methods=["POST"])
@@ -194,11 +193,6 @@ def shutdown():
         clean_aquarium.time = datetime.now().strftime("%d-%m-%Y %H:%M")
         db.session.commit()
 
-        # When using Apache2/mod_wsgi:
-        # command_1 = "sudo service apache2 stop"
-        # command_2 = "sudo shutdown -h now"
-
-        # When using Nginx/gunicorn:
         command_1 = "sudo pkill gunicorn"
         command_2 = "sudo service nginx stop"
         command_3 = "sudo shutdown -h now"
@@ -209,7 +203,7 @@ def shutdown():
         time.sleep(5)
         subprocess.call(command_3.split())
         
-        print("####### Shutting down Gyllcare for cleaning...")
+        log.info("Shutting down Gyllcare for cleaning.")
 
         return ""
 
@@ -237,4 +231,5 @@ def receive_message(message):
 @login_required
 def logout():
     logout_user()
+    log.info("User has logged out")
     return redirect(url_for("main.index"))

@@ -206,6 +206,24 @@ h4 {
   border-bottom-right-radius:20px;
 }
 
+/* .alarm_block {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+} */
+
+.alarm_red {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.alarm_blue {
+  position: absolute;
+  right: 35px;
+  bottom: 10px
+}
+
 /* ###################### */
 /* CSS for slider buttons */
 /* ###################### */
@@ -431,6 +449,7 @@ input:checked + .slider:before {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  min-height: 420px;
 }
 
 .graph_info {

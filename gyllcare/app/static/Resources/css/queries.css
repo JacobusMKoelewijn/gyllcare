@@ -8,4 +8,7 @@
     .h2 {
         font-size: 50%;
     }
+    .graph_panel {
+        min-height: 320px;
+    }
 }
