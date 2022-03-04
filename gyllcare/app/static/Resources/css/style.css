@@ -143,6 +143,12 @@ h4 {
   transition: background-color 0.25s ease;
 }
 
+#log_message {
+  position: relative;
+  margin-left: 10px;
+  font-size: 120%;
+}
+
 /* ################## */
 /* Main control panel */
 /* ################## */
@@ -203,14 +209,8 @@ h4 {
 }
 
 .no_btn {
-  border-bottom-right-radius:20px;
+  border-bottom-right-radius: 20px;
 }
-
-/* .alarm_block {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-} */
 
 .alarm_red {
   position: absolute;
@@ -221,7 +221,7 @@ h4 {
 .alarm_blue {
   position: absolute;
   right: 35px;
-  bottom: 10px
+  bottom: 10px;
 }
 
 /* ###################### */
@@ -286,7 +286,6 @@ input:checked + .slider:before {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
 }
 
-
 /* ############### */
 /* CSS for spinner */
 /* ############### */
@@ -294,8 +293,6 @@ input:checked + .slider:before {
 .lds-spinner {
   color: official;
   display: inline-block;
-  /* display: flex; */
-  /* justify-content: center; */
   position: relative;
   width: 80px;
   height: 80px;
@@ -375,9 +372,6 @@ input:checked + .slider:before {
   }
 }
 
-
-
-
 /* ########## */
 /* Data panel */
 /* ########## */
@@ -389,45 +383,29 @@ input:checked + .slider:before {
   height: 100px;
   margin-top: 3px;
   margin-bottom: 3px;
-  
-
 }
 
 .temperature {
-  /* margin-top: 2px;
-  margin-right: 1px; */
   margin-right: 1.5px;
-
-  background-color: #DD7373;
-
+  background-color: #dd7373;
 }
 
 .pH {
-  background-color: #63ADF2;
+  background-color: #63adf2;
   margin-left: 1.5px;
-  /* margin-top: 2px;
-  margin-left: 1px; */
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-
 }
 
 .data {
-  /* position: flex; */
   font-size: 200%;
-  /* justify-content: center; */
-  /* vertical-align: center; */
-  /* text-align: center; */
-  /* top: 30%; */
-  /* left: 100px; */
 }
 
 .data_label {
   font-size: 65%;
-  
   position: absolute;
   top: 10px;
-  right: 10px
+  right: 10px;
 }
 
 .data_logo {
@@ -439,13 +417,11 @@ input:checked + .slider:before {
 }
 
 .graph_panel {
-  /* background-image: var(--gradient-primary); */
   background-color: var(--color-background);
   color: var(--color-primary);
   margin-bottom: 3px;
   padding: 10px;
   padding-bottom: 50px;
-  /* border: 3px solid #55efc4; */
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -460,88 +436,6 @@ input:checked + .slider:before {
 .graph {
   width: 100%;
 }
-
-
-
-
-
-.photo_panel {
-  margin-bottom: 10px;
-  /* position: relative; */
-  /* border-top-right-radius: 20px; */
-}
-
-.overlay_2 {
-  background-color: #2d3436;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(4px);
-  z-index: 100;
-  opacity: 0.5;
-  transition: all 0.5s;
-  /* border-bottom-right-radius: 20px; */
-}
-
-.fishlens_layout {
-  width: 100%;
-}
-
-/* Modal windows */
-
-.main_modal {
-  position: fixed;
-  justify-content: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 300px;
-  height: 200px;
-  background-color: #f3f3f3;
-  padding: 20px 20px;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  transition: all 0.5s;
-  border-radius: 20px;
-}
-
-.main_modal_close {
-  font-size: 150%;
-  color: var(--color-background);
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  /* cursor: pointer; */
-}
-
-.main_modal_text {
-  color: var(--color-background);
-  margin-top: 75px;
-}
-/* style="color:#ffffff; font-size: 270%; float: right; cursor: pointer;" */
-
-
-
-#log_message {
-  /* display: inline-block; */
-  position: relative;
-  margin-left: 10px;
-  font-size: 120%;
-}
-
-
-
-/* .waiting {
-    cursor: wait !important;
-} */
-
-
 
 /* ################################### */
 /* SCHEDULE PANEL #################### */
@@ -570,12 +464,10 @@ input:checked + .slider:before {
   transition: background-color 0.25s ease;
 }
 
-
 .arrow_layout_left {
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;
   border-right: 3px solid white;
-
 }
 
 .arrow_layout_right {
@@ -583,7 +475,6 @@ input:checked + .slider:before {
   border-top-right-radius: 20px;
   border-left: 3px solid white;
 }
-
 
 .schedule_arrow {
   color: white;
@@ -630,6 +521,61 @@ input:checked + .slider:before {
 }
 
 .schedule_button:hover {
+  background-color: var(--color-primary);
+  transition: background-color 0.25s ease;
+}
+
+/* ################################### */
+/* PHOTO PANEL ####################### */
+/* ################################### */
+
+.photo_panel {
+  margin-top: 3px;
+}
+
+.overlay_lens {
+  background-color: #2d3436;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  opacity: 0.5;
+  transition: all 0.5s;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.fishlens_layout {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.capture_button {
+  background-color: var(--color-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #ffffff;
+  font-size: 100%;
+  height: 50px;
+  border: none;
+  border-top: 3px solid white;
+  transition: transform 0.5s;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.capture_button:hover {
   background-color: var(--color-primary);
   transition: background-color 0.25s ease;
 }

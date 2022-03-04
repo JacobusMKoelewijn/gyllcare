@@ -6,13 +6,12 @@
     <div class="row">
         <div class="col">
             <div class="app_body_panel">
-
                 <div class="title_panel">
                     <h1 style="float: left">Gyllcare</h1>
                     <h4 class="copyright"><strong><em>&#169; J.M. Koelewijn v {{ version }}</em></strong></h4>
-                    <ion-icon class="toggle", style="color:#ffffff; font-size: 270%; float: right; cursor: pointer;" , name="menu-outline"></ion-icon>
+                    <ion-icon class="toggle" , style="color:#ffffff; font-size: 270%; float: right; cursor: pointer;" ,
+                        name="menu-outline"></ion-icon>
                 </div>
-
                 <div id="hidden_menu_panel">
                     <div class='button' id="clean_aq">
                         <h2 style="font-size: 80%">Clean aquarium</h2>
@@ -21,22 +20,14 @@
                     <div class='button' id="send_log">
                         <h2 style="font-size: 80%">Send log</h2>
                     </div>
-
-                    <!-- <div class='main_modal hidden'>
-                        <h2 class='main_modal_text'>The log file has been send.</h2>
-                        <ion-icon class="main_modal_close", name="close-outline"></ion-icon>
-                    </div> -->
-
                     <div class='button' id="alarm_mode">
                         <h2 style="font-size: 80%">Toggle alarm</h2>
                     </div>
                     <a style="text-decoration: none" class='button' href="{{ url_for('main.logout') }}">
-                        <h2 style="font-size: 80%">Log out</h2>
+                        <h2 style="font-size: 80%">Logout</h2>
                     </a>
                 </div>
-
                 <div class="main_control_panel">
-
                     <div class="overlay_log hidden">
                         <div id="spinner" class="lds-spinner">
                             <div></div>
@@ -56,7 +47,6 @@
                             <h2>Sending log file</h2>
                         </div>
                     </div>
-
                     <div class="overlay_clean hidden">
                         <div>
                             <h2>Are you sure you want to shut down?</h2>
@@ -70,87 +60,66 @@
                             </div>
                         </div>
                     </div>
-
                     <label class='switch_layout'>
                         <h2 id="CO2_unit" class='label_layout'>CO<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_14" name='CO2' type='checkbox'>
                         <span class='slider'></span>
                     </label>
-
                     <label class='switch_layout'>
                         <h2 id="O2_unit" class='label_layout'>O<sub>2</sub>&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_15" name='O2' type='checkbox'>
                         <span class='slider'></span>
                     </label>
-
                     <label class='switch_layout'>
                         <h2 id="main_light_unit" class='label_layout'>Light&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_18" name='Light' type='checkbox'>
                         <span class='slider'></span>
                     </label>
-
                     <label class='switch_layout'>
                         <h2 id="thermostate_unit" class='label_layout'>Thermostate&nbsp;is&nbsp;switched&nbsp;off</h2>
                         <input class='relay_switch' id="gpio_pin_23" name='Therm' type='checkbox'>
                         <span class='slider'></span>
                     </label>
-                    
                     <h2 class="alarm_red hidden" style="font-size: 130%; display: inline-block; color:red">&#9673;</h2>
-                    <h2 class="alarm_blue hidden" style="font-size: 130%; display: inline-block; color:lightblue">&#9673;</h2>
-                    
+                    <h2 class="alarm_blue hidden" style="font-size: 130%; display: inline-block; color:lightblue">
+                        &#9673;</h2>
                 </div>
-
-				<div class='row no-gutters'>
-					<div class='col-6'>
-						<div class='data_panel temperature'>
-							<ion-icon class='data_logo' name="thermometer-outline"></ion-icon>
-							<h2 class=data>{{ temperature }} &#8451</h2>
-							<h2 class='data_label'>Temperature</h2>
-						</div>
-					</div>
-
-					
-					<div class='col-6'>
-						<div class='data_panel pH'>
-							<ion-icon class='data_logo' name="eyedrop-outline"></ion-icon>
-							<h2 class=data>{{ pH }}</h2>
-							<h2 class='data_label'>pH</h2>
-						</div>
-
-					</div>
-
-				</div>
-
+                <div class='row no-gutters'>
+                    <div class='col-6'>
+                        <div class='data_panel temperature'>
+                            <ion-icon class='data_logo' name="thermometer-outline"></ion-icon>
+                            <h2 class=data>{{ temperature }} &#8451</h2>
+                            <h2 class='data_label'>Temperature</h2>
+                        </div>
+                    </div>
+                    <div class='col-6'>
+                        <div class='data_panel pH'>
+                            <ion-icon class='data_logo' name="eyedrop-outline"></ion-icon>
+                            <h2 class=data>{{ pH }}</h2>
+                            <h2 class='data_label'>pH</h2>
+                        </div>
+                    </div>
+                </div>
                 <div class="graph_panel">
                     <div class="graph_info">
                     </div>
                     <img class="graph" src="{{ url_for('static', filename='Resources/img/plot.svg') }}">
-                    
                     <div style="padding-top: 10px;">
-                        <h2 style="float: left; font-size: 80%; margin-top: 10px; margin-left: 15px">Gyllcare runtime: <span style="color:#55efc4">{{ time_since_start }}</span></h2>
-                        <h2 style="float: right; font-size: 80%; margin-top: 10px; margin-right: 15px">Last cleaned since: <span style="color:#55efc4">{{ time_since_clean.days }} days</span></h2>
+                        <h2 style="float: left; font-size: 80%; margin-top: 10px; margin-left: 15px">Gyllcare runtime:
+                            <span style="color:#55efc4">{{ time_since_start }}</span>
+                        </h2>
+                        <h2 style="float: right; font-size: 80%; margin-top: 10px; margin-right: 15px">Last cleaned
+                            since: <span style="color:#55efc4">{{ time_since_clean.days }} days</span></h2>
                     </div>
                 </div>
-
-
-
-               
-
                 <div>
-                    
-
-
                     <form action="{{ url_for('main.gyllcare') }}" method="POST" novalidate>
-                        
                         <div class='row no-gutters'>
-
                             <div class='col-1 arrow_layout arrow_layout_left js--arrow_btn_left'>
                                 <ion-icon class="schedule_arrow arrow_left" name="caret-back-outline"></ion-icon>
                             </div>
-
                             <div class='col-10'>
                                 <div class='js--schedule_slider schedule_slider'>
-
                                     <div class='js--schedule_slide schedule_slide'>
                                         <div class='schedule_in' style="margin-top: 0px;">
                                             <div class='schedule_in_label'>
@@ -161,26 +130,24 @@
                                                     <span class='slider'></span>
                                                 </label>
                                             </div>
-        
                                             <div style='margin-top: 10px; margin-bottom: 10px' class="form-row">
                                                 <div class="col-sm-6">
                                                     {{ schedule_form.unit_co2_on(class_="form-control form-control-sm",
-                                                    id="co2_start", disabled=true, style="background-color: #55efc4; color:
+                                                    id="co2_start", disabled=true, style="background-color: #55efc4;
+                                                    color:
                                                     #55efc4; border: 3px solid #00b893;") }}
                                                     <h2 style='margin-top: 5px;'><sup>start schedule</sup></h2>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     {{ schedule_form.unit_co2_off(class_="form-control form-control-sm",
-                                                    id="co2_stop", disabled=true, style="background-color: #55efc4; color:
+                                                    id="co2_stop", disabled=true, style="background-color: #55efc4;
+                                                    color:
                                                     #55efc4; border: 3px solid #00b893;") }}
                                                     <h2 style='margin-top: 5px;'><sup>stop schedule</sup></h2>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
-
-
                                     <div class='js--schedule_slide schedule_slide'>
                                         <div class='schedule_in'>
                                             <div class='schedule_in_label'>
@@ -191,116 +158,96 @@
                                                     <span class='slider'></span>
                                                 </label>
                                             </div>
-
                                             <div style='margin-top: 10px; margin-bottom: 10px' class="form-row">
                                                 <div class="col-sm-6">
                                                     {{ schedule_form.unit_o2_on(class_="form-control form-control-sm",
-                                                    id="o2_start", disabled=true, style="background-color: #55efc4; color:
+                                                    id="o2_start", disabled=true, style="background-color: #55efc4;
+                                                    color:
                                                     #55efc4; border: 3px solid #00b893;") }}
                                                     <h2 style='margin-top: 5px;'><sup>start schedule</sup></h2>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     {{ schedule_form.unit_o2_off(class_="form-control form-control-sm",
-                                                    id="o2_stop", disabled=true, style="background-color: #55efc4; color:
+                                                    id="o2_stop", disabled=true, style="background-color: #55efc4;
+                                                    color:
                                                     #55efc4; border: 3px solid #00b893;") }}
                                                     <h2 style='margin-top: 5px;'><sup>stop schedule</sup></h2>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class='js--schedule_slide schedule_slide'>
                                         <div class='schedule_in'>
                                             <div class='schedule_in_label'>
                                                 <label class='switch_layout'>
                                                     <h2 class='label_layout'>Main&nbsp;light&nbsp;scheduler</h2>
-                                                    <input class='schedule_switch' id='light_schedule' name="light_schedule"
-                                                        type='checkbox'>
+                                                    <input class='schedule_switch' id='light_schedule'
+                                                        name="light_schedule" type='checkbox'>
                                                     <span class='slider'></span>
                                                 </label>
                                             </div>
-
                                             <div style='margin-top: 10px; margin-bottom: 10px' class="form-row">
                                                 <div class="col-sm-6">
-                                                    {{ schedule_form.unit_light_on(class_="form-control form-control-sm",
-                                                    id="light_start", disabled=true, style="background-color: #55efc4; color:
+                                                    {{ schedule_form.unit_light_on(class_="form-control
+                                                    form-control-sm",
+                                                    id="light_start", disabled=true, style="background-color: #55efc4;
+                                                    color:
                                                     #55efc4; border: 3px solid #00b893;") }}
                                                     <h2 style='margin-top: 5px;'><sup>start schedule</sup></h2>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    {{ schedule_form.unit_light_off(class_="form-control form-control-sm",
-                                                    id="light_stop", disabled=true, style="background-color: #55efc4; color:
+                                                    {{ schedule_form.unit_light_off(class_="form-control
+                                                    form-control-sm",
+                                                    id="light_stop", disabled=true, style="background-color: #55efc4;
+                                                    color:
                                                     #55efc4; border: 3px solid #00b893;") }}
                                                     <h2 style='margin-top: 5px;'><sup>stop schedule</sup></h2>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class='js--schedule_slide schedule_slide'>
                                         <div class='schedule_in'>
                                             <div class='schedule_in_label'>
                                                 <label class='switch_layout'>
                                                     <h2 class='label_layout'>Thermostate&nbsp;scheduler</h2>
-                                                    <input class='schedule_switch' id='temp_schedule' name="temp_schedule"
-                                                        type='checkbox'>
+                                                    <input class='schedule_switch' id='temp_schedule'
+                                                        name="temp_schedule" type='checkbox'>
                                                     <span class='slider'></span>
                                                 </label>
                                             </div>
-
                                             <div style='margin-top: 10px; margin-bottom: 0px' class="form-row">
                                                 <div class="col-sm-6">
                                                     {{ schedule_form.unit_temp_on(class_="form-control form-control-sm",
-                                                    id="temp_start", disabled=true, style="background-color: #55efc4; color:
+                                                    id="temp_start", disabled=true, style="background-color: #55efc4;
+                                                    color:
                                                     #55efc4; border: 3px solid #00b893;") }}
                                                     <h2 style='margin-top: 5px;'><sup>start schedule</sup></h2>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    {{ schedule_form.unit_temp_off(class_="form-control form-control-sm",
-                                                    id="temp_stop", disabled=true, style="background-color: #55efc4; color:
+                                                    {{ schedule_form.unit_temp_off(class_="form-control
+                                                    form-control-sm",
+                                                    id="temp_stop", disabled=true, style="background-color: #55efc4;
+                                                    color:
                                                     #55efc4; border: 3px solid #00b893;") }}
                                                     <h2 style='margin-top: 5px;'><sup>stop schedule</sup></h2>
                                                 </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
-
                                 </div>
                                 <button type="submit" class="schedule_button">
-                                    <h2 style="font-size: 85%">Submit schedule</h2>                 
+                                    </ion-icon>
+                                    <h2 style="font-size: 85%">Submit schedule</h2>
                                 </button>
                             </div>
-
-
                             <div class='col-1 arrow_layout arrow_layout_right js--arrow_btn_right'>
                                 <ion-icon class="schedule_arrow arrow_right" name="caret-forward-outline"></ion-icon>
                             </div>
-
                         </div>
-                        
-                        <!-- <div class="row">
-                          
-                            <div class='col-12'>
-                                <button type="submit" class="button schedulebutton" style="margin-top: 15px;">
-                                    <h2 style="font-size: 85%">Submit schedule</h2>                 
-                                </button>
-                            </div>
-                           
-                            
-                        </div> -->
-
-
                     </form>
-                  
                 </div>
-                
-
-
-
-                <div style="margin-top: 20px" class="photo_panel">
-
-
+                <div class="photo_panel">
                     <div style="position: relative;">
                         <div class="overlay_lens hidden">
                             <div id="spinner_2" class="lds-spinner">
@@ -324,30 +271,10 @@
                         <img class="fishlens_layout" id="fishlens_photo"
                             src="{{ url_for('static', filename='Resources/img/fishlens.jpg') }}">
                     </div>
-                    <div style="background-color: #55efc4; padding: 10px">
-                        <!-- <h1>e</h1> -->
-                        <div class='button schedulebutton' id="fishlens">
-                            <h2>Capture image</h2>
-                        </div>
-
+                    <div class='button capture_button' id="fishlens">
+                        <h2>Capture image</h2>
                     </div>
-
                 </div>
-
-                
-
-                <!-- <div class="main_modal hidden">
-                    <h2 style="color: black;">test</h2>
-                </div> -->
-
-                <!-- <div class="overlay">
-
-                    
-                    
-
-                </div> -->
-                <!-- <button class="btn btn-primary btn-sm my-1 btn-block log_file">Email log files</button> -->
-                <!-- <a href="{{ url_for('main.logout') }}"><button class="btn btn-primary btn-sm my-1 btn-block">Logout</button></a> -->
             </div>
         </div>
     </div>

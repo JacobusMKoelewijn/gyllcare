@@ -169,9 +169,6 @@ def status():
 def email():
     if request.method == "POST":
 
-        for i in schedule.get_jobs():
-            log.info(i)
-    
         msg = Message("Gyllcare has send you a message", recipients=[keys.get('MAIL_RECIPIENT')])
         msg.body = "Attached you'll find the Gyllcare.log file."
 

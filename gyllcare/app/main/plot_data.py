@@ -71,8 +71,8 @@ def read_temp_pH_plot_data():
     log.info(smooth_df)
    
     ax = smooth_df.plot(figsize = (12, 8), secondary_y='pH', legend=False, style={'Temperature':'#DD7373', 'pH':'#63ADF2'}, fontsize="21", linewidth=5)
-    ax.set_ylabel("Temperature ($^{o}$C)", color="#DD7373", fontsize="20", labelpad=15)
-    ax.right_ax.set_ylabel("pH", color="#63ADF2", fontsize="20", rotation="270", labelpad=25)
+    ax.set_ylabel("Temperature ($^{o}$C)", color="#DD7373", fontsize="25", labelpad=15)
+    ax.right_ax.set_ylabel("pH", color="#63ADF2", fontsize="25", rotation="270", labelpad=35)
     ax.set_xlabel("")
     ax.tick_params(axis='y', colors='#DD7373', width=3, length=10)
     ax.tick_params(axis='x', which='minor', colors='#ffffff', width=3, length=10)
@@ -89,4 +89,4 @@ def read_temp_pH_plot_data():
     plt.box(False)
     plt.savefig(ROOT_DIR + '/app/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
 
-# read_temp_pH_plot_data()
+read_temp_pH_plot_data()

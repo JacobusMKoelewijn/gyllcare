@@ -1,4 +1,4 @@
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 470px) {
     .schedule_slider {
         height: 169px;
     }
@@ -9,6 +9,12 @@
         font-size: 50%;
     }
     .graph_panel {
-        min-height: 320px;
+        min-height: 370px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .graph_panel {
+        min-height: 350px;
     }
 }
