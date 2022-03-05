@@ -40,7 +40,7 @@ def read_lines():
 		return lines
 	
 	except SerialException as e:
-		print( "Error, ", e)
+		log.error("Error: ", e)
 		return None	
 
 
@@ -56,7 +56,7 @@ def send_cmd(cmd):
 		ser.write(buf.encode('utf-8'))
 		return True
 	except SerialException as e:
-		print ("Error, ", e)
+		log.error("Error: ", e)
 		return None
 			
 

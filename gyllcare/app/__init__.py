@@ -5,7 +5,6 @@ from flask import Flask
 from .main.base import schedule, CO2, O2, Therm, Light, CO2_scheduler, O2_scheduler, Therm_scheduler, Light_scheduler
 from .main.plot_data import read_temp_pH_plot_data
 from .main.models import Events, Schedule
-# from .main.camera import get_picture
 from gyllcare.config import ROOT_DIR
 from datetime import datetime
 # import eventlet
@@ -13,12 +12,9 @@ from datetime import datetime
 from .main import main as main_blueprint
 from .main.extensions import db, socketio, mail, login_manager
 
-# def createLogger(name):
-    # logger = logging.getLogger(name)
-    # return logger
-    # pass
+from gyllcare import create_logger
 
-
+log = create_logger(__name__)
 
 
 def create_app(config_file=ROOT_DIR + '/config.py'):
@@ -78,11 +74,6 @@ def create_app(config_file=ROOT_DIR + '/config.py'):
 
         app.register_blueprint(main_blueprint)
 
-        logfile = open("/home/pi/Desktop/logs/Gyllcare_log.txt", "a")
-        logfile.write(datetime.now().strftime("%d-%m-%Y %H:%M:%S") + " ###### Gyllcare has been initiated. \n")
-        logfile.close()
+        log.info("Gyllcare has been initiated.")
 
         return app
-
-def poep():
-    pass
