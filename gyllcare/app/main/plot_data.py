@@ -14,8 +14,6 @@ from gyllcare import create_logger
 
 log = create_logger(__name__)
 
-# also need temperature corrected!
-
 if IN_PRODUCTION:
     from .temp import read_temp
     from .pH import read_pH
@@ -28,8 +26,8 @@ else:
 
 
 time_data = [i for i in pd.date_range((datetime.now().replace(microsecond=0, second=0, minute=0) - timedelta(hours=47)), periods=48, freq="H")]
-pH_data = pickle.load(open(ROOT_DIR + '/saved_pH_data', 'rb'))
-temperature_data = pickle.load(open(ROOT_DIR + '/saved_temperature_data', 'rb'))
+pH_data = pickle.load(open(ROOT_DIR + '/data/saved_pH_data', 'rb'))
+temperature_data = pickle.load(open(ROOT_DIR + '/data/saved_temperature_data', 'rb'))
 
 
 def read_temp_pH_plot_data():
@@ -47,8 +45,8 @@ def read_temp_pH_plot_data():
     del pH_data[0]
     del temperature_data[0]
 
-    pickle.dump(pH_data, open(ROOT_DIR + '/saved_pH_data', 'wb'))
-    pickle.dump(temperature_data, open(ROOT_DIR + '/saved_temperature_data', 'wb'))
+    pickle.dump(pH_data, open(ROOT_DIR + '/data/saved_pH_data', 'wb'))
+    pickle.dump(temperature_data, open(ROOT_DIR + '/data/saved_temperature_data', 'wb'))
 
     log.info(time_data, len(time_data))
     log.info(pH_data, len(pH_data))
@@ -88,5 +86,3 @@ def read_temp_pH_plot_data():
     plt.xticks(fontsize="20")
     plt.box(False)
     plt.savefig(ROOT_DIR + '/app/static/Resources/img/plot.svg', format="svg", bbox_inches='tight', pad_inches=0, transparent=True)
-
-read_temp_pH_plot_data()

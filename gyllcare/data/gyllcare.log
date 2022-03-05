@@ -1,0 +1,1151 @@
+2022-03-01 22:40:19,619 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-01 22:40:22,728 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-01 22:40:22,796 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-01 22:40:22,816 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-01 22:40:29,939 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-01 23:00:00 CET)
+2022-03-01 22:40:29,940 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 17:00:00 CET)
+2022-03-01 22:40:29,942 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 18:00:00 CET)
+2022-03-01 22:40:29,944 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:40:29,946 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:40:29,948 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:40:29,950 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:40:29,952 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:40:29,954 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:42:01,605 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-01 23:00:00 CET)
+2022-03-01 22:42:01,606 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 17:00:00 CET)
+2022-03-01 22:42:01,607 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 18:00:00 CET)
+2022-03-01 22:42:01,608 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:42:01,608 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:42:01,609 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:42:01,611 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:42:01,613 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:42:01,615 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:13,585 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-01 23:00:00 CET)
+2022-03-01 22:48:13,586 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 17:00:00 CET)
+2022-03-01 22:48:13,587 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 18:00:00 CET)
+2022-03-01 22:48:13,588 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:13,589 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:13,590 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:13,590 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:13,591 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:13,592 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:40,930 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-01 23:00:00 CET)
+2022-03-01 22:48:40,931 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 17:00:00 CET)
+2022-03-01 22:48:40,932 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 18:00:00 CET)
+2022-03-01 22:48:40,933 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:40,934 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:40,934 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:40,935 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:40,936 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:48:40,937 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:49:55,112 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-01 22:49:56,402 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-01 22:49:56,453 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-01 22:49:56,473 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-01 22:51:46,960 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-01 22:51:48,339 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-01 22:51:48,944 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-01 22:51:49,739 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-01 22:52:04,758 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-01 23:00:00 CET)
+2022-03-01 22:52:04,759 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 17:00:00 CET)
+2022-03-01 22:52:04,760 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 18:00:00 CET)
+2022-03-01 22:52:04,762 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:52:04,764 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:52:04,765 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:52:04,766 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:52:04,767 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:52:04,768 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 22:59:48,384 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-01 22:59:54,696 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-01 22:59:54,735 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-01 22:59:54,760 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-01 23:00:07,019 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-02 00:00:00 CET)
+2022-03-01 23:00:07,019 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 17:00:00 CET)
+2022-03-01 23:00:07,020 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-02 18:00:00 CET)
+2022-03-01 23:00:07,021 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 23:00:07,022 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 23:00:07,023 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 23:00:07,023 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 23:00:07,024 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-01 23:00:07,025 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 19:59:53,100 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 19:59:55,696 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 19:59:55,737 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 19:59:55,758 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:04:08,660 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:04:10,137 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:04:10,221 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:04:10,249 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:04:21,007 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:04:22,402 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:04:22,468 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:04:22,502 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:04:37,477 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:04:37,478 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 17:00:00 CET)
+2022-03-03 20:04:37,479 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 18:00:00 CET)
+2022-03-03 20:04:37,481 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:04:37,482 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:04:37,483 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:04:37,484 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:04:37,485 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:04:37,486 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:05:31,021 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:05:32,083 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:05:32,126 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:05:32,147 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:05:52,169 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:05:52,170 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 17:00:00 CET)
+2022-03-03 20:05:52,171 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 18:00:00 CET)
+2022-03-03 20:05:52,172 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:05:52,173 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:05:52,175 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:05:52,177 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:05:52,179 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:05:52,181 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:08:00,058 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:08:02,573 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:08:02,617 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:08:02,648 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:08:10,074 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:08:10,076 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 17:00:00 CET)
+2022-03-03 20:08:10,076 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 18:00:00 CET)
+2022-03-03 20:08:10,077 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:08:10,078 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:08:10,078 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:08:10,079 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:08:10,080 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:08:10,081 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:08:56,343 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:08:58,929 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:08:58,972 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:08:58,998 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:09:09,664 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:09:09,665 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 17:00:00 CET)
+2022-03-03 20:09:09,666 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 18:00:00 CET)
+2022-03-03 20:09:09,667 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:09:09,668 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:09:09,669 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:09:09,670 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:09:09,671 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:09:09,672 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:12:00,660 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:12:03,475 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:12:03,515 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:12:03,544 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:12:14,549 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:12:14,867 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 17:00:00 CET)
+2022-03-03 20:12:14,869 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 18:00:00 CET)
+2022-03-03 20:12:14,870 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:12:14,871 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:12:14,872 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:12:14,874 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:12:14,875 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:12:14,877 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:16:15,306 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:16:16,256 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:16:16,312 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:16:16,364 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:17:06,430 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:17:06,431 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 17:00:00 CET)
+2022-03-03 20:17:06,432 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 18:00:00 CET)
+2022-03-03 20:17:06,433 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:17:06,434 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:17:06,435 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:17:06,436 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:17:06,437 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:17:06,438 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:17:24,922 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:17:26,307 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:17:26,354 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:17:26,378 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:18:03,461 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:18:04,786 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:18:04,835 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:18:04,857 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:18:13,096 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:18:13,097 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 17:00:00 CET)
+2022-03-03 20:18:13,098 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], next run at: 2022-03-04 18:00:00 CET)
+2022-03-03 20:18:13,099 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:18:13,100 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:18:13,101 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:18:13,102 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:18:13,103 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:18:13,104 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:20:54,794 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:20:55,905 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:20:55,961 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:20:55,985 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:22:50,518 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:22:51,444 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:22:51,483 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:22:51,505 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:24:38,745 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:24:43,597 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:24:43,675 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:24:43,707 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:25:07,600 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is resumed
+2022-03-03 20:26:12,723 - gyllcare.app.main.base - INFO - toggle_light schedule is resumed
+2022-03-03 20:26:19,788 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:26:21,317 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 20:26:23,049 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:27:09,543 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:27:12,634 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:27:12,661 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 20:27:12,681 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:27:12,702 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:27:18,994 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:27:18,995 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:27:18,996 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:27:18,997 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:27:18,998 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:27:18,999 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:27:18,999 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:27:19,000 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:27:19,001 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:29:28,477 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:29:29,620 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:29:29,649 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 20:29:29,677 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:29:29,708 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:29:40,255 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:29:40,256 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:29:40,258 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:29:40,261 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:29:40,262 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:29:40,264 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:29:40,265 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:29:40,268 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:29:40,270 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:48:58,764 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:49:01,334 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:49:01,355 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 20:49:01,375 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:49:01,624 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:49:28,282 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 21:00:00 CET)
+2022-03-03 20:49:28,282 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:49:28,283 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:49:28,284 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:49:28,284 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:49:28,285 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:49:28,286 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:49:28,286 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:49:28,287 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 20:57:00,379 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 20:57:03,847 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 20:57:03,868 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 20:57:03,889 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 20:57:03,909 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 20:57:15,314 - gyllcare.app.main.routes - INFO - JMKoelewijn has logged in Gyllcare.
+2022-03-03 21:06:26,003 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 22:00:00 CET)
+2022-03-03 21:06:26,004 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:06:26,005 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:06:26,006 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:06:26,006 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:06:26,007 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:06:26,008 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:06:26,009 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:06:26,010 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:06:35,923 - gyllcare.app.main.gpio - INFO - Motion detector has been switched on.
+2022-03-03 21:06:35,925 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:06:41,932 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:06:47,940 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:06:53,944 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:06:59,951 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:07:20,870 - gyllcare.app.main.gpio - INFO - Motion detector has been switched on.
+2022-03-03 21:07:20,873 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:07:26,880 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:07:32,887 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:07:38,894 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:15:55,663 - gyllcare.app.main.gpio - INFO - Motion detector has been switched on.
+2022-03-03 21:15:55,665 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:16:01,672 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:16:07,681 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:17:32,349 - gyllcare.app.main.gpio - INFO - Motion detector has been switched on.
+2022-03-03 21:17:32,351 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:17:38,354 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:17:44,361 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:17:50,365 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:17:56,373 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:02,376 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:08,380 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:14,384 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:20,391 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:26,394 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:32,401 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:38,411 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:45,195 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:51,202 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:18:57,209 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:19:03,216 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:19:09,223 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:19:15,230 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:19:21,234 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:19:27,241 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:19:33,244 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:19:39,252 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:19:45,259 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:20:38,242 - gyllcare.app.main.gpio - INFO - Motion detector has been switched on.
+2022-03-03 21:20:38,244 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:20:44,250 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:20:50,257 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:20:56,264 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:21:02,271 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:21:08,273 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:21:14,280 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:21:43,453 - gyllcare.app.main.gpio - INFO - Motion detector has been switched on.
+2022-03-03 21:21:43,455 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:21:49,462 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:21:55,469 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:01,473 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:07,476 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:13,483 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:19,490 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:25,494 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:31,498 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:37,504 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:43,506 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:49,513 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:22:55,520 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:01,524 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:07,531 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:13,538 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:19,545 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:25,552 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:31,559 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:37,564 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:43,569 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:49,572 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:23:55,579 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:01,584 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:07,591 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:13,594 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:19,601 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:25,604 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:33,749 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:39,754 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:45,761 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:51,764 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:24:57,772 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:03,780 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:09,787 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:15,794 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:21,801 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:27,808 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:33,814 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:39,821 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:45,829 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:51,834 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:25:57,837 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:26:10,118 - gyllcare.app.main.gpio - INFO - Motion detector has been switched on.
+2022-03-03 21:26:10,121 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:26:16,124 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:26:22,129 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:26:28,474 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:26:34,481 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:26:40,484 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:26:46,491 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:26:52,498 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:26:58,504 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:27:04,512 - gyllcare.app.main.gpio - INFO - Motion was detected!
+2022-03-03 21:30:15,262 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:30:21,534 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:30:21,558 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:30:21,580 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:30:21,602 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:39:09,406 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:39:10,778 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:39:10,811 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:39:10,894 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:39:10,939 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:39:58,475 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:40:01,464 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:40:01,494 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:40:01,527 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:40:01,564 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:40:40,950 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:40:50,064 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:40:50,085 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:40:50,108 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:40:50,128 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:42:20,600 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:42:22,171 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:42:22,215 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:42:22,243 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:42:22,273 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:43:41,471 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:43:44,296 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:43:44,320 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:43:44,354 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:43:44,396 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:46:11,130 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:46:12,700 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:46:12,720 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:46:12,738 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:46:12,760 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:47:08,070 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:47:11,459 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:47:11,517 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:47:11,578 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:47:11,622 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:47:40,553 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:47:44,720 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:47:44,770 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:47:44,808 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:47:44,847 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:48:55,114 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:48:56,550 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:48:56,586 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:48:56,647 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:48:56,679 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:49:41,546 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:49:48,018 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:49:48,048 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:49:48,084 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:49:48,116 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:51:53,007 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:51:54,427 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:51:54,457 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:51:54,481 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:51:54,513 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:52:32,275 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:52:33,273 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:52:33,292 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:52:33,312 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:52:33,334 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:54:04,858 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:54:07,563 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:54:07,589 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:54:07,629 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:54:07,696 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:56:12,604 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:56:14,011 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:56:14,034 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:56:14,056 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:56:14,084 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:56:36,751 - gyllcare.app.main.routes - INFO - read_temp_pH_plot_data (trigger: interval[1:00:00], next run at: 2022-03-03 22:00:00 CET)
+2022-03-03 21:56:36,753 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:56:36,755 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:56:36,756 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:56:36,758 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:56:36,759 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:56:36,761 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:56:36,762 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_off (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:56:36,764 - gyllcare.app.main.routes - INFO - ToggleSwitch.switch_on (trigger: interval[1 day, 0:00:00], paused)
+2022-03-03 21:56:50,812 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:56:53,601 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:56:53,633 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:56:53,663 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:56:53,684 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:57:28,405 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:57:29,744 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:57:29,779 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:57:29,812 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:57:29,855 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:59:16,046 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:59:17,019 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:59:17,041 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:59:17,063 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:59:17,084 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 21:59:41,375 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 21:59:45,160 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 21:59:45,193 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 21:59:45,216 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 21:59:45,237 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 22:01:15,487 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 22:01:16,784 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 22:01:16,806 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 22:01:16,832 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 22:01:16,853 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 22:02:34,619 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 22:02:36,051 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 22:02:36,077 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 22:02:36,105 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 22:02:36,133 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 22:03:41,639 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 22:03:44,658 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 22:03:44,919 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 22:03:44,944 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 22:03:44,970 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 22:09:16,623 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 00:00:00         30.0  6.0
+2022-03-02 01:00:00         30.0  6.0
+2022-03-02 02:00:00         30.0  6.0
+2022-03-02 03:00:00         30.0  6.0
+2022-03-02 04:00:00         30.0  6.0
+2022-03-02 05:00:00         30.0  6.0
+2022-03-02 06:00:00         30.0  6.0
+2022-03-02 07:00:00         30.0  6.0
+2022-03-02 08:00:00         30.0  6.0
+2022-03-02 09:00:00         30.0  6.0
+2022-03-02 10:00:00         30.0  6.0
+2022-03-02 11:00:00         30.0  6.0
+2022-03-02 12:00:00         30.0  6.0
+2022-03-02 13:00:00         30.0  6.0
+2022-03-02 14:00:00         30.0  6.0
+2022-03-02 15:00:00         30.0  6.0
+2022-03-02 16:00:00         30.0  6.0
+2022-03-02 17:00:00         30.0  6.0
+2022-03-02 18:00:00         30.0  6.0
+2022-03-02 19:00:00         30.0  6.0
+2022-03-02 20:00:00         30.0  6.0
+2022-03-02 21:00:00         30.0  6.0
+2022-03-02 22:00:00         30.0  6.0
+2022-03-02 23:00:00         30.0  6.0
+2022-03-03 00:00:00         40.0  7.0
+2022-03-03 01:00:00         40.0  5.0
+2022-03-03 02:00:00         40.0  5.0
+2022-03-03 03:00:00         40.0  5.0
+2022-03-03 04:00:00         40.0  5.0
+2022-03-03 05:00:00         40.0  5.0
+2022-03-03 06:00:00         40.0  5.0
+2022-03-03 07:00:00         40.0  5.0
+2022-03-03 08:00:00         40.0  5.0
+2022-03-03 09:00:00         40.0  5.0
+2022-03-03 10:00:00         40.0  5.0
+2022-03-03 11:00:00         40.0  5.0
+2022-03-03 12:00:00         40.0  5.0
+2022-03-03 13:00:00         40.0  5.0
+2022-03-03 14:00:00         40.0  5.0
+2022-03-03 15:00:00         40.0  5.0
+2022-03-03 16:00:00         40.0  5.0
+2022-03-03 17:00:00         40.0  5.0
+2022-03-03 18:00:00         40.0  5.0
+2022-03-03 19:00:00         40.0  5.0
+2022-03-03 20:00:00         40.0  5.0
+2022-03-03 21:00:00         40.0  5.0
+2022-03-03 22:00:00         40.0  5.0
+2022-03-03 22:09:00         40.0  5.0
+2022-03-03 22:09:16,698 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 00:00:00         30.0  6.0
+2022-03-02 00:01:00          NaN  NaN
+2022-03-02 00:02:00          NaN  NaN
+2022-03-02 00:03:00          NaN  NaN
+2022-03-02 00:04:00          NaN  NaN
+...                          ...  ...
+2022-03-03 22:05:00          NaN  NaN
+2022-03-03 22:06:00          NaN  NaN
+2022-03-03 22:07:00          NaN  NaN
+2022-03-03 22:08:00          NaN  NaN
+2022-03-03 22:09:00         40.0  5.0
+
+[2770 rows x 2 columns]
+2022-03-03 22:09:16,918 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 00:00:00         30.0  6.0
+2022-03-02 00:01:00         30.0  6.0
+2022-03-02 00:02:00         30.0  6.0
+2022-03-02 00:03:00         30.0  6.0
+2022-03-02 00:04:00         30.0  6.0
+...                          ...  ...
+2022-03-03 22:05:00         40.0  5.0
+2022-03-03 22:06:00         40.0  5.0
+2022-03-03 22:07:00         40.0  5.0
+2022-03-03 22:08:00         40.0  5.0
+2022-03-03 22:09:00         40.0  5.0
+
+[2770 rows x 2 columns]
+2022-03-03 22:09:19,060 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 22:09:21,648 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 22:09:21,674 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 22:09:21,702 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 22:09:21,742 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 22:11:06,569 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 00:00:00         30.0  6.0
+2022-03-02 01:00:00         30.0  6.0
+2022-03-02 02:00:00         30.0  6.0
+2022-03-02 03:00:00         30.0  6.0
+2022-03-02 04:00:00         30.0  6.0
+2022-03-02 05:00:00         30.0  6.0
+2022-03-02 06:00:00         30.0  6.0
+2022-03-02 07:00:00         30.0  6.0
+2022-03-02 08:00:00         30.0  6.0
+2022-03-02 09:00:00         30.0  6.0
+2022-03-02 10:00:00         30.0  6.0
+2022-03-02 11:00:00         30.0  6.0
+2022-03-02 12:00:00         30.0  6.0
+2022-03-02 13:00:00         30.0  6.0
+2022-03-02 14:00:00         30.0  6.0
+2022-03-02 15:00:00         30.0  6.0
+2022-03-02 16:00:00         30.0  6.0
+2022-03-02 17:00:00         30.0  6.0
+2022-03-02 18:00:00         30.0  6.0
+2022-03-02 19:00:00         30.0  6.0
+2022-03-02 20:00:00         30.0  6.0
+2022-03-02 21:00:00         30.0  6.0
+2022-03-02 22:00:00         30.0  6.0
+2022-03-02 23:00:00         40.0  7.0
+2022-03-03 00:00:00         40.0  5.0
+2022-03-03 01:00:00         40.0  5.0
+2022-03-03 02:00:00         40.0  5.0
+2022-03-03 03:00:00         40.0  5.0
+2022-03-03 04:00:00         40.0  5.0
+2022-03-03 05:00:00         40.0  5.0
+2022-03-03 06:00:00         40.0  5.0
+2022-03-03 07:00:00         40.0  5.0
+2022-03-03 08:00:00         40.0  5.0
+2022-03-03 09:00:00         40.0  5.0
+2022-03-03 10:00:00         40.0  5.0
+2022-03-03 11:00:00         40.0  5.0
+2022-03-03 12:00:00         40.0  5.0
+2022-03-03 13:00:00         40.0  5.0
+2022-03-03 14:00:00         40.0  5.0
+2022-03-03 15:00:00         40.0  5.0
+2022-03-03 16:00:00         40.0  5.0
+2022-03-03 17:00:00         40.0  5.0
+2022-03-03 18:00:00         40.0  5.0
+2022-03-03 19:00:00         40.0  5.0
+2022-03-03 20:00:00         40.0  5.0
+2022-03-03 21:00:00         40.0  5.0
+2022-03-03 22:00:00         40.0  5.0
+2022-03-03 22:11:00         40.0  5.0
+2022-03-03 22:11:06,637 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 00:00:00         30.0  6.0
+2022-03-02 00:01:00          NaN  NaN
+2022-03-02 00:02:00          NaN  NaN
+2022-03-02 00:03:00          NaN  NaN
+2022-03-02 00:04:00          NaN  NaN
+...                          ...  ...
+2022-03-03 22:07:00          NaN  NaN
+2022-03-03 22:08:00          NaN  NaN
+2022-03-03 22:09:00          NaN  NaN
+2022-03-03 22:10:00          NaN  NaN
+2022-03-03 22:11:00         40.0  5.0
+
+[2772 rows x 2 columns]
+2022-03-03 22:11:06,862 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 00:00:00         30.0  6.0
+2022-03-02 00:01:00         30.0  6.0
+2022-03-02 00:02:00         30.0  6.0
+2022-03-02 00:03:00         30.0  6.0
+2022-03-02 00:04:00         30.0  6.0
+...                          ...  ...
+2022-03-03 22:07:00         40.0  5.0
+2022-03-03 22:08:00         40.0  5.0
+2022-03-03 22:09:00         40.0  5.0
+2022-03-03 22:10:00         40.0  5.0
+2022-03-03 22:11:00         40.0  5.0
+
+[2772 rows x 2 columns]
+2022-03-03 22:11:08,945 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 22:11:09,962 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 22:11:09,983 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 22:11:10,006 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 22:11:10,026 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 22:14:54,873 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 22:15:02,097 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 22:15:48,688 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 22:15:49,910 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 22:15:49,936 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 22:15:49,989 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 22:15:50,017 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-03 22:28:20,535 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-03 22:28:23,712 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-03 22:28:23,736 - gyllcare.app.main.base - INFO - toggle_O2 schedule is paused
+2022-03-03 22:28:23,763 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-03 22:28:23,792 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-04 20:51:05,149 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-04 20:51:09,444 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-04 20:51:09,554 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-04 20:51:09,629 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-04 20:51:45,775 - gyllcare.app.main.routes - INFO - JMKoelewijn has logged in Gyllcare.
+2022-03-04 21:00:00,098 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 22:00:00         30.0  6.0
+2022-03-02 23:00:00         30.0  6.0
+2022-03-03 00:00:00         30.0  6.0
+2022-03-03 01:00:00         30.0  6.0
+2022-03-03 02:00:00         30.0  6.0
+2022-03-03 03:00:00         30.0  6.0
+2022-03-03 04:00:00         30.0  6.0
+2022-03-03 05:00:00         30.0  6.0
+2022-03-03 06:00:00         30.0  6.0
+2022-03-03 07:00:00         30.0  6.0
+2022-03-03 08:00:00         30.0  6.0
+2022-03-03 09:00:00         30.0  6.0
+2022-03-03 10:00:00         30.0  6.0
+2022-03-03 11:00:00         30.0  6.0
+2022-03-03 12:00:00         30.0  6.0
+2022-03-03 13:00:00         30.0  6.0
+2022-03-03 14:00:00         30.0  6.0
+2022-03-03 15:00:00         30.0  6.0
+2022-03-03 16:00:00         30.0  6.0
+2022-03-03 17:00:00         30.0  6.0
+2022-03-03 18:00:00         30.0  6.0
+2022-03-03 19:00:00         30.0  6.0
+2022-03-03 20:00:00         40.0  7.0
+2022-03-03 21:00:00         40.0  5.0
+2022-03-03 22:00:00         40.0  5.0
+2022-03-03 23:00:00         40.0  5.0
+2022-03-04 00:00:00         40.0  5.0
+2022-03-04 01:00:00         40.0  5.0
+2022-03-04 02:00:00         40.0  5.0
+2022-03-04 03:00:00         40.0  5.0
+2022-03-04 04:00:00         40.0  5.0
+2022-03-04 05:00:00         40.0  5.0
+2022-03-04 06:00:00         40.0  5.0
+2022-03-04 07:00:00         40.0  5.0
+2022-03-04 08:00:00         40.0  5.0
+2022-03-04 09:00:00         40.0  5.0
+2022-03-04 10:00:00         40.0  5.0
+2022-03-04 11:00:00         40.0  5.0
+2022-03-04 12:00:00         40.0  5.0
+2022-03-04 13:00:00         40.0  5.0
+2022-03-04 14:00:00         40.0  5.0
+2022-03-04 15:00:00         40.0  5.0
+2022-03-04 16:00:00         40.0  5.0
+2022-03-04 17:00:00         40.0  5.0
+2022-03-04 18:00:00         40.0  5.0
+2022-03-04 19:00:00         40.0  5.0
+2022-03-04 20:00:00         40.0  5.0
+2022-03-04 21:00:00         40.0  5.0
+2022-03-04 21:00:00,264 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 22:00:00         30.0  6.0
+2022-03-02 22:01:00          NaN  NaN
+2022-03-02 22:02:00          NaN  NaN
+2022-03-02 22:03:00          NaN  NaN
+2022-03-02 22:04:00          NaN  NaN
+...                          ...  ...
+2022-03-04 20:56:00          NaN  NaN
+2022-03-04 20:57:00          NaN  NaN
+2022-03-04 20:58:00          NaN  NaN
+2022-03-04 20:59:00          NaN  NaN
+2022-03-04 21:00:00         40.0  5.0
+
+[2821 rows x 2 columns]
+2022-03-04 21:00:01,143 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 22:00:00         30.0  6.0
+2022-03-02 22:01:00         30.0  6.0
+2022-03-02 22:02:00         30.0  6.0
+2022-03-02 22:03:00         30.0  6.0
+2022-03-02 22:04:00         30.0  6.0
+...                          ...  ...
+2022-03-04 20:56:00         40.0  5.0
+2022-03-04 20:57:00         40.0  5.0
+2022-03-04 20:58:00         40.0  5.0
+2022-03-04 20:59:00         40.0  5.0
+2022-03-04 21:00:00         40.0  5.0
+
+[2821 rows x 2 columns]
+2022-03-04 21:56:22,804 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-03 00:00:00         30.0  6.0
+2022-03-03 01:00:00         30.0  6.0
+2022-03-03 02:00:00         30.0  6.0
+2022-03-03 03:00:00         30.0  6.0
+2022-03-03 04:00:00         30.0  6.0
+2022-03-03 05:00:00         30.0  6.0
+2022-03-03 06:00:00         30.0  6.0
+2022-03-03 07:00:00         30.0  6.0
+2022-03-03 08:00:00         30.0  6.0
+2022-03-03 09:00:00         30.0  6.0
+2022-03-03 10:00:00         30.0  6.0
+2022-03-03 11:00:00         30.0  6.0
+2022-03-03 12:00:00         30.0  6.0
+2022-03-03 13:00:00         30.0  6.0
+2022-03-03 14:00:00         30.0  6.0
+2022-03-03 15:00:00         30.0  6.0
+2022-03-03 16:00:00         30.0  6.0
+2022-03-03 17:00:00         30.0  6.0
+2022-03-03 18:00:00         30.0  6.0
+2022-03-03 19:00:00         30.0  6.0
+2022-03-03 20:00:00         40.0  7.0
+2022-03-03 21:00:00         40.0  5.0
+2022-03-03 22:00:00         40.0  5.0
+2022-03-03 23:00:00         40.0  5.0
+2022-03-04 00:00:00         40.0  5.0
+2022-03-04 01:00:00         40.0  5.0
+2022-03-04 02:00:00         40.0  5.0
+2022-03-04 03:00:00         40.0  5.0
+2022-03-04 04:00:00         40.0  5.0
+2022-03-04 05:00:00         40.0  5.0
+2022-03-04 06:00:00         40.0  5.0
+2022-03-04 07:00:00         40.0  5.0
+2022-03-04 08:00:00         40.0  5.0
+2022-03-04 09:00:00         40.0  5.0
+2022-03-04 10:00:00         40.0  5.0
+2022-03-04 11:00:00         40.0  5.0
+2022-03-04 12:00:00         40.0  5.0
+2022-03-04 13:00:00         40.0  5.0
+2022-03-04 14:00:00         40.0  5.0
+2022-03-04 15:00:00         40.0  5.0
+2022-03-04 16:00:00         40.0  5.0
+2022-03-04 17:00:00         40.0  5.0
+2022-03-04 18:00:00         40.0  5.0
+2022-03-04 19:00:00         40.0  5.0
+2022-03-04 20:00:00         40.0  5.0
+2022-03-04 21:00:00         40.0  5.0
+2022-03-04 21:56:00         40.0  5.0
+2022-03-04 21:56:22,872 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-02 23:01:00          NaN  NaN
+2022-03-02 23:02:00          NaN  NaN
+2022-03-02 23:03:00          NaN  NaN
+2022-03-02 23:04:00          NaN  NaN
+...                          ...  ...
+2022-03-04 21:52:00          NaN  NaN
+2022-03-04 21:53:00          NaN  NaN
+2022-03-04 21:54:00          NaN  NaN
+2022-03-04 21:55:00          NaN  NaN
+2022-03-04 21:56:00         40.0  5.0
+
+[2817 rows x 2 columns]
+2022-03-04 21:56:23,109 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-02 23:01:00         30.0  6.0
+2022-03-02 23:02:00         30.0  6.0
+2022-03-02 23:03:00         30.0  6.0
+2022-03-02 23:04:00         30.0  6.0
+...                          ...  ...
+2022-03-04 21:52:00         40.0  5.0
+2022-03-04 21:53:00         40.0  5.0
+2022-03-04 21:54:00         40.0  5.0
+2022-03-04 21:55:00         40.0  5.0
+2022-03-04 21:56:00         40.0  5.0
+
+[2817 rows x 2 columns]
+2022-03-04 21:56:25,189 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-04 21:56:28,096 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-04 21:56:28,139 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-04 21:56:28,164 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-04 21:56:52,267 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-03 00:00:00         30.0  6.0
+2022-03-03 01:00:00         30.0  6.0
+2022-03-03 02:00:00         30.0  6.0
+2022-03-03 03:00:00         30.0  6.0
+2022-03-03 04:00:00         30.0  6.0
+2022-03-03 05:00:00         30.0  6.0
+2022-03-03 06:00:00         30.0  6.0
+2022-03-03 07:00:00         30.0  6.0
+2022-03-03 08:00:00         30.0  6.0
+2022-03-03 09:00:00         30.0  6.0
+2022-03-03 10:00:00         30.0  6.0
+2022-03-03 11:00:00         30.0  6.0
+2022-03-03 12:00:00         30.0  6.0
+2022-03-03 13:00:00         30.0  6.0
+2022-03-03 14:00:00         30.0  6.0
+2022-03-03 15:00:00         30.0  6.0
+2022-03-03 16:00:00         30.0  6.0
+2022-03-03 17:00:00         30.0  6.0
+2022-03-03 18:00:00         30.0  6.0
+2022-03-03 19:00:00         40.0  7.0
+2022-03-03 20:00:00         40.0  5.0
+2022-03-03 21:00:00         40.0  5.0
+2022-03-03 22:00:00         40.0  5.0
+2022-03-03 23:00:00         40.0  5.0
+2022-03-04 00:00:00         40.0  5.0
+2022-03-04 01:00:00         40.0  5.0
+2022-03-04 02:00:00         40.0  5.0
+2022-03-04 03:00:00         40.0  5.0
+2022-03-04 04:00:00         40.0  5.0
+2022-03-04 05:00:00         40.0  5.0
+2022-03-04 06:00:00         40.0  5.0
+2022-03-04 07:00:00         40.0  5.0
+2022-03-04 08:00:00         40.0  5.0
+2022-03-04 09:00:00         40.0  5.0
+2022-03-04 10:00:00         40.0  5.0
+2022-03-04 11:00:00         40.0  5.0
+2022-03-04 12:00:00         40.0  5.0
+2022-03-04 13:00:00         40.0  5.0
+2022-03-04 14:00:00         40.0  5.0
+2022-03-04 15:00:00         40.0  5.0
+2022-03-04 16:00:00         40.0  5.0
+2022-03-04 17:00:00         40.0  5.0
+2022-03-04 18:00:00         40.0  5.0
+2022-03-04 19:00:00         40.0  5.0
+2022-03-04 20:00:00         40.0  5.0
+2022-03-04 21:00:00         40.0  5.0
+2022-03-04 21:56:00         40.0  5.0
+2022-03-04 21:56:52,335 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-02 23:01:00          NaN  NaN
+2022-03-02 23:02:00          NaN  NaN
+2022-03-02 23:03:00          NaN  NaN
+2022-03-02 23:04:00          NaN  NaN
+...                          ...  ...
+2022-03-04 21:52:00          NaN  NaN
+2022-03-04 21:53:00          NaN  NaN
+2022-03-04 21:54:00          NaN  NaN
+2022-03-04 21:55:00          NaN  NaN
+2022-03-04 21:56:00         40.0  5.0
+
+[2817 rows x 2 columns]
+2022-03-04 21:56:52,575 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-02 23:01:00         30.0  6.0
+2022-03-02 23:02:00         30.0  6.0
+2022-03-02 23:03:00         30.0  6.0
+2022-03-02 23:04:00         30.0  6.0
+...                          ...  ...
+2022-03-04 21:52:00         40.0  5.0
+2022-03-04 21:53:00         40.0  5.0
+2022-03-04 21:54:00         40.0  5.0
+2022-03-04 21:55:00         40.0  5.0
+2022-03-04 21:56:00         40.0  5.0
+
+[2817 rows x 2 columns]
+2022-03-04 21:56:54,394 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-04 21:56:55,480 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-04 21:56:55,525 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-04 21:56:55,545 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-04 21:57:14,370 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-03 00:00:00         30.0  6.0
+2022-03-03 01:00:00         30.0  6.0
+2022-03-03 02:00:00         30.0  6.0
+2022-03-03 03:00:00         30.0  6.0
+2022-03-03 04:00:00         30.0  6.0
+2022-03-03 05:00:00         30.0  6.0
+2022-03-03 06:00:00         30.0  6.0
+2022-03-03 07:00:00         30.0  6.0
+2022-03-03 08:00:00         30.0  6.0
+2022-03-03 09:00:00         30.0  6.0
+2022-03-03 10:00:00         30.0  6.0
+2022-03-03 11:00:00         30.0  6.0
+2022-03-03 12:00:00         30.0  6.0
+2022-03-03 13:00:00         30.0  6.0
+2022-03-03 14:00:00         30.0  6.0
+2022-03-03 15:00:00         30.0  6.0
+2022-03-03 16:00:00         30.0  6.0
+2022-03-03 17:00:00         30.0  6.0
+2022-03-03 18:00:00         40.0  7.0
+2022-03-03 19:00:00         40.0  5.0
+2022-03-03 20:00:00         40.0  5.0
+2022-03-03 21:00:00         40.0  5.0
+2022-03-03 22:00:00         40.0  5.0
+2022-03-03 23:00:00         40.0  5.0
+2022-03-04 00:00:00         40.0  5.0
+2022-03-04 01:00:00         40.0  5.0
+2022-03-04 02:00:00         40.0  5.0
+2022-03-04 03:00:00         40.0  5.0
+2022-03-04 04:00:00         40.0  5.0
+2022-03-04 05:00:00         40.0  5.0
+2022-03-04 06:00:00         40.0  5.0
+2022-03-04 07:00:00         40.0  5.0
+2022-03-04 08:00:00         40.0  5.0
+2022-03-04 09:00:00         40.0  5.0
+2022-03-04 10:00:00         40.0  5.0
+2022-03-04 11:00:00         40.0  5.0
+2022-03-04 12:00:00         40.0  5.0
+2022-03-04 13:00:00         40.0  5.0
+2022-03-04 14:00:00         40.0  5.0
+2022-03-04 15:00:00         40.0  5.0
+2022-03-04 16:00:00         40.0  5.0
+2022-03-04 17:00:00         40.0  5.0
+2022-03-04 18:00:00         40.0  5.0
+2022-03-04 19:00:00         40.0  5.0
+2022-03-04 20:00:00         40.0  5.0
+2022-03-04 21:00:00         40.0  5.0
+2022-03-04 21:57:00         40.0  5.0
+2022-03-04 21:57:14,440 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-02 23:01:00          NaN  NaN
+2022-03-02 23:02:00          NaN  NaN
+2022-03-02 23:03:00          NaN  NaN
+2022-03-02 23:04:00          NaN  NaN
+...                          ...  ...
+2022-03-04 21:53:00          NaN  NaN
+2022-03-04 21:54:00          NaN  NaN
+2022-03-04 21:55:00          NaN  NaN
+2022-03-04 21:56:00          NaN  NaN
+2022-03-04 21:57:00         40.0  5.0
+
+[2818 rows x 2 columns]
+2022-03-04 21:57:14,708 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-02 23:01:00         30.0  6.0
+2022-03-02 23:02:00         30.0  6.0
+2022-03-02 23:03:00         30.0  6.0
+2022-03-02 23:04:00         30.0  6.0
+...                          ...  ...
+2022-03-04 21:53:00         40.0  5.0
+2022-03-04 21:54:00         40.0  5.0
+2022-03-04 21:55:00         40.0  5.0
+2022-03-04 21:56:00         40.0  5.0
+2022-03-04 21:57:00         40.0  5.0
+
+[2818 rows x 2 columns]
+2022-03-04 21:57:17,400 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-04 21:57:18,370 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-04 21:57:18,409 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-04 21:57:18,429 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-04 21:57:38,237 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-03 00:00:00         30.0  6.0
+2022-03-03 01:00:00         30.0  6.0
+2022-03-03 02:00:00         30.0  6.0
+2022-03-03 03:00:00         30.0  6.0
+2022-03-03 04:00:00         30.0  6.0
+2022-03-03 05:00:00         30.0  6.0
+2022-03-03 06:00:00         30.0  6.0
+2022-03-03 07:00:00         30.0  6.0
+2022-03-03 08:00:00         30.0  6.0
+2022-03-03 09:00:00         30.0  6.0
+2022-03-03 10:00:00         30.0  6.0
+2022-03-03 11:00:00         30.0  6.0
+2022-03-03 12:00:00         30.0  6.0
+2022-03-03 13:00:00         30.0  6.0
+2022-03-03 14:00:00         30.0  6.0
+2022-03-03 15:00:00         30.0  6.0
+2022-03-03 16:00:00         30.0  6.0
+2022-03-03 17:00:00         40.0  7.0
+2022-03-03 18:00:00         40.0  5.0
+2022-03-03 19:00:00         40.0  5.0
+2022-03-03 20:00:00         40.0  5.0
+2022-03-03 21:00:00         40.0  5.0
+2022-03-03 22:00:00         40.0  5.0
+2022-03-03 23:00:00         40.0  5.0
+2022-03-04 00:00:00         40.0  5.0
+2022-03-04 01:00:00         40.0  5.0
+2022-03-04 02:00:00         40.0  5.0
+2022-03-04 03:00:00         40.0  5.0
+2022-03-04 04:00:00         40.0  5.0
+2022-03-04 05:00:00         40.0  5.0
+2022-03-04 06:00:00         40.0  5.0
+2022-03-04 07:00:00         40.0  5.0
+2022-03-04 08:00:00         40.0  5.0
+2022-03-04 09:00:00         40.0  5.0
+2022-03-04 10:00:00         40.0  5.0
+2022-03-04 11:00:00         40.0  5.0
+2022-03-04 12:00:00         40.0  5.0
+2022-03-04 13:00:00         40.0  5.0
+2022-03-04 14:00:00         40.0  5.0
+2022-03-04 15:00:00         40.0  5.0
+2022-03-04 16:00:00         40.0  5.0
+2022-03-04 17:00:00         40.0  5.0
+2022-03-04 18:00:00         40.0  5.0
+2022-03-04 19:00:00         40.0  5.0
+2022-03-04 20:00:00         40.0  5.0
+2022-03-04 21:00:00         40.0  5.0
+2022-03-04 21:57:00         40.0  5.0
+2022-03-04 21:57:38,306 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-02 23:01:00          NaN  NaN
+2022-03-02 23:02:00          NaN  NaN
+2022-03-02 23:03:00          NaN  NaN
+2022-03-02 23:04:00          NaN  NaN
+...                          ...  ...
+2022-03-04 21:53:00          NaN  NaN
+2022-03-04 21:54:00          NaN  NaN
+2022-03-04 21:55:00          NaN  NaN
+2022-03-04 21:56:00          NaN  NaN
+2022-03-04 21:57:00         40.0  5.0
+
+[2818 rows x 2 columns]
+2022-03-04 21:57:38,523 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-02 23:00:00         30.0  6.0
+2022-03-02 23:01:00         30.0  6.0
+2022-03-02 23:02:00         30.0  6.0
+2022-03-02 23:03:00         30.0  6.0
+2022-03-02 23:04:00         30.0  6.0
+...                          ...  ...
+2022-03-04 21:53:00         40.0  5.0
+2022-03-04 21:54:00         40.0  5.0
+2022-03-04 21:55:00         40.0  5.0
+2022-03-04 21:56:00         40.0  5.0
+2022-03-04 21:57:00         40.0  5.0
+
+[2818 rows x 2 columns]
+2022-03-04 21:57:40,814 - __main__ - INFO - Starting Gyllcare in development mode.
+2022-03-04 21:57:41,779 - gyllcare.app.main.base - INFO - toggle_CO2 schedule is paused
+2022-03-04 21:57:41,818 - gyllcare.app.main.base - INFO - toggle_light schedule is paused
+2022-03-04 21:57:41,840 - gyllcare.app.main.base - INFO - toggle_temp schedule is paused
+2022-03-04 22:00:00,249 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-03 00:00:00         30.0  6.0
+2022-03-03 01:00:00         30.0  6.0
+2022-03-03 02:00:00         30.0  6.0
+2022-03-03 03:00:00         30.0  6.0
+2022-03-03 04:00:00         30.0  6.0
+2022-03-03 05:00:00         30.0  6.0
+2022-03-03 06:00:00         30.0  6.0
+2022-03-03 07:00:00         30.0  6.0
+2022-03-03 08:00:00         30.0  6.0
+2022-03-03 09:00:00         30.0  6.0
+2022-03-03 10:00:00         30.0  6.0
+2022-03-03 11:00:00         30.0  6.0
+2022-03-03 12:00:00         30.0  6.0
+2022-03-03 13:00:00         30.0  6.0
+2022-03-03 14:00:00         30.0  6.0
+2022-03-03 15:00:00         30.0  6.0
+2022-03-03 16:00:00         30.0  6.0
+2022-03-03 17:00:00         40.0  7.0
+2022-03-03 18:00:00         40.0  5.0
+2022-03-03 19:00:00         40.0  5.0
+2022-03-03 20:00:00         40.0  5.0
+2022-03-03 21:00:00         40.0  5.0
+2022-03-03 22:00:00         40.0  5.0
+2022-03-03 23:00:00         40.0  5.0
+2022-03-04 00:00:00         40.0  5.0
+2022-03-04 01:00:00         40.0  5.0
+2022-03-04 02:00:00         40.0  5.0
+2022-03-04 03:00:00         40.0  5.0
+2022-03-04 04:00:00         40.0  5.0
+2022-03-04 05:00:00         40.0  5.0
+2022-03-04 06:00:00         40.0  5.0
+2022-03-04 07:00:00         40.0  5.0
+2022-03-04 08:00:00         40.0  5.0
+2022-03-04 09:00:00         40.0  5.0
+2022-03-04 10:00:00         40.0  5.0
+2022-03-04 11:00:00         40.0  5.0
+2022-03-04 12:00:00         40.0  5.0
+2022-03-04 13:00:00         40.0  5.0
+2022-03-04 14:00:00         40.0  5.0
+2022-03-04 15:00:00         40.0  5.0
+2022-03-04 16:00:00         40.0  5.0
+2022-03-04 17:00:00         40.0  5.0
+2022-03-04 18:00:00         40.0  5.0
+2022-03-04 19:00:00         40.0  5.0
+2022-03-04 20:00:00         40.0  5.0
+2022-03-04 21:00:00         40.0  5.0
+2022-03-04 21:57:00         40.0  5.0
+2022-03-04 22:00:00         40.0  5.0
+2022-03-04 22:00:00,401 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-03 00:00:00         30.0  6.0
+2022-03-03 00:01:00          NaN  NaN
+2022-03-03 00:02:00          NaN  NaN
+2022-03-03 00:03:00          NaN  NaN
+2022-03-03 00:04:00          NaN  NaN
+...                          ...  ...
+2022-03-04 21:56:00          NaN  NaN
+2022-03-04 21:57:00         40.0  5.0
+2022-03-04 21:58:00          NaN  NaN
+2022-03-04 21:59:00          NaN  NaN
+2022-03-04 22:00:00         40.0  5.0
+
+[2761 rows x 2 columns]
+2022-03-04 22:00:00,519 - gyllcare.app.main.plot_data - INFO -                      Temperature   pH
+Time                                 
+2022-03-03 00:00:00         30.0  6.0
+2022-03-03 00:01:00         30.0  6.0
+2022-03-03 00:02:00         30.0  6.0
+2022-03-03 00:03:00         30.0  6.0
+2022-03-03 00:04:00         30.0  6.0
+...                          ...  ...
+2022-03-04 21:56:00         40.0  5.0
+2022-03-04 21:57:00         40.0  5.0
+2022-03-04 21:58:00         40.0  5.0
+2022-03-04 21:59:00         40.0  5.0
+2022-03-04 22:00:00         40.0  5.0
+
+[2761 rows x 2 columns]
