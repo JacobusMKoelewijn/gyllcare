@@ -9,10 +9,12 @@ log = create_logger(__name__)
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-GPIO.setup(25, GPIO.OUT, initial=GPIO.LOW)  # Relay switches
-GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(7, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(1, GPIO.OUT, initial=GPIO.LOW)
+# Relay switches
+
+GPIO.setup(25, GPIO.OUT, initial=GPIO.LOW)  # CO2 
+GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW)   # O2
+GPIO.setup(7, GPIO.OUT, initial=GPIO.LOW)   # Main Light
+GPIO.setup(1, GPIO.OUT, initial=GPIO.LOW)   # Temperature
 GPIO.setup(20, GPIO.OUT, initial=GPIO.LOW)  # blue LED
 GPIO.setup(16, GPIO.OUT, initial=GPIO.LOW)  # red LED
 GPIO.setup(21, GPIO.IN)                     # PIR Sensor
