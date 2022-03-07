@@ -169,7 +169,7 @@ def email():
         msg = Message("Gyllcare has send you a message", recipients=[keys.get('MAIL_RECIPIENT')])
         msg.body = "Attached you'll find the Gyllcare.log file."
 
-        with main.open_resource(ROOT_DIR + "/app/gyllcare.log") as attach:
+        with main.open_resource(ROOT_DIR + "/data/gyllcare.log") as attach:
             msg.attach("gyllcare.log", "text/plain", attach.read())
         
         mail.send(msg)
