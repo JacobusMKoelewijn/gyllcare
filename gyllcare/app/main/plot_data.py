@@ -5,10 +5,8 @@ import matplotlib.pyplot as plt
 matplotlib.use('Agg')
 from datetime import datetime, timedelta
 import pickle
-
 from gyllcare.config import IN_PRODUCTION
 from gyllcare.config import ROOT_DIR
-
 
 from gyllcare import create_logger
 

@@ -1,47 +1,42 @@
 'use strict';
 
+// FOR MENUS
 const menuHidden = document.querySelector('#hidden_menu_panel');
 const menuButton = document.querySelector('.toggle');
 
+// FOR BUTTONS
 const switchButtons = document.querySelectorAll('.relay_switch');
 const scheduleButtons = document.querySelectorAll('.schedule_switch');
-
-// BUTTONS
-
 const cleanAq = document.querySelector('#clean_aq');
 const sendLog = document.querySelector('#send_log');
 const alarmMode = document.querySelector('#alarm_mode');
 const yesClean = document.querySelector('#yes_clean');
 const noClean = document.querySelector('#no_clean');
-const arrowLeft = document.querySelector('.js--arrow_btn_left')
-const arrowRight = document.querySelector('.js--arrow_btn_right')
+const arrowLeft = document.querySelector('.js--arrow_btn_left');
+const arrowRight = document.querySelector('.js--arrow_btn_right');
 const fishLensPhoto = document.querySelector('#fishlens_photo');
 
-// OVERLAYS
-
+// FOR OVERLAYS
 const overlayLog = document.querySelector('.overlay_log');
 const overlayClean = document.querySelector('.overlay_clean');
 const overlayLens = document.querySelector('.overlay_lens');
-
-
 const fishLens = document.querySelector('#fishlens');
-
 const spinner = document.querySelector('#spinner');
 const logMessage = document.querySelector('#log_message');
 const spinner_2 = document.querySelector('#spinner_2');
 const logMessage_2 = document.querySelector('#log_message_2');
 
-// const mainModal = document.querySelector('.main_modal');
-// const mainModalClose = document.querySelector('.main_modal_close');
-
+// FOR LEDS
 const alarmRed = document.querySelector('.alarm_red');
 const alarmBlue = document.querySelector('.alarm_blue');
 
-const scheduleSlider = document.querySelector('.js--schedule_slider')
-const scheduleSlides = document.querySelectorAll('.js--schedule_slide')
+// FOR SLIDER
+const scheduleSlider = document.querySelector('.js--schedule_slider');
+const scheduleSlides = document.querySelectorAll('.js--schedule_slide');
 
 
-// const socket = io.connect('http://127.0.0.1:5000');
+// Initiate Socket //////////////
+
 const socket = io.connect('http://82.72.121.59:9000');
 
 socket.on('connect', function () {
@@ -55,17 +50,11 @@ socket.on('connect', function () {
 
 socket.on('alarm', function (msg) {
     alarmBlue.classList.remove('hidden');
-
-    // setInterval(function () {
-    //     alarmBlue.classList.remove('hidden');
-    // }, 1000);
-    // setInterval(function () {
-    //     alarmBlue.classList.add('hidden');
-    // }, 2000);
 });
 
 
-// Make IIFE?
+// Initiate App /////////////////
+
 const init = {
     retrieveStatus() {
         fetch('/status')
@@ -85,24 +74,17 @@ const init = {
                     ) {
                         const element = document.getElementById(`${gpio}`);
                         element.checked = status;
-                        // console.log(element);
                         changeLabel(element);
                     }
                 }
             });
-            
     },
-    
-
-    // setButtons() {
-    //     button.forEach(function (btn) {
-    //         btn.classList.add('mouse_pointer');
-    //     });
-    // },
 };
 
 init.retrieveStatus();
-// init.setButtons();
+
+
+// Label control ////////////////
 
 const changeLabel = function (currentSwitch) {
     if (currentSwitch.id[0] == 'g') {
@@ -151,34 +133,27 @@ const removeSpinnerPhotoPanel = function () {
     overlayLens.classList.add('hidden');
 };
 
-// const closeSendLogModal = function () {
-//     mainModal.classList.add('hidden');
-// };
 
-// mainModalClose.addEventListener('click', closeSendLogModal);
-// overlay.addEventListener('click', closeSendLogModal);
+// Clean Aquarium ///////////////
 
 cleanAq.addEventListener('click', function (e) {
-    overlayClean.classList.remove('hidden')
+    overlayClean.classList.remove('hidden');
 });
 
 yesClean.addEventListener('click', function (e) {
     fetch('/shutdown', {
         method: 'POST',
     });
-})
+});
 
 noClean.addEventListener('click', function (e) {
-    overlayClean.classList.add('hidden')
-})
+    overlayClean.classList.add('hidden');
+});
 
 
+// Send log /////////////////////
 
 sendLog.addEventListener('click', function (e) {
-    // document.body.style.cursor = 'wait';
-    // mousePointer.forEach(function (btn) {
-    // btn.classList.remove('mouse_pointer');
-    // });
     spinner.classList.remove('hidden');
     logMessage.classList.remove('hidden');
     overlayLog.classList.remove('hidden');
@@ -186,26 +161,23 @@ sendLog.addEventListener('click', function (e) {
         method: 'POST',
     })
         .then(function (response) {
-            // console.log(response);
-            // console.log(response.status);
-
             if (response.status == 200) {
                 removeSpinnerMenuPanel();
             } else {
-                alert('Something went wrong, please try again later.');
+                alert('Something went wrong, please check the logs.');
             }
         })
         .finally(function () {
-            // document.body.style.cursor = 'auto';
-            // mousePointer.forEach(function (btn) {
-            // btn.classList.add('mouse_pointer');
+            console.log('log send.');
         });
 });
+
+
+// Toggle alarm /////////////////
 
 alarmMode.addEventListener('click', function (e) {
     fetch('/alarm_mode', {
         method: 'POST',
-        // body: 'request_1',
     })
         .then(function (response) {
             return response.json();
@@ -221,6 +193,9 @@ alarmMode.addEventListener('click', function (e) {
         });
 });
 
+
+// Hidden menu slider ///////////
+
 menuButton.addEventListener('click', function (e) {
     e.preventDefault();
 
@@ -233,7 +208,7 @@ menuButton.addEventListener('click', function (e) {
         setTimeout(function () {
             menuHidden.style.height = height;
             menuButton.setAttribute('name', 'close-outline');
-        }, 0); // A blank setTimeout moves the code within to the end of the pipeline after rendering.
+        }, 0);
     } else {
         menuHidden.style.height = '0px';
         menuButton.setAttribute('name', 'menu-outline');
@@ -246,6 +221,9 @@ menuButton.addEventListener('click', function (e) {
     }
 });
 
+
+// Switch buttons ///////////////
+
 switchButtons.forEach(function (button) {
     button.addEventListener('click', function (e) {
         changeLabel(this);
@@ -256,24 +234,21 @@ switchButtons.forEach(function (button) {
             },
             method: 'POST',
             body: JSON.stringify({
-                // state: this.checked,
-                // gpio: this.getAttribute('id'),
                 name: this.getAttribute('name'),
             }),
         })
             .then(function (response) {
                 return response.text();
             })
-            .then(function (text) {
-                // console.log('POST response');
-                // console.log(text);
-            });
+            .then(function (text) {});
     });
 });
 
+
+// Schedule buttons /////////////
+
 scheduleButtons.forEach(function (button) {
     button.addEventListener('click', function (e) {
-        // console.log(this);
         changeLabel(this);
         fetch('/status', {
             headers: {
@@ -287,11 +262,12 @@ scheduleButtons.forEach(function (button) {
             .then(function (response) {
                 return response.text();
             })
-            .then(function (text) {
-                // document.querySelector('#co2_start').setAttribute('disabled', true);
-            });
+            .then(function (text) {});
     });
 });
+
+
+// Capture image ////////////////
 
 fishLens.addEventListener('click', function (e) {
     spinner_2.classList.remove('hidden');
@@ -304,51 +280,48 @@ fishLens.addEventListener('click', function (e) {
             if (response.status == 200) {
                 console.log('Message received');
                 const timestamp = new Date().getTime();
-                fishLensPhoto.src = "/static/Resources/img/fishlens.jpg?t=" + timestamp;
-                // console.log(timestamp);
+                fishLensPhoto.src =
+                    '/static/Resources/img/fishlens.jpg?t=' + timestamp;
             } else {
-                console.log('Something went wrong');
+                alert('Something went wrong, please check the logs.');
             }
         })
         .finally(function () {
             removeSpinnerPhotoPanel();
-            // console.log('POST response');
-            // console.log(text);
         });
-    // location.reload();
-    // Make dynamic using AJAX in later stage
 });
 
 
-
-// Scheduler
+// Schedule slider //////////////
 
 let curSlide = 0;
 const maxSlide = scheduleSlides.length;
 
-const goToSlide = function(slide) {
-    scheduleSlides.forEach((s, i) => s.style.transform = `translateX(${110 * (i - slide)}%)`)
-}
+const goToSlide = function (slide) {
+    scheduleSlides.forEach(
+        (s, i) => (s.style.transform = `translateX(${110 * (i - slide)}%)`)
+    );
+};
 
-const nextSlide = function() {
-    if(curSlide === maxSlide - 1) {
+const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
         curSlide = 0;
     } else {
         curSlide++;
     }
-    goToSlide(curSlide)
-}
+    goToSlide(curSlide);
+};
 
-const prevSlide = function() {
-    if(curSlide === 0) {
+const prevSlide = function () {
+    if (curSlide === 0) {
         curSlide = maxSlide - 1;
     } else {
         curSlide--;
     }
     goToSlide(curSlide);
-}
+};
 
 arrowRight.addEventListener('click', nextSlide);
-arrowLeft.addEventListener('click', prevSlide)
+arrowLeft.addEventListener('click', prevSlide);
 
-goToSlide(0)
+goToSlide(0);

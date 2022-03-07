@@ -1,14 +1,9 @@
-# import logging
-
 from flask import Flask
-
 from .main.base import schedule, CO2, O2, Therm, Light, CO2_scheduler, O2_scheduler, Therm_scheduler, Light_scheduler
 from .main.plot_data import read_temp_pH_plot_data
 from .main.models import Events, Schedule
 from gyllcare.config import ROOT_DIR
 from datetime import datetime
-# import eventlet
-
 from .main import main as main_blueprint
 from .main.extensions import db, socketio, mail, login_manager
 
@@ -16,17 +11,11 @@ from gyllcare import create_logger
 
 log = create_logger(__name__)
 
-
 def create_app(config_file=ROOT_DIR + '/config.py'):
-    # print(ROOT_DIR)
-    # print("above")
 
     app = Flask(__name__)
     app.config.from_pyfile(config_file)
-    
-    # eventlet.monkey_patch()
     login_manager.login_view = "main.index"
-       
     
     db.init_app(app)
     mail.init_app(app)

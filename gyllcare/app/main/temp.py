@@ -4,11 +4,6 @@ import os
 import glob
 import time
 
-# To use DS18B20 temperature probe enable for 1-Wire interface.
-# dtoverlay=w1-gpio
-# Default GPIO4.
-# circuitbasics.com/raspberry-pi-ds18B20-temperature-sensor-tutorial
-
 if IN_PRODUCTION:
     os.system('modprobe w1-gpio')
     os.system('modprobe w1-therm')

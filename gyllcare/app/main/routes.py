@@ -8,10 +8,7 @@ from .extensions import db, mail, socketio
 from .gpio import return_status
 from .camera import get_picture
 from flask_socketio import send
-# from .temp import read_temp
-# from .pH import read_pH
 from datetime import datetime
-from datetime import timedelta
 from flask import render_template, request, redirect, url_for, jsonify
 from flask_login import login_user, login_required, logout_user
 import time
@@ -172,7 +169,7 @@ def email():
         msg = Message("Gyllcare has send you a message", recipients=[keys.get('MAIL_RECIPIENT')])
         msg.body = "Attached you'll find the Gyllcare.log file."
 
-        with main.open_resource(ROOT_DIR + "/gyllcare.log") as attach:
+        with main.open_resource(ROOT_DIR + "/app/gyllcare.log") as attach:
             msg.attach("gyllcare.log", "text/plain", attach.read())
         
         mail.send(msg)

@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import time
-from datetime import datetime
 from .extensions import socketio
 from gyllcare import create_logger
 
@@ -8,8 +7,6 @@ log = create_logger(__name__)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-
-# Relay switches
 
 GPIO.setup(25, GPIO.OUT, initial=GPIO.LOW)  # CO2 
 GPIO.setup(8, GPIO.OUT, initial=GPIO.LOW)   # O2

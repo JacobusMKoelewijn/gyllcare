@@ -4,9 +4,6 @@ from gyllcare import create_logger
 from picamera import PiCamera
 from time import sleep
 
-# The camera module contains a time out error which is difficult to resolve.
-# A work around is to make use of aa try/except block.
-
 log = create_logger(__name__)
 
 if IN_PRODUCTION:
