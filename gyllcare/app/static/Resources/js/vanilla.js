@@ -183,7 +183,6 @@ alarmMode.addEventListener('click', function (e) {
             return response.json();
         })
         .then(function (text) {
-            console.log(text);
             if (text) {
                 alarmRed.classList.remove('hidden');
             } else {

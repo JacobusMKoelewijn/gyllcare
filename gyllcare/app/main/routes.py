@@ -206,7 +206,7 @@ def shutdown():
 def alarm_mode():
     if request.method == "POST":
   
-        gpio_16 = return_status()[-1]
+        gpio_16 = return_status()[-2]
 
         if not gpio_16:
             alarm.start()
